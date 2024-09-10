@@ -1,7 +1,13 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-cNy9yCjt.css",
+    "file": "assets/app-CIC6MLn_.css",
     "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/admin/login.js": {
+    "file": "assets/login-DUsMhUbG.js",
+    "name": "login",
+    "src": "resources/js/admin/login.js",
     "isEntry": true
   },
   "resources/js/app.js": {

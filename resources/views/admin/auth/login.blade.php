@@ -23,6 +23,7 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
+    @vite(['resources/js/admin/login.js'])
 </head>
 
 <body class=" d-flex flex-column">
