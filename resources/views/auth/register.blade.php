@@ -82,9 +82,9 @@
 
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
-                            <form action="{{ route('register', ['type' => 'instructor']) }}" method="POST">
+                            <form action="{{ route('register', ['type' => 'instructor']) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <h2>Sign Up<span>!</span></h2>
+                                <h2>Instructor Sign Up<span>!</span></h2>
                                 <p class="new_user">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
                                 <div class="row">
                                     <div class="col-xl-12">
