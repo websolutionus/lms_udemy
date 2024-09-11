@@ -7,9 +7,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 
-class UserDashboardController extends Controller
+class StudentDashboardController extends Controller
 {
     function index() : View {
-        return view('dashboard');
+        return view('frontend.student-dashboard.index');
     }
 }
