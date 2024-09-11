@@ -82,46 +82,55 @@
 
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
-                            <form action="#">
+                            <form action="{{ route('register', ['type' => 'instructor']) }}" method="POST">
+                                @csrf
                                 <h2>Sign Up<span>!</span></h2>
-                                <p class="new_user">Already have an account? <a href="sign_in.html">Sign In</a></p>
+                                <p class="new_user">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="wsus__login_form_input">
-                                            <label>First name</label>
-                                            <input type="text" placeholder="First name">
+                                            <label>Name</label>
+                                            <input type="text" placeholder="Name" name="name" required>
+                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
                                         </div>
                                     </div>
-                                    <div class="col-xl-12">
-                                        <div class="wsus__login_form_input">
-                                            <label>Last name</label>
-                                            <input type="text" placeholder="Last name">
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-xl-12">
                                         <div class="wsus__login_form_input">
                                             <label>Your email</label>
-                                            <input type="email" placeholder="Your email">
+                                            <input type="email" placeholder="Your email" name="email" required>
+                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="wsus__login_form_input">
+                                            <label>Document (Education/Certificate)</label>
+                                            <input type="file" placeholder="Document" name="document" required>
+                                            <x-input-error :messages="$errors->get('document')" class="mt-2" />
+
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="wsus__login_form_input">
                                             <label>Password</label>
-                                            <input type="password" placeholder="Your password">
+                                            <input type="password" placeholder="Your password" name="password" required>
+                                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="wsus__login_form_input">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault1">
-                                                <label class="form-check-label" for="flexCheckDefault1"> By clicking
-                                                    Create
-                                                    account, I agree that I have read and accepted the <a href="#">Terms
-                                                        of
-                                                        Use</a> and <a href="#">Privacy Policy.</a>
-                                                </label>
-                                            </div>
+                                            <label>Confirm Password</label>
+                                            <input type="password" placeholder="Your password" name="password_confirmation" required>
+                                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="wsus__login_form_input">
+                                            
                                             <button type="submit" class="common_btn">Sign Up</button>
                                         </div>
                                     </div>

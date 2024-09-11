@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->text('bio')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
+            $table->string('document')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('facebook')->nullable();
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('website')->nullable();
             $table->string('github')->nullable();
+            $table->enum('approve_status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->enum('login_as', ['student', 'instructor'])->nullable();
             $table->rememberToken();
             $table->timestamps();
