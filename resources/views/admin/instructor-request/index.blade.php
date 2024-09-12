@@ -55,7 +55,6 @@
                             @empty
                             <tr>
                                 <td colspan="3">No Data Available!</td>
-                                
                               </tr>
                             @endforelse
                           </tbody>
