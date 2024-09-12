@@ -5,7 +5,7 @@
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Card title</h3>
+                    <h3 class="card-title">Instructor Requests</h3>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -54,7 +54,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="3">No Data Available!</td>
+                                <td colspan="5" class="text-center">No Data Available!</td>
                               </tr>
                             @endforelse
                           </tbody>
