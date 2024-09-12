@@ -20,6 +20,11 @@ class InstructorRequestController extends Controller
         return view('admin.instructor-request.index', compact('instructorsRequests'));
     }
 
+    function download(User $user) {
+        
+        return response()->download(public_path($user->document));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
