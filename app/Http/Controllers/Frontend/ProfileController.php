@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Frontend\PasswordUpdateRequest;
 use App\Http\Requests\Frontend\ProfileUpdateRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -27,5 +28,14 @@ class ProfileController extends Controller
         $user->save();
 
         return redirect()->back();
+    }
+
+    function updatePassword(PasswordUpdateRequest $request) : RedirectResponse {
+        $user = Auth::user();
+        $user->password = bcrypt($request->password);
+        $user->save();
+        
+        return redirect()->back();
+
     }
 }
