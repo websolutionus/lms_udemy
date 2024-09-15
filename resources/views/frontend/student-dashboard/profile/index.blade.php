@@ -40,27 +40,28 @@
                                 <h5>Update Your Information</h5>
                                 <p>Manage your courses and its update like live, draft and insight.</p>
                             </div>
-                            <div class="wsus__dashboard_profile_delete">
-                                <a href="#" class="common_btn">Delete Profile</a>
-                            </div>
+                           
                         </div>
 
-                        <div class="wsus__dashboard_profile wsus__dashboard_profile_avatar">
-                            <div class="img">
-                                <img src="{{ asset(auth()->user()->image) }}" alt="profile" class="img-fluid w-100">
-                                <label for="profile_photo">
-                                    <img src="{{ asset('frontend/assets/images/dash_camera.png') }}" alt="camera" class="img-fluid w-100">
-                                </label>
-                                <input type="file" id="profile_photo" hidden="">
-                            </div>
-                            <div class="text">
-                                <h6>Your avatar</h6>
-                                <p>PNG or JPG no bigger than 400px wide and tall.</p>
-                            </div>
-                        </div>
 
-                        <form action="{{ route('student.profile.update') }}" method="POST" class="wsus__dashboard_profile_update">
+
+                        <form action="{{ route('student.profile.update') }}" method="POST" class="wsus__dashboard_profile_update" enctype="multipart/form-data">
                             @csrf
+
+                            <div class="wsus__dashboard_profile wsus__dashboard_profile_avatar">
+                                <div class="img">
+                                    <img src="{{ asset(auth()->user()->image) }}" alt="profile" class="img-fluid w-100">
+                                    <label for="profile_photo">
+                                        <img src="{{ asset('frontend/assets/images/dash_camera.png') }}" alt="camera" class="img-fluid w-100">
+                                    </label>
+                                    <input type="file" id="profile_photo" name="avatar" hidden="">
+                                </div>
+                                <div class="text">
+                                    <h6>Your avatar</h6>
+                                    <p>PNG or JPG no bigger than 400px wide and tall.</p>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
