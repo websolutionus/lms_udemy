@@ -67,7 +67,7 @@
                         <path d="M12 17h.01" />
                     </svg>
                     <h3>Are you sure?</h3>
-                    <div class="text-secondary">Do you really want to remove 84 files? What you've done cannot be
+                    <div class="text-secondary">Do you really want to remove the item? What you've done cannot be
                         undone.</div>
                 </div>
                 <div class="modal-footer">

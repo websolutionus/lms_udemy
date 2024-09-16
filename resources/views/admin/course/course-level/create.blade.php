@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.course-languages.store') }}" method="POST">
+                    <form action="{{ route('admin.course-levels.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Name</label>

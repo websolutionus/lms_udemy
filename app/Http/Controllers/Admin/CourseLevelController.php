@@ -48,47 +48,39 @@ class CourseLevelController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CourseLanguage $course_language)
+    public function edit(CourseLevel $course_level)
     {
-        return view('admin.course.course-language.edit', compact('course_language'));
+        return view('admin.course.course-level.edit', compact('course_level'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CourseLanguage $course_language)
+    public function update(Request $request, CourseLevel $course_level)
     {
-        $request->validate(['name' => ['required', 'max:255', 'unique:course_languages,name,'.$course_language->id]]);
+        $request->validate(['name' => ['required', 'max:255', 'unique:course_levels,name,'.$course_level->id]]);
 
-        $course_language->name = $request->name;
-        $course_language->save();
+        $course_level->name = $request->name;
+        $course_level->save();
 
         notyf()->success('Created Successfully!');
 
-        return to_route('admin.course-languages.index');
+        return to_route('admin.course-levels.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CourseLanguage $course_language)
+    public function destroy(CourseLevel $course_level)
     {
         try {
-            $course_language->delete();
+            $course_level->delete();
             notyf()->success('Deleted Successfully!');
             return response(['message' => 'Deleted Successfully!'], 200);
         }catch(Exception $e) {
-            logger("Course Language Error >> ".$e);
+            logger("Course Level Error >> ".$e);
             return response(['message' => 'Something went wrong!'], 500);
         }
     }
