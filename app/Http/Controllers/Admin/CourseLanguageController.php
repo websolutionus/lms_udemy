@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseLanguage;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -79,8 +80,15 @@ class CourseLanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CourseLanguage $course_language)
     {
-        dd($id);
+        try {
+            $course_language->delete();
+            notyf()->success('Deleted Successfully!');
+            return response(['message' => 'Deleted Successfully!'], 200);
+        }catch(Exception $e) {
+            logger("Course Language Error >> ".$e);
+            return response(['message' => 'Something went wrong!'], 500);
+        }
     }
 }
