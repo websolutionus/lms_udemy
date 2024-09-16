@@ -41,6 +41,9 @@ trait InstallsInertiaStacks
             });
         }
 
+        // Providers...
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-common/app/Providers', app_path('Providers'));
+
         // Controllers...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-common/app/Http/Controllers', app_path('Http/Controllers'));
@@ -213,6 +216,9 @@ trait InstallsInertiaStacks
             });
         }
 
+        // Providers...
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-common/app/Providers', app_path('Providers'));
+
         // Controllers...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-common/app/Http/Controllers', app_path('Http/Controllers'));
@@ -315,6 +321,8 @@ trait InstallsInertiaStacks
             $this->runCommands(['yarn install', 'yarn run build']);
         } elseif (file_exists(base_path('bun.lockb'))) {
             $this->runCommands(['bun install', 'bun run build']);
+        } elseif (file_exists(base_path('deno.lock'))) {
+            $this->runCommands(['deno install', 'deno task build']);
         } else {
             $this->runCommands(['npm install', 'npm run build']);
         }
@@ -371,12 +379,12 @@ trait InstallsInertiaStacks
                     root.render(<App {...props} />);
             EOT,
             <<<'EOT'
-                    if (import.meta.env.DEV) {
-                        createRoot(el).render(<App {...props} />);
-                        return
+                    if (import.meta.env.SSR) {
+                        hydrateRoot(el, <App {...props} />);
+                        return;
                     }
 
-                    hydrateRoot(el, <App {...props} />);
+                    createRoot(el).render(<App {...props} />);
             EOT,
             $path
         );
