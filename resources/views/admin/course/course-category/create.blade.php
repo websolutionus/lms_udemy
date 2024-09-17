@@ -17,24 +17,25 @@
                     <form action="{{ route('admin.course-categories.store') }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-md-12">
-                                <x-input-block name="name" placeholder="Enter category name" />
+                            <div class="col-md-6">
+                                <x-input-file-block name="image" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <x-input-block name="icon" placeholder="Enter icon class name" />
                             </div>
                             <div class="col-md-12">
                                 <x-input-block name="name" placeholder="Enter category name" />
                             </div>
-                            <div class="col-md-12">
-                                <x-input-block name="name" placeholder="Enter category name" />
+
+                            <div class="col-md-3">
+                                <x-input-toggle-block name="show_at_treading" label="Show at Trading" />
                             </div>
-                            <div class="col-md-12">
-                                <x-input-block name="name" placeholder="Enter category name" />
+                            <div class="col-md-3">
+                                <x-input-toggle-block name="status" label="Status" />
                             </div>
-                            <div class="col-md-12">
-                                <x-input-block name="name" placeholder="Enter category name" />
-                            </div>
-                            <div class="col-md-12">
-                                <x-input-block name="name" placeholder="Enter category name" />
-                            </div>
+
+                           
                         </div>
 
                         <div class="mb-3">
