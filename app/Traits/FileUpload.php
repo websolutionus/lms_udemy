@@ -2,18 +2,25 @@
 
 namespace App\Traits;
 
+use Exception;
 use Illuminate\Http\UploadedFile;
 use File;
 
 trait FileUpload {
 
     public function uploadFile(UploadedFile $file, string $directory = 'uploads') : string {
-        $filename = 'educore_'.uniqid().'.'. $file->getClientOriginalExtension();
 
-        // move the file to storage
-        $file->move(public_path($directory), $filename);
-
-        return '/' . $directory. '/' . $filename;
+        try {
+            $filename = 'educore_'.uniqid().'.'. $file->getClientOriginalExtension();
+    
+            // move the file to storage
+            $file->move(public_path($directory), $filename);
+    
+            return '/' . $directory. '/' . $filename;
+        }catch(Exception $e) {
+            throw $e;
+        }
+       
     }
 
     public function deleteFile(string $path) : bool {

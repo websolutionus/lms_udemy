@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('icon')->nullable();
             $table->string('name')->unique();
-            $table->string('slag')->unique();
+            $table->string('slug')->unique();
             $table->foreignId('parent_id')->nullable();
-            $table->boolean('show_at_trending')->default(0);
-            $table->boolean('status')->default(1);
+            $table->boolean('show_at_trending')->default(0)->nullable();
+            $table->boolean('status')->default(1)->nullable();
             $table->timestamps();
         });
     }
