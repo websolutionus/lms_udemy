@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\CourseCategoryStoreRequest;
 use App\Models\CourseCategory;
 use App\Traits\FileUpload;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CourseCategoryController extends Controller
@@ -17,7 +18,8 @@ class CourseCategoryController extends Controller
      */
     public function index() : View
     {
-        return view('admin.course.course-category.index');
+        $categories = CourseCategory::paginate(15);
+        return view('admin.course.course-category.index', compact('categories'));
     }
 
     /**
@@ -31,7 +33,7 @@ class CourseCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CourseCategoryStoreRequest $request)
+    public function store(CourseCategoryStoreRequest $request) : RedirectResponse
     {
         $imagePath = $this->uploadFile($request->file('image'));
         
