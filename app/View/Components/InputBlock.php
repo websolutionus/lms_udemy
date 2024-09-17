@@ -11,10 +11,12 @@ class InputBlock extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public $name, public $label = '', public $placeholder = '')
-    {
-        //
-    }
+    public function __construct(
+        public $name,
+        public $label = '',
+        public $placeholder = '',
+        public $value = ''
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

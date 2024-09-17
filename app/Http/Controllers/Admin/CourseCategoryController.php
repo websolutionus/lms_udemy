@@ -52,19 +52,11 @@ class CourseCategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(CourseCategory $course_category) : View
     {
-        //
+        return view('admin.course.course-category.edit', compact('course_category'));
     }
 
     /**
