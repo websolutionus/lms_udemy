@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Course Categories</h3>
                     <div class="card-actions">
-                        <a href="{{ route('admin.course-languages.create') }}" class="btn btn-primary">
+                        <a href="{{ route('admin.course-categories.create') }}" class="btn btn-primary">
                            <i class="ti ti-plus"></i>
                             Add new
                         </a>
