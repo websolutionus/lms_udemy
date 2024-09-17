@@ -254,6 +254,12 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.course-categories.index') }}">
+                                    Course Categories
+                                </a>
+                               
+                            </div>
+                            <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="{{ route('admin.course-languages.index') }}">
                                     Course Languages
                                 </a>
