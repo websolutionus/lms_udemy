@@ -7,7 +7,8 @@
                 <div class="card-header">
                     <h3 class="card-title">Course Sub Categories of: ({{ $course_category->name }})</h3>
                     <div class="card-actions">
-                        <a href="{{ route('admin.course-sub-categories.create', $course_category->id) }}" class="btn btn-primary">
+                        <a href="{{ route('admin.course-sub-categories.create', $course_category->id) }}"
+                            class="btn btn-primary">
                             <i class="ti ti-plus"></i>
                             Add new
                         </a>
@@ -26,34 +27,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse ($categories as $category)
+                                @forelse ($subCategories as $category)
                                     <tr>
                                         <td><i class="{{ $category->icon }}"></i></td>
                                         <td>{{ $category->name }}</td>
                                         <td>
                                             @if ($category->show_at_trending == 1)
-                                               <span class="badge bg-lime text-lime-fg">Yes</span> 
-                                            @else 
-                                               <span class="badge bg-red text-red-fg">No</span> 
+                                                <span class="badge bg-lime text-lime-fg">Yes</span>
+                                            @else
+                                                <span class="badge bg-red text-red-fg">No</span>
                                             @endif
                                         </td>
                                         <td>
                                             @if ($category->status == 1)
-                                               <span class="badge bg-lime text-lime-fg">Yes</span> 
-                                            @else 
-                                               <span class="badge bg-red text-red-fg">No</span> 
+                                                <span class="badge bg-lime text-lime-fg">Yes</span>
+                                            @else
+                                                <span class="badge bg-red text-red-fg">No</span>
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.course-categories.edit', $category->id) }}"
-                                                class="btn-sm btn-warning text-warning">
-                                                <i class="ti ti-list"></i>
-                                            </a>
-                                            <a href="{{ route('admin.course-categories.edit', $category->id) }}"
+                                            <a href="{{ route('admin.course-sub-categories.edit', [
+                                                'course_category' => $course_category->id,
+                                                'course_sub_category' => $category->id,
+                                            ]) }}"
                                                 class="btn-sm btn-primary">
                                                 <i class="ti ti-edit"></i>
                                             </a>
-                                            
+
                                             <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
                                                 class="text-red delete-item">
                                                 <i class="ti ti-trash-x"></i>
@@ -64,13 +64,11 @@
                                     <tr>
                                         <td colspan="3" class="text-center">No Data Found!</td>
                                     </tr>
-                                @endforelse --}}
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
-                    <div class="mt-4">
-                        {{-- {{ $categories->links() }} --}}
-                    </div>
+
                 </div>
             </div>
         </div>
