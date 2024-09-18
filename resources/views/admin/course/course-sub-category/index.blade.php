@@ -5,7 +5,7 @@
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Course Categories</h3>
+                    <h3 class="card-title">Course Sub Categories of: ({{ $course_category->name }})</h3>
                     <div class="card-actions">
                         <a href="{{ route('admin.course-categories.create') }}" class="btn btn-primary">
                             <i class="ti ti-plus"></i>
@@ -26,7 +26,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($categories as $category)
+                                {{-- @forelse ($categories as $category)
                                     <tr>
                                         <td><i class="{{ $category->icon }}"></i></td>
                                         <td>{{ $category->name }}</td>
@@ -45,7 +45,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.course-sub-categories.index', $category->id) }}"
+                                            <a href="{{ route('admin.course-categories.edit', $category->id) }}"
                                                 class="btn-sm btn-warning text-warning">
                                                 <i class="ti ti-list"></i>
                                             </a>
@@ -64,12 +64,12 @@
                                     <tr>
                                         <td colspan="3" class="text-center">No Data Found!</td>
                                     </tr>
-                                @endforelse
+                                @endforelse --}}
                             </tbody>
                         </table>
                     </div>
                     <div class="mt-4">
-                        {{ $categories->links() }}
+                        {{-- {{ $categories->links() }} --}}
                     </div>
                 </div>
             </div>
