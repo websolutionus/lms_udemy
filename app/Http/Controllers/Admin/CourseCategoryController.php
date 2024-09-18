@@ -92,6 +92,9 @@ class CourseCategoryController extends Controller
      */
     public function destroy(CourseCategory $course_category)
     {
+        if(CourseCategory::where('parent_id', $course_category->id)->exists()) {
+            return response(['message' => 'Cannot delete a category with subcategory!'], 422);
+        }
         try {
             $this->deleteFile($course_category->image);
             $course_category->delete();
