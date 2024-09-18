@@ -17,6 +17,7 @@
                     <form action="{{ route('admin.course-categories.update', $course_category->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="row">
                             <x-image-preview src="{{ $course_category->image }}" />
 
@@ -40,7 +41,7 @@
                                 <x-input-toggle-block name="show_at_treading" label="Show at Trading" :checked="$course_category->show_at_trending == 1" />
                             </div>
                             <div class="col-md-3">
-                                <x-input-toggle-block name="status" :checked="$course_category->show_at_trending == 1" label="Status" />
+                                <x-input-toggle-block name="status" :checked="$course_category->status == 1" label="Status" />
                             </div>
 
 
@@ -49,7 +50,7 @@
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit">
                                 <i class="ti ti-device-floppy"></i>
-                                Create
+                               Update 
                             </button>
                         </div>
                     </form>
