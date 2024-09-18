@@ -19,7 +19,7 @@
                         @csrf
                         @method('PUT')
                         <div class="row">
-                            <x-image-preview src="{{ $course_category->image }}" />
+                            <x-image-preview src="{{ asset($course_category->image) }}" />
 
                             <div class="col-md-6">
                                 <x-input-file-block name="image" />
