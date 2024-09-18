@@ -7,6 +7,12 @@
                 <div class="card-header">
                     <h3 class="card-title">Course Sub Categories of: ({{ $course_category->name }})</h3>
                     <div class="card-actions">
+                        <a href="{{ route('admin.course-categories.index') }}"
+                            class="btn btn-dark">
+                            <i class="ti ti-arrow-left"></i>
+                            Back
+                        </a>
+
                         <a href="{{ route('admin.course-sub-categories.create', $course_category->id) }}"
                             class="btn btn-primary">
                             <i class="ti ti-plus"></i>
@@ -54,7 +60,10 @@
                                                 <i class="ti ti-edit"></i>
                                             </a>
 
-                                            <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
+                                            <a href="{{ route('admin.course-sub-categories.destroy', [
+                                                'course_category' => $course_category->id,
+                                                'course_sub_category' => $category->id,
+                                            ]) }}"
                                                 class="text-red delete-item">
                                                 <i class="ti ti-trash-x"></i>
                                             </a>
@@ -62,7 +71,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="text-center">No Data Found!</td>
+                                        <td colspan="5" class="text-center">No Data Found!</td>
                                     </tr>
                                 @endforelse
                             </tbody>
