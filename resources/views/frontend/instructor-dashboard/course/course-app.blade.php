@@ -45,8 +45,8 @@
 
                         <div class="dashboard_add_courses">
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a href="" class="nav-link ">Basic Infos</a>
+                                <li class="nav-item" role="presentation ">
+                                    <a href="" class="nav-link active">Basic Infos</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a href="" class="nav-link ">More Info</a>
@@ -71,3 +71,6 @@
                 DASHBOARD ADD COURSE END
             ==============================-->
 @endsection
+@push('header_scripts')
+    @vite(['resources/js/frontend/course.js'])
+@endpush
