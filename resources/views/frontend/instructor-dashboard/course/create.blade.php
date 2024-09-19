@@ -3,7 +3,7 @@
 @section('course_content')
 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
     <div class="add_course_basic_info">
-        <form action="{{ route('instructor.courses.sore-basic-info') }}" method="post" class="basic_info_form">
+        <form action="{{ route('instructor.courses.sore-basic-info') }}" method="post" class="basic_info_form" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-xl-12">
