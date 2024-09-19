@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\CourseBasicInfoCreateRequest;
 use App\Models\Course;
+use App\Models\CourseCategory;
+use App\Models\CourseLanguage;
+use App\Models\CourseLevel;
 use App\Traits\FileUpload;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -60,7 +63,10 @@ class CourseController extends Controller
             break;
          
          case '2':
-            return view('frontend.instructor-dashboard.course.more-info');
+            $categories = CourseCategory::where('status', 1)->get();
+            $levels = CourseLevel::all();
+            $languages = CourseLanguage::all();
+            return view('frontend.instructor-dashboard.course.more-info', compact('categories', 'levels', 'languages'));
             break;
 
          default:

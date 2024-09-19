@@ -44,78 +44,46 @@
                         <label for="#">Category *</label>
                         <select class="select_2">
                             <option value=""> Please Select </option>
-                            <option value="">Red</option>
-                            <option value="">Black</option>
-                            <option value="">Orange</option>
-                            <option value="">Rose Gold</option>
-                            <option value="">Pink</option>
+                            @foreach($categories as $category)
+                                @if($category->subCategories->isNotEmpty())
+                                <optgroup label="{{ $category->name }}">
+                                   @foreach($category->subCategories as $subCategory) 
+                                        <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
+                                   @endforeach
+                                </optgroup>
+                                @endif
+                            @endforeach
+                            
                         </select>
                     </div>
                 </div>
                 <div class="col-xl-4">
                     <div class="add_course_more_info_radio_box">
                         <h3>Level</h3>
+                        @foreach($levels as $level)
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Beginner
+                                id="id-{{ $level->id }}">
+                            <label class="form-check-label" for="id-{{ $level->id }}">
+                                {{ $level->name }}
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Intermediate
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault3">
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Expert
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault4">
-                            <label class="form-check-label" for="flexRadioDefault4">
-                                Expert
-                            </label>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
                 <div class="col-xl-4">
                     <div class="add_course_more_info_radio_box">
                         <h3>Language</h3>
+                        @foreach($languages as $language)
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault11" checked>
-                            <label class="form-check-label" for="flexRadioDefault11">
-                                English
+                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                id="id-{{ $language->id }}">
+                            <label class="form-check-label" for="id-{{ $language->id }}">
+                                {{ $language->name }}
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault12">
-                            <label class="form-check-label" for="flexRadioDefault12">
-                                Hindi
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault13">
-                            <label class="form-check-label" for="flexRadioDefault13">
-                                Arabic
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault14">
-                            <label class="form-check-label" for="flexRadioDefault14">
-                                Francais
-                            </label>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>
