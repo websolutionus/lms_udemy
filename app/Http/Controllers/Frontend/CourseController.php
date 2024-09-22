@@ -81,7 +81,45 @@ class CourseController extends Controller
       // dd($request->all());
       switch ($request->current_step) {
          case '1':
-            # code...
+            $request->validate([
+               'title' => ['required', 'max:255', 'string'],
+               'seo_description' => ['nullable', 'max:255', 'string'],
+               'demo_video_storage' => ['nullable', 'in:youtube,vimeo,external_link,upload', 'string'],
+               'price' => ['required', 'numeric'],
+               'discount' => ['nullable', 'numeric'],
+               'description' => ['required'],
+               'thumbnail' => ['nullable', 'image', 'max:3000'],
+               'demo_video_source' => ['nullable']
+            ]);
+            
+            $course = Course::findOrFail($request->id);
+
+            if($request->hasFile('thumbnail')) {
+               $thumbnailPath = $this->uploadFile($request->file('thumbnail'));
+               $this->deleteFile($course->thumbnail);
+               $course->thumbnail = $thumbnailPath;
+            }
+
+            $course->title = $request->title;
+            $course->slug = \Str::slug($request->title);
+            $course->seo_description = $request->seo_description;
+            $course->demo_video_storage = $request->demo_video_storage;
+            $course->demo_video_source = $request->demo_video_source;
+            $course->price = $request->price;
+            $course->discount = $request->discount;
+            $course->description = $request->description;
+            $course->instructor_id = Auth::guard('web')->user()->id;
+            $course->save();
+      
+            // save course id on session
+            Session::put('course_create_id', $course->id);
+      
+            return response([
+               'status' => 'success',
+               'message' => 'Updated successfully.',
+               'redirect' => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step])
+            ]);
+            
             break;
          
          case '2':

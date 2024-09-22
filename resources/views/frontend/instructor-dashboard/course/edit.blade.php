@@ -3,8 +3,9 @@
 @section('course_content')
 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
     <div class="add_course_basic_info">
-        <form action="{{ route('instructor.courses.sore-basic-info') }}" method="post" class="basic_info_form" enctype="multipart/form-data">
+        <form action="{{ route('instructor.courses.sore-basic-info') }}" method="post" class="basic_info_update_form" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="id" value="{{ $course->id }}">
             <input type="hidden" name="current_step" value="1">
             <input type="hidden" name="next_step" value="2">
             <div class="row">
