@@ -83,6 +83,18 @@ class CourseController extends Controller
             break;
          
          case '2':
+            // validation
+            $request->validate([
+               'capacity' => ['nullable', 'numeric'],
+               'duration' => ['required', 'numeric'],
+               'qna' => ['nullable', 'boolean'],
+               'certificate' => ['nullable', 'boolean'],
+               'category' => ['required', 'integer'],
+               'course_level_id' => ['required', 'integer'],
+               'course_language_id' => ['required', 'integer'],
+            ]);
+
+            // update course data
             $course = Course::findOrFail($request->id);
             $course->capacity = $request->capacity;
             $course->duration = $request->duration;
