@@ -20,7 +20,8 @@ class CourseController extends Controller
 
    function index(): View
    {
-      return view('frontend.instructor-dashboard.course.index');
+      $courses = Course::all();
+      return view('frontend.instructor-dashboard.course.index', compact('courses'));
    }
 
    function create(): View
@@ -59,7 +60,8 @@ class CourseController extends Controller
 
       switch ($request->step) {
          case '1':
-            # code...
+            $course = Course::findOrFail($request->id);
+            return view('frontend.instructor-dashboard.course.edit', compact('course'));
             break;
          
          case '2':
