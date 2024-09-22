@@ -3,46 +3,40 @@
 @section('course_content')
 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
     <div class="add_course_basic_info">
-        <form action="#">
+        <form action="" class="more_info_form"> 
+            @csrf
+            <input type="hidden" name="id" value="{{ request()?->id }}">
             <div class="row">
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
                         <label for="#">Capacity</label>
-                        <input type="text" placeholder="Capacity">
+                        <input type="text" placeholder="Capacity" name="capacity">
                         <p>leave blank for unlimited</p>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
                         <label for="#">Course Duration (Minutes)*</label>
-                        <input type="text" placeholder="300">
+                        <input type="text" placeholder="300" name="duration">
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" name="qna" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">Q&A</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                            <input class="form-check-input" type="checkbox" name="certificate" value="" id="flexCheckDefault2">
                             <label class="form-check-label" for="flexCheckDefault2">Completion Certificate</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                            <label class="form-check-label" for="flexCheckDefault3">Patner
-                                instructor</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                            <label class="form-check-label" for="flexCheckDefault4">Others</label>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="add_course_more_info_input">
                         <label for="#">Category *</label>
-                        <select class="select_2">
+                        <select class="select_2" name="category">
                             <option value=""> Please Select </option>
                             @foreach($categories as $category)
                                 @if($category->subCategories->isNotEmpty())
@@ -62,8 +56,7 @@
                         <h3>Level</h3>
                         @foreach($levels as $level)
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="id-{{ $level->id }}">
+                            <input class="form-check-input" type="radio" value="{{ $level->id }}" name="level" id="id-{{ $level->id }}">
                             <label class="form-check-label" for="id-{{ $level->id }}">
                                 {{ $level->name }}
                             </label>
@@ -77,7 +70,8 @@
                         <h3>Language</h3>
                         @foreach($languages as $language)
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            <input class="form-check-input" type="radio" name="language"
+                                value="{{ $language->id }}"
                                 id="id-{{ $language->id }}">
                             <label class="form-check-label" for="id-{{ $language->id }}">
                                 {{ $language->name }}
