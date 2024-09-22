@@ -8,29 +8,29 @@
             <input type="hidden" name="id" value="{{ request()?->id }}">
             <input type="hidden" name="current_step" value="2">
             <input type="hidden" name="next_step" value="3">
-            
+
             <div class="row">
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
                         <label for="#">Capacity</label>
-                        <input type="text" placeholder="Capacity" name="capacity">
+                        <input type="text" placeholder="Capacity" name="capacity" value="{{ $course?->capacity }}">
                         <p>leave blank for unlimited</p>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
                         <label for="#">Course Duration (Minutes)*</label>
-                        <input type="text" placeholder="300" name="duration">
+                        <input type="text" placeholder="300" name="duration" value="{{ $course->duration }}">
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="qna" value="1" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" name="qna" @checked($course?->qna === 1) value="1" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">Q&A</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="certificate" value="1" id="flexCheckDefault2">
+                            <input class="form-check-input" type="checkbox" @checked($course?->certificate === 1) name="certificate" value="1" id="flexCheckDefault2">
                             <label class="form-check-label" for="flexCheckDefault2">Completion Certificate</label>
                         </div>
                         
@@ -45,7 +45,7 @@
                                 @if($category->subCategories->isNotEmpty())
                                 <optgroup label="{{ $category->name }}">
                                    @foreach($category->subCategories as $subCategory) 
-                                        <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
+                                        <option @selected($course?->category_id == $subCategory->id) value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
                                    @endforeach
                                 </optgroup>
                                 @endif
@@ -59,7 +59,7 @@
                         <h3>Level</h3>
                         @foreach($levels as $level)
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="{{ $level->id }}" name="level" id="id-{{ $level->id }}">
+                            <input class="form-check-input" type="radio" @checked($level->id == $course->course_level_id) value="{{ $level->id }}" name="level" id="id-{{ $level->id }}">
                             <label class="form-check-label" for="id-{{ $level->id }}">
                                 {{ $level->name }}
                             </label>
@@ -73,7 +73,7 @@
                         <h3>Language</h3>
                         @foreach($languages as $language)
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="language"
+                            <input class="form-check-input" @checked($language->id == $course->course_language_id) type="radio" name="language"
                                 value="{{ $language->id }}"
                                 id="id-{{ $language->id }}">
                             <label class="form-check-label" for="id-{{ $language->id }}">

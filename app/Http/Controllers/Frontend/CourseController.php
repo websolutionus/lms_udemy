@@ -68,7 +68,8 @@ class CourseController extends Controller
             $categories = CourseCategory::where('status', 1)->get();
             $levels = CourseLevel::all();
             $languages = CourseLanguage::all();
-            return view('frontend.instructor-dashboard.course.more-info', compact('categories', 'levels', 'languages'));
+            $course = Course::findOrFail($request->id);
+            return view('frontend.instructor-dashboard.course.more-info', compact('categories', 'levels', 'languages', 'course'));
             break;
 
          default:
@@ -130,8 +131,8 @@ class CourseController extends Controller
                'qna' => ['nullable', 'boolean'],
                'certificate' => ['nullable', 'boolean'],
                'category' => ['required', 'integer'],
-               'course_level_id' => ['required', 'integer'],
-               'course_language_id' => ['required', 'integer'],
+               'level' => ['required', 'integer'],
+               'language' => ['required', 'integer'],
             ]);
 
             // update course data
