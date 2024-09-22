@@ -4,6 +4,16 @@ const basic_info_url = base_url + '/instructor/courses/create';
 const update_url = base_url + '/instructor/courses/update';
 
 
+//course tab navigation
+$('.course-tab').on('click', function(e) {
+    e.preventDefault();
+   let step = $(this).data('step');
+   $('.course-form').find('input[name=next_step]').val(step);
+   $('.course-form').trigger('submit');
+});
+
+
+
 $('.basic_info_form').on('submit', function(e) {
     e.preventDefault();
     
