@@ -47,7 +47,7 @@ $('.more_info_form').on('submit', function(e) {
         success: function(data) {
             if(data.status == 'success') {
                
-                // window.location.href = data.redirect
+                window.location.href = data.redirect
             }
         },
         error: function(xhr, status, error) {
