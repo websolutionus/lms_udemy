@@ -28,8 +28,8 @@ return new class extends Migration
             $table->integer('capacity')->nullable();
             $table->double('price')->nullable();
             $table->double('discount')->nullable();
-            $table->boolean('certificate')->default(1)->nullable();
-            $table->boolean('qna')->default(1)->nullable();
+            $table->boolean('certificate')->default(0)->nullable();
+            $table->boolean('qna')->default(0)->nullable();
             $table->text('message_for_reviewer')->nullable();
             $table->enum('is_approved', ['pending', 'approved', 'rejected'])->default('pending');
             $table->enum('status', ['active', 'inactive', 'draft'])->default('draft');

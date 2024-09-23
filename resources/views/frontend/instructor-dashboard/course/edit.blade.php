@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="col-xl-6">
-                <div class="add_course_basic_info_imput upload_source">
+                <div class="add_course_basic_info_imput upload_source {{ $course->demo_video_storage == 'upload' ? '' : 'd-none' }}">
                     <label for="#">Path</label>
                     <div class="input-group">
                         <span class="input-group-btn">
@@ -52,7 +52,7 @@
                         <input id="thumbnail" class="form-control source_input" type="text" name="file" value="{{ $course->demo_video_source }}">
                       </div>
                 </div>
-                <div class="add_course_basic_info_imput external_source d-none">
+                <div class="add_course_basic_info_imput external_source {{ $course->demo_video_storage != 'upload' ? '' : 'd-none' }}">
                     <label for="#">Path</label>
                     <input type="text" name="url" class="source_input" value="{{ $course->demo_video_source }}">
                 </div>
