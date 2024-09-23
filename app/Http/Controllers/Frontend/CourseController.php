@@ -56,14 +56,15 @@ class CourseController extends Controller
       ]);
    }
 
-   function edit(Request $request) {
+   function edit(Request $request)
+   {
 
       switch ($request->step) {
          case '1':
             $course = Course::findOrFail($request->id);
             return view('frontend.instructor-dashboard.course.edit', compact('course'));
             break;
-         
+
          case '2':
             $categories = CourseCategory::where('status', 1)->get();
             $levels = CourseLevel::all();
@@ -72,13 +73,19 @@ class CourseController extends Controller
             return view('frontend.instructor-dashboard.course.more-info', compact('categories', 'levels', 'languages', 'course'));
             break;
 
+         case '3':
+           
+            return view('frontend.instructor-dashboard.course.course-content');
+            break;
+
          default:
             # code...
             break;
       }
    }
 
-   function update(Request $request) {
+   function update(Request $request)
+   {
       // dd($request->all());
       switch ($request->current_step) {
          case '1':
@@ -94,10 +101,10 @@ class CourseController extends Controller
             ];
 
             $request->validate($rules);
-            
+
             $course = Course::findOrFail($request->id);
 
-            if($request->hasFile('thumbnail')) {
+            if ($request->hasFile('thumbnail')) {
                $thumbnailPath = $this->uploadFile($request->file('thumbnail'));
                $this->deleteFile($course->thumbnail);
                $course->thumbnail = $thumbnailPath;
@@ -113,18 +120,18 @@ class CourseController extends Controller
             $course->description = $request->description;
             $course->instructor_id = Auth::guard('web')->user()->id;
             $course->save();
-      
+
             // save course id on session
             Session::put('course_create_id', $course->id);
-      
+
             return response([
                'status' => 'success',
                'message' => 'Updated successfully.',
                'redirect' => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step])
             ]);
-            
+
             break;
-         
+
          case '2':
             // validation
             $request->validate([
