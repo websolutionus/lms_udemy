@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\CourseContentController;
 use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\InstructorDashboardController;
@@ -53,6 +54,9 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
    Route::post('courses/create', [CourseController::class, 'storeBasicInfo'])->name('courses.sore-basic-info');
    Route::get('courses/{id}/edit', [CourseController::class, 'edit'])->name('courses.edit');
    Route::post('courses/update', [CourseController::class, 'update'])->name('courses.update');
+
+   Route::get('course-content/create-chapter', [CourseContentController::class, 'createChapterModal'])->name('course-content.create-chapter');
+
 
    /** lfm Routes */
    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
