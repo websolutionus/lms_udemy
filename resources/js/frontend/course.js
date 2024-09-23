@@ -127,3 +127,10 @@ $(document).ready(function() {
         }
     });
 })
+
+/** Course Contents */
+
+$('.dynamic-modal-btn').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamic-modal').modal("show");
+});
