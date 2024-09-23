@@ -67,12 +67,14 @@ $('.basic_info_update_form').on('submit', function(e) {
         },
         success: function(data) {
             if(data.status == 'success') {
-               
                 window.location.href = data.redirect
             }
         },
         error: function(xhr, status, error) {
-
+            let errors = xhr.responseJSON.errors;
+            $.each(errors, function(key, value) {
+                notyf.error(value[0]);
+            })
         },
         complete: function() {}
     })
@@ -99,7 +101,10 @@ $('.more_info_form').on('submit', function(e) {
             }
         },
         error: function(xhr, status, error) {
-
+            let errors = xhr.responseJSON.errors;
+            $.each(errors, function(key, value) {
+                notyf.error(value[0]);
+            })
         },
         complete: function() {}
     })
@@ -111,8 +116,8 @@ $(document).ready(function() {
     // show hide path input depending on source
     $('.storage').on('change', function() {
         let value = $(this).val();
-    
-        console.log(value);
+        $('.source_input').val('');
+
         if(value == 'upload') {
             $('.upload_source').removeClass('d-none');
             $('.external_source').addClass('d-none');

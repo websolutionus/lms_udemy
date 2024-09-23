@@ -33,32 +33,31 @@
                     <label for="#">Demo Video Storage <b>(optional)</b></label>
                     <select class="storage" name="demo_video_storage">
                         <option value=""> Please Select </option>
-                        <option value="upload"> Upload </option>
-                        <option value="youtube"> Youtube </option>
-                        <option value="vimeo"> Vimeo </option>
-                        <option value="external_link"> External Link </option>
+                        <option @selected($course->demo_video_storage == 'upload') value="upload"> Upload </option>
+                        <option @selected($course->demo_video_storage == 'youtube') value="youtube"> Youtube </option>
+                        <option @selected($course->demo_video_storage == 'vimeo') value="vimeo"> Vimeo </option>
+                        <option @selected($course->demo_video_storage == 'external_link') value="external_link"> External Link </option>
                     </select>
                 </div>
             </div>
             <div class="col-xl-6">
                 <div class="add_course_basic_info_imput upload_source">
                     <label for="#">Path</label>
-                    <input type="file" name="demo_video_source">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                          <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                            <i class="fa fa-picture-o"></i> Choose
+                          </a>
+                        </span>
+                        <input id="thumbnail" class="form-control source_input" type="text" name="file" value="{{ $course->demo_video_source }}">
+                      </div>
                 </div>
                 <div class="add_course_basic_info_imput external_source d-none">
                     <label for="#">Path</label>
-                    <input type="text" name="demo_video_source">
+                    <input type="text" name="url" class="source_input" value="{{ $course->demo_video_source }}">
                 </div>
 
-                <div class="input-group">
-                    <span class="input-group-btn">
-                      <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                        <i class="fa fa-picture-o"></i> Choose
-                      </a>
-                    </span>
-                    <input id="thumbnail" class="form-control" type="text" name="filepath">
-                  </div>
-                  <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+
             </div>
                 <div class="col-xl-6">
                     <div class="add_course_basic_info_imput">
