@@ -83,3 +83,9 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+     $('#lfm').filemanager('file');
+</script>
+@endpush
