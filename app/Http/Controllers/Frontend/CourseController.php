@@ -162,6 +162,12 @@ class CourseController extends Controller
             ]);
 
             break;
+            case '3':
+               return response([
+                  'status' => 'success',
+                  'message' => 'Updated successfully.',
+                  'redirect' => route('instructor.courses.edit', ['id' => $request->id, 'step' => $request->next_step])
+               ]);
 
          default:
             # code...

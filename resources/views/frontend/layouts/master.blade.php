@@ -55,11 +55,11 @@
 
 
     <!-- Modal -->
-<div class="modal fade" id="dynamic-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered modal-lg dynamic-modal-content">
-      
+    <div class="modal fade" id="dynamic-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-lg dynamic-modal-content">
+
+        </div>
     </div>
-  </div>
 
 
     <!--================================
@@ -124,8 +124,13 @@
     @stack('scripts')
 
     <script>
-        @if($errors->any()) 
-            @foreach($errors as $error)
+        var notyf = new Notyf({
+            duration: 5000,
+            dismissible: true
+        });
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
                 notyf.error("{{ $error }}");
             @endforeach
         @endif
