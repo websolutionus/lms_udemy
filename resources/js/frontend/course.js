@@ -121,10 +121,10 @@ $('.more_info_form').on('submit', function (e) {
 
 $(document).ready(function () {
     // show hide path input depending on source
-    $('.storage').on('change', function () {
+    $(document).on('change', '.storage', function () {
         let value = $(this).val();
         $('.source_input').val('');
-
+        console.log("working");
         if (value == 'upload') {
             $('.upload_source').removeClass('d-none');
             $('.external_source').addClass('d-none');
@@ -162,7 +162,7 @@ $('.dynamic-modal-btn').on('click', function (e) {
 $('.add_lesson').on('click', function() {
 
     $('#dynamic-modal').modal("show");
-    
+
     let courseId = $(this).data('course-id');
     let chapterId = $(this).data('chapter-id');
     $.ajax({
