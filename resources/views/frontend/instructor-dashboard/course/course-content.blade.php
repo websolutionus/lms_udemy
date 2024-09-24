@@ -2,9 +2,15 @@
 
 @section('course_content')
 <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+    <form action="" class="course-form more_info_form">
+        @csrf
+        <input type="hidden" name="id" value="{{ request()?->id }}">
+        <input type="hidden" name="current_step" value="3">
+        <input type="hidden" name="next_step" value="4">
+    </form>
     <div class="add_course_content">
         <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between">
-            <a class="common_btn dynamic-modal-btn" href="#">Add New Chapter</a>
+            <a class="common_btn dynamic-modal-btn" href="#" data-id="{{ $courseId }}"> Add New Chapter</a>
             <a class="common_btn" href="#">Short Chapter</a>
         </div>
         <div class="accordion" id="accordionExample">

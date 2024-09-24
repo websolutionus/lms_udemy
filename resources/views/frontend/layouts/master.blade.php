@@ -31,7 +31,7 @@
     <link rel=" stylesheet" href="{{ asset('frontend/assets/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
-    @vite(['resources/css/frontend.css'])
+    @vite(['resources/css/frontend.css', 'resources/js/frontend/frontend.js'])
     <!--dynamic js-->
     @stack('header_scripts')
 </head>
@@ -122,6 +122,14 @@
 
     <!--dynamic js-->
     @stack('scripts')
+
+    <script>
+        @if($errors->any()) 
+            @foreach($errors as $error)
+                notyf.error("{{ $error }}");
+            @endforeach
+        @endif
+    </script>
 
 </body>
 

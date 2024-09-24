@@ -55,7 +55,8 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
    Route::get('courses/{id}/edit', [CourseController::class, 'edit'])->name('courses.edit');
    Route::post('courses/update', [CourseController::class, 'update'])->name('courses.update');
 
-   Route::get('course-content/create-chapter', [CourseContentController::class, 'createChapterModal'])->name('course-content.create-chapter');
+   Route::get('course-content/{course}/create-chapter', [CourseContentController::class, 'createChapterModal'])->name('course-content.create-chapter');
+   Route::post('course-content/{course}/create-chapter', [CourseContentController::class, 'storeChapter'])->name('course-content.store-chapter');
 
 
    /** lfm Routes */
