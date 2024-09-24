@@ -158,3 +158,28 @@ $('.dynamic-modal-btn').on('click', function (e) {
         }
     })
 });
+
+$('.add_lesson').on('click', function() {
+
+    $('#dynamic-modal').modal("show");
+    
+    let courseId = $(this).data('course-id');
+    let chapterId = $(this).data('chapter-id');
+    $.ajax({
+        method: 'GET',
+        url: base_url + '/instructor/course-content/create-lesson',
+        data: {
+            'course_id': courseId,
+            'chapter_id': chapterId
+        },
+        beforeSend: function () {
+            $('.dynamic-modal-content').html(loader);
+        },
+        success: function (data) {
+            $('.dynamic-modal-content').html(data);
+        },
+        error: function (xhr, status, error) {
+
+        }
+    })
+});
