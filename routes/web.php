@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
  * ------------------------------------------------------
  */
 Route::group(['middleware' => ['auth:web', 'verified', 'check_role:student'], 'prefix' => 'student', 'as' => 'student.'], function() {
-   Route::get('/dashboard', [StudentDashboardController::class, 'index'])->name('dashboard'); 
-   Route::get('/become-instructor', [StudentDashboardController::class, 'becomeInstructor'])->name('become-instructor'); 
-   Route::post('/become-instructor/{user}', [StudentDashboardController::class, 'becomeInstructorUpdate'])->name('become-instructor.update'); 
+   Route::get('/dashboard', [StudentDashboardController::class, 'index'])->name('dashboard');
+   Route::get('/become-instructor', [StudentDashboardController::class, 'becomeInstructor'])->name('become-instructor');
+   Route::post('/become-instructor/{user}', [StudentDashboardController::class, 'becomeInstructorUpdate'])->name('become-instructor.update');
 
    /** Profile Routes */
    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:student'], 'p
  * ------------------------------------------------------
  */
 Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'], 'prefix' => 'instructor', 'as' => 'instructor.'], function() {
-   Route::get('/dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard'); 
+   Route::get('/dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard');
 
    /** Profile Routes */
    Route::get('profile', [ProfileController::class, 'instructorIndex'])->name('profile.index');
@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
    Route::get('course-content/create-lesson', [CourseContentController::class, 'createLesson'])->name('course-content.create-lesson');
    Route::post('course-content/create-lesson', [CourseContentController::class, 'storeLesson'])->name('course-content.store-lesson');
 
+   Route::get('course-content/edit-lesson', [CourseContentController::class, 'editLesson'])->name('course-content.edit-lesson');
 
 
 

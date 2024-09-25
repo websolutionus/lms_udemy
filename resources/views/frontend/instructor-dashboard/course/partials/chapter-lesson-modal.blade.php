@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="form-group mb-3 add_course_basic_info_imput">
                         <label for="">Title</label>
-                        <input type="text" class="form-control" name="title" required>
+                        <input type="text" class="form-control" name="title" value="{{ @$lesson?->title }}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -21,7 +21,7 @@
                         <select name="source" class="add_course_basic_info_imput storage" required>
                             <option value="">Select</option>
                             @foreach(config('course.video_sources') as $source => $name)
-                            <option value="{{ $source }}">{{ $name }}</option>
+                            <option @selected(@$lesson?->storage == $source) value="{{ $source }}">{{ $name }}</option>
                             @endforeach
                         </select>
                     </div>
