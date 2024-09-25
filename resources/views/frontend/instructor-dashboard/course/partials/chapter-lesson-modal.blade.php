@@ -35,12 +35,12 @@
                                 <i class="fa fa-picture-o"></i> Choose
                               </a>
                             </span>
-                            <input id="thumbnail" class="form-control source_input" type="text" name="file" >
+                            <input id="thumbnail" class="form-control source_input" type="text" name="file" value="{{ @$lesson?->file_path }}" >
                           </div>
                     </div>
                     <div class="add_course_basic_info_imput external_source d-none">
                         <label for="#">Path</label>
-                        <input type="text" name="url" class="source_input">
+                        <input type="text" name="url" class="source_input" value="{{ @$lesson?->file_path }}">
                     </div>
 
 
@@ -52,7 +52,7 @@
                         <select name="file_type" id="" class="add_course_basic_info_imput" required>
                             <option value="">Select</option>
                             @foreach(config('course.file_types') as $source => $name)
-                            <option value="{{ $source }}">{{ $name }}</option>
+                            <option @selected(@$lesson?->file_type == $source) value="{{ $source }}">{{ $name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -60,7 +60,7 @@
                 <div class="col-md-6">
                     <div class="form-group mb-3 add_course_basic_info_imput">
                         <label for="">Duration</label>
-                        <input type="text" class="" name="duration" required>
+                        <input type="text" class="" name="duration" value="{{ @$lesson?->duration }}" required>
                     </div>
                 </div>
 
@@ -68,11 +68,11 @@
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
                         <div class="form-check" style="width: 200px">
-                            <input class="form-check-input" type="checkbox" name="is_preview" value="1" id="preview">
+                            <input @checked(@$lesson?->is_preview === 1) class="form-check-input" type="checkbox" name="is_preview" value="1" id="preview">
                             <label class="form-check-label" for="preview">Is Preview</label>
                         </div>
                         <div class="form-check" style="width: 200px">
-                            <input class="form-check-input" type="checkbox" name="downloadable" value="1" id="downloadable">
+                            <input @checked(@$lesson?->downloadable === 1) class="form-check-input" type="checkbox" name="downloadable" value="1" id="downloadable">
                             <label class="form-check-label" for="downloadable">Downloadable</label>
                         </div>
 
@@ -82,7 +82,7 @@
                 <div class="col-md-12">
                     <div class="form-group mb-3">
                         <label for="">Description</label>
-                        <textarea name="description" class="add_course_basic_info_imput" id="" cols="30" rows="10" required></textarea>
+                        <textarea name="description" class="add_course_basic_info_imput" id="" cols="30" rows="10" required>{!! @$lesson?->description !!}</textarea>
                     </div>
                 </div>
                 <div class="form-group text-end">

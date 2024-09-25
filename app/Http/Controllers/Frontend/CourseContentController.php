@@ -86,8 +86,10 @@ class CourseContentController extends Controller
     {
         $courseId = $request->course_id;
         $chapterId = $request->chapter_id;
+        $lessonId = $request->lesson_id;
         $lesson = CourseChapterLession::where(
             [
+                'id' => $lessonId,
                 'chapter_id' => $chapterId,
                 'course_id' => $courseId,
                 'instructor_id' => Auth::user()->id
