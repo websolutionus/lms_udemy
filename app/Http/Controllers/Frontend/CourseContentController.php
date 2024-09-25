@@ -84,16 +84,16 @@ class CourseContentController extends Controller
         return redirect()->back();
     }
 
-    function editChapterModal(string $id) : String
+    function editChapterModal(string $id): String
     {
         $editMode = true;
         $chapter = CourseChapter::where(['id' => $id, 'instructor_id' => Auth::user()->id])->firstOrFail();
 
         return view('frontend.instructor-dashboard.course.partials.course-chapter-modal', compact('chapter', 'editMode'))->render();
-
     }
 
-    function updateChapterModal(Request $request, string $id) : RedirectResponse{
+    function updateChapterModal(Request $request, string $id): RedirectResponse
+    {
         $request->validate([
             'title' => ['required', 'max:255'],
         ]);
@@ -103,6 +103,20 @@ class CourseContentController extends Controller
         $chapter->save();
         notyf()->success('Updated Susccessfully!');
         return redirect()->back();
+    }
+
+    function destroyChapter(string $id): Response
+    {
+        try {
+            // delete chapter
+            $chapter = CourseChapter::findOrFail($id);
+            $chapter->delete();
+            notyf()->success('Deleted Successfully!');
+            return response(['message' => 'Deleted Successfully!'], 200);
+        } catch (Exception $e) {
+            logger("Course Level Error >> " . $e);
+            return response(['message' => 'Something went wrong!'], 500);
+        }
     }
 
     function editLesson(Request $request): String
@@ -125,7 +139,7 @@ class CourseContentController extends Controller
         )->render();
     }
 
-    function updateLesson(Request $request, string $id) : RedirectResponse
+    function updateLesson(Request $request, string $id): RedirectResponse
     {
         $rules = [
             'title' => ['required', 'string', 'max:255'],
@@ -163,14 +177,15 @@ class CourseContentController extends Controller
         return redirect()->back();
     }
 
-    function destroyLesson(string $id) : Response {
+    function destroyLesson(string $id): Response
+    {
         try {
             $lesson =  CourseChapterLession::findOrFail($id);
             $lesson->delete();
             notyf()->success('Deleted Successfully!');
             return response(['message' => 'Deleted Successfully!'], 200);
-        }catch(Exception $e) {
-            logger("Course Level Error >> ".$e);
+        } catch (Exception $e) {
+            logger("Course Level Error >> " . $e);
             return response(['message' => 'Something went wrong!'], 500);
         }
     }
