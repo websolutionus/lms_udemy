@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\CourseChapter;
 use App\Models\CourseChapterLession;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -141,7 +142,15 @@ class CourseContentController extends Controller
         return redirect()->back();
     }
 
-    function destroyLesson(string $id) {
-        dd($id);
+    function destroyLesson(string $id) : Response {
+        try {
+            $lesson =  CourseChapterLession::findOrFail($id);
+            $lesson->delete();
+            notyf()->success('Deleted Successfully!');
+            return response(['message' => 'Deleted Successfully!'], 200);
+        }catch(Exception $e) {
+            logger("Course Level Error >> ".$e);
+            return response(['message' => 'Something went wrong!'], 500);
+        }
     }
 }

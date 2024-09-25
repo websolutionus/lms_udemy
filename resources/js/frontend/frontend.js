@@ -26,12 +26,6 @@ $(function () {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                //   Swal.fire({
-                //     title: "Deleted!",
-                //     text: "Your file has been deleted.",
-                //     icon: "success"
-                //   });
-
                 $.ajax({
                     method: 'DELETE',
                     url: url,
@@ -39,10 +33,10 @@ $(function () {
                         _token: csrf_token
                     },
                     success: function (data) {
-
+                        window.location.reload();
                     },
                     error: function (xhr, status, error) {
-
+                        notyf.error(error);
                     }
                 })
             }
