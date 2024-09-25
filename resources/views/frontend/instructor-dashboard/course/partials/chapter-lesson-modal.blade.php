@@ -42,8 +42,8 @@
                         <label for="#">Path</label>
                         <input type="text" name="url" class="source_input">
                     </div>
-    
-    
+
+
                 </div>
 
                 <div class="col-md-6">
@@ -63,20 +63,20 @@
                         <input type="text" class="" name="duration" required>
                     </div>
                 </div>
-                
+
 
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
-                        <div class="form-check" style="width: 20%">
+                        <div class="form-check" style="width: 200px">
                             <input class="form-check-input" type="checkbox" name="is_preview" value="1" id="preview">
                             <label class="form-check-label" for="preview">Is Preview</label>
                         </div>
-                        <div class="form-check" style="width: 20%">
+                        <div class="form-check" style="width: 200px">
                             <input class="form-check-input" type="checkbox" name="downloadable" value="1" id="downloadable">
                             <label class="form-check-label" for="downloadable">Downloadable</label>
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
                 <div class="col-md-12">

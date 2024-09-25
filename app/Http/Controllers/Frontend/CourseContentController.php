@@ -77,6 +77,8 @@ class CourseContentController extends Controller
         $lesson->order = CourseChapterLession::where('chapter_id', $request->chapter_id)->count() + 1;
         $lesson->save();
 
+        notyf()->success('Created Success fully');
+
         return redirect()->back();
     }
 }
