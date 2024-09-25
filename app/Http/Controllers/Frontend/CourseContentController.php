@@ -8,6 +8,7 @@ use App\Models\CourseChapterLession;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class CourseContentController extends Controller
@@ -138,5 +139,9 @@ class CourseContentController extends Controller
         notyf()->success('Updated Success fully!');
 
         return redirect()->back();
+    }
+
+    function destroyLesson(string $id) {
+        dd($id);
     }
 }
