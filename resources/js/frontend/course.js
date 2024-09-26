@@ -257,10 +257,10 @@ if($('.sortable_list li').length) {
                     order_ids: orderIds
                 },
                 success: function(data) {
-
+                    notyf.success(data.message);
                 },
                 error: function(xhr, status, error) {
-
+                    notyf.error(data.error);
                 }
             })
 
