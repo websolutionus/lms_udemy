@@ -189,4 +189,10 @@ class CourseContentController extends Controller
             return response(['message' => 'Something went wrong!'], 500);
         }
     }
+
+
+    /** Sort chapter lessons */
+    function sortLesson(Request $request) {
+        dd($request->all());
+    }
 }

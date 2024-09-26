@@ -1,5 +1,5 @@
-
-const base_url = $(`meta[name="base_url"]`).attr('content')
+const csrf_token = $(`meta[name="csrf_token"]`).attr('content');
+const base_url = $(`meta[name="base_url"]`).attr('content');
 const basic_info_url = base_url + '/instructor/courses/create';
 const update_url = base_url + '/instructor/courses/update';
 
@@ -247,7 +247,23 @@ if($('.sortable_list li').length) {
                 attribute: "data-lesson-id",
             });
 
-            console.log(orderIds);
+            let chapterId = ui.item.data("chapter-id");
+
+            $.ajax({
+                method: 'POST',
+                url: base_url + `/instructor/course-chapter/${chapterId}/sort-lesson`,
+                data: {
+                    _token: csrf_token,
+                    order_ids: orderIds
+                },
+                success: function(data) {
+
+                },
+                error: function(xhr, status, error) {
+
+                }
+            })
+
         }
     });
 }
