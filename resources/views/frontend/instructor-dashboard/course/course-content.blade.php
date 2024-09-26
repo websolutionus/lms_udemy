@@ -11,7 +11,7 @@
         <div class="add_course_content">
             <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between">
                 <a class="common_btn dynamic-modal-btn" href="#" data-id="{{ $courseId }}"> Add New Chapter</a>
-                <a class="common_btn" href="#">Short Chapter</a>
+                <a class="common_btn sort_chapter_btn" data-id="{{ $courseId }}" href="javascript:;">Short Chapter</a>
             </div>
             <div class="accordion" id="accordionExample">
                 @foreach ($chapters as $chapter)
