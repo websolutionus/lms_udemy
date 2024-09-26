@@ -48,18 +48,17 @@
                         <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <ul class="item_list">
+                                <ul class="item_list sortable_list">
                                     @foreach($chapter->lessons ?? [] as $lesson)
-                                    <li>
+                                    <li class="" data-lesson-id="{{ $lesson->id }}">
                                         <span>{{ $lesson->title }}</span>
                                         <div class="add_course_content_action_btn">
                                             <a class="edit_lesson" data-lesson-id="{{ $lesson->id }}" data-chapter-id="{{ $chapter->id }}"
                                                 data-course-id="{{ $chapter->course_id }}" class="edit" href="javascript:;"><i class="far fa-edit"></i></a>
                                             <a class="del delete-item" href="{{ route('instructor.course-content.destroy-lesson', $lesson->id) }}"><i class="fas fa-trash-alt"></i></a>
-                                            <a class="arrow" href="#"><i class="fas fa-arrows-alt"></i></a>
+                                            <a class="arrow dragger" href="javascript:;"><i class="fas fa-arrows-alt"></i></a>
                                         </div>
                                     </li>
-
                                     @endforeach
 
                                 </ul>

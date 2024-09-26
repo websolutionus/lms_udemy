@@ -235,3 +235,19 @@ $('.edit_lesson').on('click', function() {
         }
     })
 });
+
+if($('.sortable_list li').length) {
+    $('.sortable_list').sortable({
+        items: "li",
+        containment: "parent",
+        cursor: "move",
+        handle: ".dragger",
+        update: function(event, ui) {
+            let orderIds = $(this).sortable("toArray", {
+                attribute: "data-lesson-id",
+            });
+
+            console.log(orderIds);
+        }
+    });
+}

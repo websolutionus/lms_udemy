@@ -25,8 +25,11 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/sticky_menu.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery-ui.min.css') }}">
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
 
     <link rel=" stylesheet" href="{{ asset('frontend/assets/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
@@ -113,6 +116,9 @@
     <script src="{{ asset('frontend/assets/js/video_player_youtube.js') }}"></script>
     <!--wow js-->
     <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
+
+    <!--jquery ui-->
+    <script src="{{ asset('frontend/assets/js/jquery-ui.min.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
