@@ -34,11 +34,6 @@
                                                 href="javascript:;">
                                                 Add Lesson</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Add
-                                                Document</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Add Quiz</a>
-                                        </li>
                                     </ul>
                                 </div>
                                 <a class="edit edit_chapter" data-course-id="{{ $chapter->course_id }}" data-chapter-id="{{ $chapter->id }}" href="#"><i class="far fa-edit"></i></a>
