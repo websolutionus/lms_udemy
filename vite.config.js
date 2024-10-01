@@ -11,6 +11,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/admin/login.js',
                 'resources/js/admin/admin.js',
+                'resources/js/admin/course.js',
+
                 'resources/js/frontend/course.js',
                 'resources/js/frontend/frontend.js',
 

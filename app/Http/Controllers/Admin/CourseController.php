@@ -25,6 +25,7 @@ class CourseController extends Controller
         return view('admin.course.course-module.index', compact('courses'));
     }
 
+
     function create(): View
     {
         return view('frontend.instructor-dashboard.course.create');

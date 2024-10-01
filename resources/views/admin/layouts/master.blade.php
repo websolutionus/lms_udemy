@@ -29,6 +29,7 @@
         }
     </style>
     @vite(['resources/css/admin.css', 'resources/js/admin/admin.js'])
+    @stack('header_scripts')
 </head>
 
 <body>
@@ -92,7 +93,7 @@
 
     <!-- Libs JS -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    
+
     <!-- Tabler Core -->
     <script src="{{ asset('admin/assets/dist/js/tabler.min.js?1692870487') }}" defer></script>
     <script src="{{ asset('admin/assets/dist/js/demo.min.js?1692870487') }}" defer></script>
