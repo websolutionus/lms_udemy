@@ -248,29 +248,35 @@
                             </svg>
                         </span>
                         <span class="nav-link-title">
-                           Course Management 
+                           Course Management
                         </span>
                     </a>
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.courses.index') }}">
+                                   Courses
+                                </a>
+
+                            </div>
+                            <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="{{ route('admin.course-categories.index') }}">
                                     Course Categories
                                 </a>
-                               
+
                             </div>
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="{{ route('admin.course-languages.index') }}">
                                     Course Languages
                                 </a>
-                               
+
                             </div>
 
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="{{ route('admin.course-levels.index') }}">
-                                    Course Levels 
+                                    Course Levels
                                 </a>
-                               
+
                             </div>
                         </div>
                     </div>
