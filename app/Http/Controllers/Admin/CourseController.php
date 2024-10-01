@@ -9,6 +9,7 @@ use App\Models\CourseCategory;
 use App\Models\CourseChapter;
 use App\Models\CourseLanguage;
 use App\Models\CourseLevel;
+use App\Models\User;
 use App\Traits\FileUpload;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -37,7 +38,9 @@ class CourseController extends Controller
 
     function create(): View
     {
-        return view('admin.course.course-module.create');
+        $instructors = User::where('role', 'instructor')
+            ->where('approve_status', 'approved')->get();
+        return view('admin.course.course-module.create', compact('instructors'));
     }
 
 

@@ -10,6 +10,10 @@ var notyf = new Notyf({
 const csrf_token = $(`meta[name=csrf_token]`).attr('content');
 var delete_url = null;
 
+$(function() {
+    $('.select2').select2();
+});
+
 /** Delete Item with confirmation */
 
 $('.delete-item').on('click', function(e) {
