@@ -37,7 +37,7 @@ class CourseController extends Controller
 
     function create(): View
     {
-        return view('frontend.instructor-dashboard.course.create');
+        return view('admin.course.course-module.create');
     }
 
 
