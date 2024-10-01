@@ -3,27 +3,45 @@
 }
 
 
-input, select, textarea {
-	width: 100%;
-	padding: 12px 20px;
-	outline: none;
-	resize: none;
-	border: 1px solid #e3e4e5;
-	font-weight: 400;
-	border-radius: 6px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	-ms-border-radius: 6px;
-	-o-border-radius: 6px;
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    outline: none;
+    resize: none;
+    border: 1px solid #e3e4e5;
+    font-weight: 400;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
 }
+
 .add_course_basic_info_imput {
     margin-bottom: 10px;
 }
 
-.add_course_basic_info_imput label {
-    margin-bottom: 5px;
-  }
+.add_course_more_info_input {
+    margin-bottom: 10px;
+}
 
+.add_course_more_info_input label {
+    margin-bottom: 5px;
+}
+
+.add_course_basic_info_input label {
+    margin-bottom: 5px;
+}
+
+.form-check-input[type="radio"] {
+    padding: 12px 12px !important;
+}
+
+.form-check-input[type="checkbox"] {
+    padding: 12px 12px !important;
+}
 
 
 /* responsive css*/

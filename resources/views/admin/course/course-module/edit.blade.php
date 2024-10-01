@@ -1,6 +1,6 @@
-@extends('frontend.instructor-dashboard.course.course-app')
+@extends('admin.course.course-module.course-app')
 
-@section('course_content')
+@section('tab_content')
 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
     <div class="add_course_basic_info">
         <form action="{{ route('instructor.courses.sore-basic-info') }}" method="post" class="basic_info_update_form course-form" enctype="multipart/form-data">
