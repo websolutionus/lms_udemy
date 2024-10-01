@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Frontend\CourseBasicInfoCreateRequest;
+use App\Http\Requests\Admin\CourseBasicInfoCreateRequest;
+
 use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\CourseChapter;
@@ -57,7 +58,7 @@ class CourseController extends Controller
         $course->price = $request->price;
         $course->discount = $request->discount;
         $course->description = $request->description;
-        $course->instructor_id = Auth::guard('web')->user()->id;
+        $course->instructor_id = $request->instructor;
         $course->save();
 
         // save course id on session
@@ -66,7 +67,7 @@ class CourseController extends Controller
         return response([
             'status' => 'success',
             'message' => 'Updated successfully.',
-            'redirect' => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step])
+            'redirect' => route('admin.courses.edit', ['id' => $course->id, 'step' => $request->next_step])
         ]);
     }
 

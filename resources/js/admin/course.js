@@ -4,8 +4,8 @@ window.$ = window.jQuery = $;
 
 const csrf_token = $(`meta[name="csrf_token"]`).attr('content');
 const base_url = $(`meta[name="base_url"]`).attr('content');
-const basic_info_url = base_url + '/instructor/courses/create';
-const update_url = base_url + '/instructor/courses/update';
+const basic_info_url = base_url + '/admin/courses/create';
+const update_url = base_url + '/admin/courses/update';
 
 var notyf = new Notyf({
     duration: 5000,
