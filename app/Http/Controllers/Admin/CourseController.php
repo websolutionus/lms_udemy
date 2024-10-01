@@ -12,6 +12,7 @@ use App\Models\CourseLevel;
 use App\Traits\FileUpload;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -23,6 +24,14 @@ class CourseController extends Controller
     {
         $courses = Course::with(['instructor'])->paginate(25);
         return view('admin.course.course-module.index', compact('courses'));
+    }
+
+    /** change approve status */
+    function updateApproval(Request $request, Course $course) : Response{
+        $course->is_approved = $request->status;
+        $course->save();
+
+        return response(['status' => 'success', 'message' => 'Updated successfully.']);
     }
 
 
