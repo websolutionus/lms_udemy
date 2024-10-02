@@ -37,7 +37,7 @@
                                     </ul>
                                 </div>
                                 <a class="edit edit_chapter" data-course-id="{{ $chapter->course_id }}" data-chapter-id="{{ $chapter->id }}" href="#"><i class="ti ti-edit"></i></a>
-                                <a class="del delete-item" href="{{ route('instructor.course-content.destory-chapter', $chapter->id) }}"><i class="ti ti-trash-x"></i></a>
+                                <a class="del delete-item" href="{{ route('admin.course-content.destory-chapter', $chapter->id) }}"><i class="ti ti-trash-x"></i></a>
                             </div>
                         </h2>
                         <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse"

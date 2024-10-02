@@ -59,70 +59,86 @@ textarea {
 }
 
 .add_course_content .item_list li {
-	color: var(--colorBlack);
-	font-size: 18px;
-	font-weight: 500;
-	border-radius: 8px;
-	border: 1px solid var(--borderColor);
-	padding: 13px 50px 13px 55px;
-	position: relative;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	-ms-border-radius: 8px;
-	-o-border-radius: 8px;
+    color: var(--colorBlack);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid var(--borderColor);
+    padding: 13px 50px 13px 55px;
+    position: relative;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
 }
+
 .add_course_content .item_list li span {
-	color: var(--colorBlack);
-	font-size: 18px;
-	font-weight: 500;
+    color: var(--colorBlack);
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .add_course_content .item_list {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
+
 .accordion-item .accordion-body {
-	padding: 30px 20px;
-	color: var(--paraColor);
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 26px;
+    padding: 30px 20px;
+    color: var(--paraColor);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 26px;
 }
+
 .item_list.sortable_list {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 .item_list.sortable_list li span {
-	font-size: 15px;
+    font-size: 15px;
 }
+
 .item_list.sortable_list li {
-	border: 1px solid gainsboro;
+    border: 1px solid gainsboro;
 }
 
 .add_course_content .item_list li::before {
-	position: absolute;
-	content: "📽️";
-	font-family: "";
-	font-size: 16px;
-	font-weight: 600;
-	width: 35px;
-	height: 35px;
-	line-height: 35px;
-	text-align: center;
-	background: var(--colorPrimary);
-	color: var(--colorWhite);
-	top: 7px;
-	left: 12px;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-ms-border-radius: 50%;
-	-o-border-radius: 50%;
+    position: absolute;
+    content: "📽️";
+    font-family: "";
+    font-size: 16px;
+    font-weight: 600;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+    top: 7px;
+    left: 12px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .add_course_content_action_btn {
-	margin-top: 9px;
+    margin-top: 9px;
+}
+
+.item_list.chapter_sortable_list.ui-sortable li {
+    list-style: none;
+    border: 1px solid gray;
+    padding: 14px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.item_list.chapter_sortable_list.ui-sortable li {
+    position: relative;
 }
 
 /* responsive css*/
