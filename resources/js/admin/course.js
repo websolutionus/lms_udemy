@@ -176,7 +176,7 @@ $(function () {
 
         $.ajax({
             method: 'GET',
-            url: base_url + '/instructor/course-content/:id/create-chapter'.replace(':id', course_id),
+            url: base_url + '/admin/course-content/:id/create-chapter'.replace(':id', course_id),
             data: {},
             beforeSend: function () {
                 $('.dynamic-modal-content').html(loader);
@@ -198,7 +198,7 @@ $(function () {
 
         $.ajax({
             method: 'GET',
-            url: base_url + '/instructor/course-content/:id/edit-chapter'.replace(':id', chapter_id),
+            url: base_url + '/admin/course-content/:id/edit-chapter'.replace(':id', chapter_id),
             data: {},
             beforeSend: function () {
                 $('.dynamic-modal-content').html(loader);
@@ -222,7 +222,7 @@ $(function () {
         let chapterId = $(this).data('chapter-id');
         $.ajax({
             method: 'GET',
-            url: base_url + '/instructor/course-content/create-lesson',
+            url: base_url + '/admin/course-content/create-lesson',
             data: {
                 'course_id': courseId,
                 'chapter_id': chapterId
@@ -249,7 +249,7 @@ $(function () {
 
         $.ajax({
             method: 'GET',
-            url: base_url + '/instructor/course-content/edit-lesson',
+            url: base_url + '/admin/course-content/edit-lesson',
             data: {
                 'course_id': courseId,
                 'chapter_id': chapterId,
@@ -282,7 +282,7 @@ $(function () {
 
                 $.ajax({
                     method: 'POST',
-                    url: base_url + `/instructor/course-chapter/${chapterId}/sort-lesson`,
+                    url: base_url + `/admin/course-chapter/${chapterId}/sort-lesson`,
                     data: {
                         _token: csrf_token,
                         order_ids: orderIds
@@ -304,7 +304,7 @@ $(function () {
         let courseId = $(this).data('id');
         $.ajax({
             method: 'GET',
-            url: base_url + `/instructor/course-content/${courseId}/sort-chapter`,
+            url: base_url + `/admin/course-content/${courseId}/sort-chapter`,
             data: {
             },
             beforeSend: function () {

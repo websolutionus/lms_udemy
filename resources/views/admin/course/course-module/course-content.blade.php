@@ -1,6 +1,6 @@
-@extends('frontend.instructor-dashboard.course.course-app')
+@extends('admin.course.course-module.course-app')
 
-@section('course_content')
+@section('tab_content')
     <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
         <form action="" class="course-form more_info_form">
             @csrf
@@ -9,9 +9,9 @@
             <input type="hidden" name="next_step" value="4">
         </form>
         <div class="add_course_content">
-            <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between">
-                <a class="common_btn dynamic-modal-btn" href="#" data-id="{{ $courseId }}"> Add New Chapter</a>
-                <a class="common_btn sort_chapter_btn" data-id="{{ $courseId }}" href="javascript:;">Short Chapter</a>
+            <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between mt-3">
+                <a class="common_btn dynamic-modal-btn btn btn-primary" href="#" data-id="{{ $courseId }}"> Add New Chapter</a>
+                <a class="common_btn sort_chapter_btn btn btn-primary" data-id="{{ $courseId }}" href="javascript:;">Short Chapter</a>
             </div>
             <div class="accordion" id="accordionExample">
                 @foreach ($chapters as $chapter)

@@ -92,6 +92,15 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="dynamic-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
+        <div class="modal-dialog  modal-dialog-centered modal-lg dynamic-modal-content">
+
+        </div>
+    </div>
+
+
     <!-- Libs JS -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <!-- Filemanager JS -->

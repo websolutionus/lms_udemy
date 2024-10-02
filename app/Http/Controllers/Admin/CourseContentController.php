@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\CourseChapter;
 use App\Models\CourseChapterLession;
 use Exception;
@@ -16,7 +17,7 @@ class CourseContentController extends Controller
 {
     function createChapterModal(string $id): String
     {
-        return view('frontend.instructor-dashboard.course.partials.course-chapter-modal', compact('id'))->render();
+        return view('admin.course.course-module.partials.course-chapter-modal', compact('id'))->render();
     }
 
     function storeChapter(Request $request, string $courseId): RedirectResponse
@@ -26,12 +27,16 @@ class CourseContentController extends Controller
             'title' => ['required', 'max:255'],
         ]);
 
+        $course = Course::findOrFail($courseId);
+
         $chapter = new CourseChapter();
         $chapter->title = $request->title;
         $chapter->course_id = $courseId;
-        $chapter->instructor_id = Auth::user()->id;
+        $chapter->instructor_id = $course->instructor_id;
         $chapter->order = CourseChapter::where('course_id', $courseId)->count() + 1;
         $chapter->save();
+
+        notyf()->success('Created Successfully!');
 
         return redirect()->back();
     }
