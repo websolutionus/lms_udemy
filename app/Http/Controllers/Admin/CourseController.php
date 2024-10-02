@@ -98,7 +98,7 @@ class CourseController extends Controller
                 $courseId = $request->id;
                 $course = Course::findOrFail($request->id);
                 $editMode = true;
-                return view('frontend.instructor-dashboard.course.finish', compact('course', 'editMode'));
+                return view('admin.course.course-module.finish', compact('course', 'editMode'));
                 break;
         }
     }
@@ -185,7 +185,7 @@ class CourseController extends Controller
                 return response([
                     'status' => 'success',
                     'message' => 'Updated successfully.',
-                    'redirect' => route('instructor.courses.edit', ['id' => $request->id, 'step' => $request->next_step])
+                    'redirect' => route('admin.courses.edit', ['id' => $request->id, 'step' => $request->next_step])
                 ]);
                 break;
 
@@ -204,7 +204,7 @@ class CourseController extends Controller
                 return response([
                     'status' => 'success',
                     'message' => 'Updated successfully.',
-                    'redirect' => route('instructor.courses.index')
+                    'redirect' => route('admin.courses.index')
                 ]);
                 break;
         }
