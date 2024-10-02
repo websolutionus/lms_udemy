@@ -26,7 +26,7 @@
                                 <div class="dropdown">
                                     <div class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <i class="far fa-plus"></i>
+                                        <i class="ti ti-plus"></i>
                                     </div>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li class="add_lesson" data-chapter-id="{{ $chapter->id }}"
@@ -36,8 +36,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <a class="edit edit_chapter" data-course-id="{{ $chapter->course_id }}" data-chapter-id="{{ $chapter->id }}" href="#"><i class="far fa-edit"></i></a>
-                                <a class="del delete-item" href="{{ route('instructor.course-content.destory-chapter', $chapter->id) }}"><i class="fas fa-trash-alt"></i></a>
+                                <a class="edit edit_chapter" data-course-id="{{ $chapter->course_id }}" data-chapter-id="{{ $chapter->id }}" href="#"><i class="ti ti-edit"></i></a>
+                                <a class="del delete-item" href="{{ route('instructor.course-content.destory-chapter', $chapter->id) }}"><i class="ti ti-trash-x"></i></a>
                             </div>
                         </h2>
                         <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse"
