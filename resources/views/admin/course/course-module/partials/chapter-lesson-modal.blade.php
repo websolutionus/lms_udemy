@@ -96,5 +96,5 @@
 </div>
 
 <script>
-    $('#lfm').filemanager('file');
+    $('#lfm').filemanager('file', {prefix: '/admin/laravel-filemanager'});
 </script>

@@ -92,7 +92,7 @@ class CourseContentController extends Controller
         $editMode = true;
         $chapter = CourseChapter::where(['id' => $id, 'instructor_id' => Auth::user()->id])->firstOrFail();
 
-        return view('frontend.instructor-dashboard.course.partials.course-chapter-modal', compact('chapter', 'editMode'))->render();
+        return view('admin.course.course-module.partials.course-chapter-modal', compact('chapter', 'editMode'))->render();
     }
 
     function updateChapterModal(Request $request, string $id): RedirectResponse
@@ -137,7 +137,7 @@ class CourseContentController extends Controller
             ]
         )->first();
         return view(
-            'frontend.instructor-dashboard.course.partials.chapter-lesson-modal',
+            'admin.course.course-module.partials.chapter-lesson-modal',
             compact('courseId', 'chapterId', 'lesson', 'editMode')
         )->render();
     }

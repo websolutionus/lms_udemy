@@ -49,9 +49,9 @@
                                         <span>{{ $lesson->title }}</span>
                                         <div class="add_course_content_action_btn">
                                             <a class="edit_lesson" data-lesson-id="{{ $lesson->id }}" data-chapter-id="{{ $chapter->id }}"
-                                                data-course-id="{{ $chapter->course_id }}" class="edit" href="javascript:;"><i class="far fa-edit"></i></a>
-                                            <a class="del delete-item" href="{{ route('instructor.course-content.destroy-lesson', $lesson->id) }}"><i class="fas fa-trash-alt"></i></a>
-                                            <a class="arrow dragger" href="javascript:;"><i class="fas fa-arrows-alt"></i></a>
+                                                data-course-id="{{ $chapter->course_id }}" class="edit" href="javascript:;"><i class="ti ti-edit"></i></a>
+                                            <a class="del delete-item" href="{{ route('admin.course-content.destroy-lesson', $lesson->id) }}"><i class="ti ti-trash-x"></i></a>
+                                            <a class="arrow dragger" href="javascript:;"><i class="ti ti-arrows-maximize"></i></a>
                                         </div>
                                     </li>
                                     @endforeach
