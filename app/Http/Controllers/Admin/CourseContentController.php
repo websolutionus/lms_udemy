@@ -90,7 +90,7 @@ class CourseContentController extends Controller
     function editChapterModal(string $id): String
     {
         $editMode = true;
-        $chapter = CourseChapter::where(['id' => $id, 'instructor_id' => Auth::user()->id])->firstOrFail();
+        $chapter = CourseChapter::where(['id' => $id])->firstOrFail();
 
         return view('admin.course.course-module.partials.course-chapter-modal', compact('chapter', 'editMode'))->render();
     }
