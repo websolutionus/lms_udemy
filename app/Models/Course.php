@@ -14,4 +14,9 @@ class Course extends Model
     function instructor() : HasOne{
         return $this->hasOne(User::class, 'id', 'instructor_id');
     }
+
+    function category() : HasOne
+    {
+        return $this->hasOne(CourseCategory::class, 'id', 'category_id');
+    }
 }
