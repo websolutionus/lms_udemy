@@ -168,7 +168,7 @@
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About Us</a>
+                    <a class="nav-link" href="{{ route('courses.index') }}">Courses</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Courses <i class="far fa-angle-down"></i></a>
@@ -178,37 +178,8 @@
                         <li><a href="course_video.html">Course video</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">pages <i class="far fa-angle-down"></i></a>
-                    <ul class="droap_menu">
-                        <li><a href="category.html">Categories</a></li>
-                        <li><a href="cart_view.html">cart view</a></li>
-                        <li><a href="checkout.html">checkout</a></li>
-                        <li><a href="payment.html">payment</a></li>
-                        <li><a href="pricing.html">pricing</a></li>
-                        <li><a href="student_reviews.html">student review</a></li>
-                        <li><a href="instructor.html">Instructor</a></li>
-                        <li><a href="instructor_details.html">Instructor details</a></li>
-                        <li><a href="instructor_finder.html">Instructor finder</a></li>
-                        <li><a href="error.html">error</a></li>
-                        <li><a href="faq.html">faq</a></li>
-                        <li><a href="sign_in.html">sign in</a></li>
-                        <li><a href="sign_up.html">sign up</a></li>
-                        <li><a href="forum.html">forum</a></li>
-                        <li><a href="forum_categories.html">forum Categories</a></li>
-                        <li><a href="forum_create_topic.html">forum create topic</a></li>
-                        <li><a href="forum_single_topic.html">forum single topic</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">blog <i class="far fa-angle-down"></i></a>
-                    <ul class="droap_menu">
-                        <li><a href="blogs.html">blog grid view</a></li>
-                        <li><a href="blog_list.html">blog list view</a></li>
-                        <li><a href="blog_details.html">blog details</a></li>
-                    </ul>
-                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">contact us</a>
                 </li>
