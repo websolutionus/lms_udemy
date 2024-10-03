@@ -368,10 +368,11 @@
                         </form>
                     </div>
                     <div class="row">
+                        @forelse($courses as $course)
                         <div class="col-xl-4 col-md-6 wow fadeInUp">
                             <div class="wsus__single_courses_3">
                                 <div class="wsus__single_courses_3_img">
-                                    <img src="images/courses_3_img_1.jpg" alt="Courses" class="img-fluid">
+                                    <img src="{{ asset($course->thumbnail) }}" alt="Courses" class="img-fluid">
                                     <ul>
                                         <li>
                                             <a href="#">
@@ -405,24 +406,33 @@
                                         </p>
                                     </div>
 
-                                    <a class="title" href="#">Complete Blender Creator Learn 3D Modelling.</a>
+                                    <a class="title" href="#">{{ $course->title }}</a>
                                     <ul>
                                         <li>24 Lessons</li>
                                         <li>38 Student</li>
                                     </ul>
                                     <a class="author" href="#">
                                         <div class="img">
-                                            <img src="images/author_img_2.jpg" alt="Author" class="img-fluid">
+                                            <img src="{{ asset($course->instructor->image) }}" alt="Author" class="img-fluid">
                                         </div>
-                                        <h4>Hermann P. Schnitzel</h4>
+                                        <h4>{{ $course->instructor->name }}</h4>
                                     </a>
                                 </div>
                                 <div class="wsus__single_courses_3_footer">
                                     <a class="common_btn" href="#">Enroll <i class="far fa-arrow-right"></i></a>
-                                    <p><del>$254</del> $156.00</p>
+                                    <p>
+                                        @if($course->discount > 0)
+                                        <del>${{ $course->discount }}</del>
+                                        @else
+                                        ${{ $course->price }}
+                                        @endif
+                                    </p>
                                 </div>
                             </div>
                         </div>
+                        @empty
+                        <p>No data Found</p>
+                        @endforelse
                     </div>
                     <div class="wsus__pagination mt_50 wow fadeInUp">
                         <nav aria-label="Page navigation example">
