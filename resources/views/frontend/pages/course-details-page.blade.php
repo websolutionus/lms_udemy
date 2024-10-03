@@ -1,9 +1,15 @@
 @extends('frontend.layouts.master')
-
+@push('meta')
+    <meta property="og:title" content="{{ $course->title }}">
+    <meta property="og:description" content="{{ $course->seo_description }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset($course->thumbnail) }}">
+    <meta property="og:type" content="Course">
+@endpush
 @section('content')
     <!--===========================
-            BREADCRUMB START
-        ============================-->
+                BREADCRUMB START
+            ============================-->
     <section class="wsus__breadcrumb course_details_breadcrumb"
         style="background: url({{ asset('frontend/assets/images/breadcrumb_bg.jpg') }});">
         <div class="wsus__breadcrumb_overlay">
@@ -44,13 +50,13 @@
         </div>
     </section>
     <!--===========================
-            BREADCRUMB END
-        ============================-->
+                BREADCRUMB END
+            ============================-->
 
 
     <!--===========================
-            COURSES DETAILS START
-        ============================-->
+                COURSES DETAILS START
+            ============================-->
     <section class="wsus__courses_details pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -533,32 +539,32 @@
                             <ul>
                                 <li>
                                     <p>
-                                        <span><img src="{{ asset('frontend/assets/images/clock_icon_black.png') }}" alt="clock"
-                                                class="img-fluid"></span>
+                                        <span><img src="{{ asset('frontend/assets/images/clock_icon_black.png') }}"
+                                                alt="clock" class="img-fluid"></span>
                                         Course Duration
                                     </p>
                                     {{ convertMinutesToHours($course->duration) }}
                                 </li>
                                 <li>
                                     <p>
-                                        <span><img src="{{ asset('frontend/assets/images/network_icon_black.png') }}" alt="network"
-                                                class="img-fluid"></span>
+                                        <span><img src="{{ asset('frontend/assets/images/network_icon_black.png') }}"
+                                                alt="network" class="img-fluid"></span>
                                         Skill Level
                                     </p>
                                     {{ $course->level->name }}
                                 </li>
                                 <li>
                                     <p>
-                                        <span><img src="{{ asset('frontend/assets/images/user_icon_black_2.png') }}" alt="User"
-                                                class="img-fluid"></span>
+                                        <span><img src="{{ asset('frontend/assets/images/user_icon_black_2.png') }}"
+                                                alt="User" class="img-fluid"></span>
                                         Student Enrolled
                                     </p>
                                     47
                                 </li>
                                 <li>
                                     <p>
-                                        <span><img src="{{ asset('frontend/assets/images/language_icon_black.png') }}" alt="Language"
-                                                class="img-fluid"></span>
+                                        <span><img src="{{ asset('frontend/assets/images/language_icon_black.png') }}"
+                                                alt="Language" class="img-fluid"></span>
                                         Language
                                     </p>
                                     {{ $course->language->name }}
@@ -582,19 +588,20 @@
                             <h3>This Course Includes</h3>
                             <ul>
                                 <li>
-                                    <span><img src="{{ asset('frontend/assets/images/video_icon_black.png') }}" alt="video" class="img-fluid"></span>
+                                    <span><img src="{{ asset('frontend/assets/images/video_icon_black.png') }}"
+                                            alt="video" class="img-fluid"></span>
                                     {{ convertMinutesToHours($course->duration) }} Video Lectures
                                 </li>
-                                @if($course->certificate)
-                                <li>
-                                    <span><img src="{{ asset('frontend/assets/images/certificate_icon_black.png') }}" alt="Certificate"
-                                            class="img-fluid"></span>
-                                    Certificate of Completion
-                                </li>
+                                @if ($course->certificate)
+                                    <li>
+                                        <span><img src="{{ asset('frontend/assets/images/certificate_icon_black.png') }}"
+                                                alt="Certificate" class="img-fluid"></span>
+                                        Certificate of Completion
+                                    </li>
                                 @endif
                                 <li>
-                                    <span><img src="{{ asset('frontend/assets/images/life_time_icon.png') }}" alt="Certificate"
-                                            class="img-fluid"></span>
+                                    <span><img src="{{ asset('frontend/assets/images/life_time_icon.png') }}"
+                                            alt="Certificate" class="img-fluid"></span>
                                     Course Lifetime Access
                                 </li>
                             </ul>
@@ -632,6 +639,6 @@
         </div>
     </section>
     <!--===========================
-            COURSES DETAILS END
-        ============================-->
-    @ensection
+                COURSES DETAILS END
+            ============================-->
+@endsection
