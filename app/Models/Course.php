@@ -19,4 +19,11 @@ class Course extends Model
     {
         return $this->hasOne(CourseCategory::class, 'id', 'category_id');
     }
+
+    function level() : HasOne{
+        return $this->hasOne(CourseLevel::class, 'id', 'course_level_id');
+    }
+    function language() : HasOne{
+        return $this->hasOne(CourseLanguage::class, 'id', 'course_language_id');
+    }
 }
