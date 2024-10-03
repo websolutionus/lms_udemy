@@ -137,7 +137,7 @@ class CourseController extends Controller
                 $course->price = $request->price;
                 $course->discount = $request->discount;
                 $course->description = $request->description;
-                $course->instructor_id = Auth::guard('web')->user()->id;
+                $course->instructor_id = $course->instructor->id;
                 $course->save();
 
                 // save course id on session
@@ -146,7 +146,7 @@ class CourseController extends Controller
                 return response([
                     'status' => 'success',
                     'message' => 'Updated successfully.',
-                    'redirect' => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step])
+                    'redirect' => route('admin.courses.edit', ['id' => $course->id, 'step' => $request->next_step])
                 ]);
 
                 break;
