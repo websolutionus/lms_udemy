@@ -537,7 +537,7 @@
                                                 class="img-fluid"></span>
                                         Course Duration
                                     </p>
-                                    34 min 54 sec
+                                    {{ convertMinutesToHours($course->duration) }}
                                 </li>
                                 <li>
                                     <p>
@@ -583,7 +583,7 @@
                             <ul>
                                 <li>
                                     <span><img src="{{ asset('frontend/assets/images/video_icon_black.png') }}" alt="video" class="img-fluid"></span>
-                                    54 min 24 sec Video Lectures
+                                    {{ convertMinutesToHours($course->duration) }} Video Lectures
                                 </li>
                                 @if($course->certificate)
                                 <li>

@@ -45,6 +45,7 @@ class ComposerStaticInit195046332613b83d2d75aa406adb1b48
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'd634523d799d97a8ab4807b650bf5cea' => __DIR__ . '/..' . '/pestphp/pest-plugin-laravel/src/Autoload.php',
+        '7cba3915255b22813fa780b019895ba3' => __DIR__ . '/../..' . '/app/Helpers/global_helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -631,6 +632,8 @@ class ComposerStaticInit195046332613b83d2d75aa406adb1b48
         'App\\Http\\Controllers\\Admin\\Auth\\PasswordResetLinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/PasswordResetLinkController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Admin\\CourseCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseCategoryController.php',
+        'App\\Http\\Controllers\\Admin\\CourseContentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseContentController.php',
+        'App\\Http\\Controllers\\Admin\\CourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseController.php',
         'App\\Http\\Controllers\\Admin\\CourseLanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseLanguageController.php',
         'App\\Http\\Controllers\\Admin\\CourseLevelController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseLevelController.php',
         'App\\Http\\Controllers\\Admin\\CourseSubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseSubCategoryController.php',
@@ -646,7 +649,9 @@ class ComposerStaticInit195046332613b83d2d75aa406adb1b48
         'App\\Http\\Controllers\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisteredUserController.php',
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Frontend\\CourseContentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/CourseContentController.php',
         'App\\Http\\Controllers\\Frontend\\CourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/CourseController.php',
+        'App\\Http\\Controllers\\Frontend\\CoursePageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/CoursePageController.php',
         'App\\Http\\Controllers\\Frontend\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/FrontendController.php',
         'App\\Http\\Controllers\\Frontend\\InstructorDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/InstructorDashboardController.php',
         'App\\Http\\Controllers\\Frontend\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ProfileController.php',
@@ -654,6 +659,7 @@ class ComposerStaticInit195046332613b83d2d75aa406adb1b48
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Middleware\\CheckRoleMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRoleMiddleware.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
+        'App\\Http\\Requests\\Admin\\CourseBasicInfoCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CourseBasicInfoCreateRequest.php',
         'App\\Http\\Requests\\Admin\\CourseCategoryStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CourseCategoryStoreRequest.php',
         'App\\Http\\Requests\\Admin\\CourseCategoryUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CourseCategoryUpdateRequest.php',
         'App\\Http\\Requests\\Admin\\CourseSubCategoryStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CourseSubCategoryStoreRequest.php',
@@ -670,6 +676,8 @@ class ComposerStaticInit195046332613b83d2d75aa406adb1b48
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Course' => __DIR__ . '/../..' . '/app/Models/Course.php',
         'App\\Models\\CourseCategory' => __DIR__ . '/../..' . '/app/Models/CourseCategory.php',
+        'App\\Models\\CourseChapter' => __DIR__ . '/../..' . '/app/Models/CourseChapter.php',
+        'App\\Models\\CourseChapterLession' => __DIR__ . '/../..' . '/app/Models/CourseChapterLession.php',
         'App\\Models\\CourseLanguage' => __DIR__ . '/../..' . '/app/Models/CourseLanguage.php',
         'App\\Models\\CourseLevel' => __DIR__ . '/../..' . '/app/Models/CourseLevel.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
