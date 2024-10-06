@@ -50,7 +50,7 @@
     ============================-->
     <nav class="navbar navbar-expand-lg main_menu main_menu_3">
         <a class="navbar-brand" href="index_3.html">
-            <img src="images/logo.png" alt="EduCore" class="img-fluid">
+            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="EduCore" class="img-fluid">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="menu_category">
                 <div class="icon">
-                    <img src="images/grid_icon.png" alt="Category" class="img-fluid">
+                    <img src="{{ asset('frontend/assets/images/grid_icon.png') }}" alt="Category" class="img-fluid">
                 </div>
                 Category
                 <ul>
@@ -165,7 +165,7 @@
             </div>
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link active" href="{{ url('/') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('courses.index') }}">Courses</a>
@@ -187,13 +187,13 @@
 
             <div class="right_menu">
                 <div class="menu_search_btn">
-                    <img src="images/search_icon.png" alt="Search" class="img-fluid">
+                    <img src="{{ asset('frontend/assets/images/search_icon.png') }}" alt="Search" class="img-fluid">
                 </div>
                 <ul>
                     <li>
-                        <a class="menu_signin" href="#">
+                        <a class="menu_signin" href="{{ route('cart.index') }}">
                             <span>
-                                <img src="images/cart_icon_black.png" alt="user" class="img-fluid">
+                                <img src="{{ asset('frontend/assets/images/cart_icon_black.png') }}" alt="cart" class="img-fluid">
                             </span>
                             <b>06</b>
                         </a>
@@ -201,7 +201,7 @@
                     <li>
                         <a class="admin" href="#">
                             <span>
-                                <img src="images/user_icon_black.png" alt="user" class="img-fluid">
+                                <img src="{{ asset('frontend/assets/images/user_icon_black.png') }}" alt="user" class="img-fluid">
                             </span>
                             admin
                         </a>

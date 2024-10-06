@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CourseContentController;
 use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\CoursePageController;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
  Route::get('/', [FrontendController::class, 'index'])->name('home');
  Route::get('/courses', [CoursePageController::class, 'index'])->name('courses.index');
  Route::get('/courses/{slug}', [CoursePageController::class, 'show'])->name('courses.show');
+
+ /** Cart routes */
+ Route::get('cart', [CartController::class, 'index'])->name('cart.index');
 
 /**
  * ------------------------------------------------------
@@ -71,11 +75,11 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
    Route::post('course-content/{id}/update-lesson', [CourseContentController::class, 'updateLesson'])->name('course-content.update-lesson');
    Route::delete('course-content/{id}/lesson', [CourseContentController::class, 'destroyLesson'])->name('course-content.destroy-lesson');
 
-
    Route::post('course-chapter/{chapter}/sort-lesson', [CourseContentController::class, 'sortLesson'])->name('course-chapter.sort-lesson');
-
    Route::get('course-content/{course}/sort-chapter', [CourseContentController::class, 'sortChapter'])->name('course-content.sort-chpater');
    Route::post('course-content/{course}/sort-chapter', [CourseContentController::class, 'updateSortChapter'])->name('course-content.update-sort-chpater');
+
+
 
 
 
