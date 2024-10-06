@@ -117,22 +117,17 @@
                                                 data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li class="active">
-                                                            <p>Brush up on Java concepts</p>
-                                                            <span class="right_text">Preview</span>
+                                                        @foreach($chapter->lessons as $lesson)
+                                                        <li class="{{ $lesson->is_preview == 1 ? 'active' : '' }}">
+                                                            <p>{{ $lesson->title }}</p>
+                                                            @if($lesson->is_preview == 1)
+                                                            <a href="{{ $lesson->file_path }}" class="right_text venobox vbox-item">Preview</a>
+                                                            @else
+                                                            <span class="right_text">{{ convertMinutesToHours($lesson->duration) }}</span>
+                                                            @endif
                                                         </li>
-                                                        <li>
-                                                            <a href="">User Experience Fundamentals Course</a>
-                                                            <span class="right_text">24 minutes</span>
-                                                        </li>
-                                                        <li>
-                                                            <p>Brisk Guide to Using Pivot Tables in Excel</p>
-                                                            <span class="right_text">7 minutes</span>
-                                                        </li>
-                                                        <li>
-                                                            <p>User-Centric Design Fundamentals</p>
-                                                            <span class="right_text">21 minutes</span>
-                                                        </li>
+                                                        @endforeach
+
                                                     </ul>
                                                 </div>
                                             </div>
