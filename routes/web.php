@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
  /** Cart routes */
  Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+ Route::post('add-to-cart/{course}', [CartController::class, 'addToCart'])->name('add-to-cart');
 
 /**
  * ------------------------------------------------------

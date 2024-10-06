@@ -1,3 +1,4 @@
+import './cart.js';
 
 const csrf_token = $(`meta[name="csrf_token"]`).attr('content');
 
