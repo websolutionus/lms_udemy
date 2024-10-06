@@ -7,6 +7,8 @@ var notyf = new Notyf({
     dismissible: true
 });
 
+
+
 const csrf_token = $(`meta[name=csrf_token]`).attr('content');
 var delete_url = null;
 

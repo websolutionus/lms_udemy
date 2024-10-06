@@ -8,6 +8,11 @@ var notyf = new Notyf({
     dismissible: true
 });
 
+/** Ez share init */
+document.addEventListener("DOMContentLoaded", function() {
+    ezShare.execute();
+});
+
 
 
 $(function () {
