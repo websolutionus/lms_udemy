@@ -80,11 +80,6 @@
                                     aria-controls="pills-contact" aria-selected="false">Instructor</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-disabled" type="button" role="tab"
-                                    aria-controls="pills-disabled" aria-selected="false">FAQs</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-disabled-tab2" data-bs-toggle="pill"
                                     data-bs-target="#pills-disabled2" type="button" role="tab"
                                     aria-controls="pills-disabled2" aria-selected="false">Review</button>
@@ -121,7 +116,7 @@
                                                         <li class="{{ $lesson->is_preview == 1 ? 'active' : '' }}">
                                                             <p>{{ $lesson->title }}</p>
                                                             @if($lesson->is_preview == 1)
-                                                            <a href="{{ $lesson->file_path }}" class="right_text venobox vbox-item">Preview</a>
+                                                            <a href="{{ $lesson->file_path }}" data-autoplay="true" data-vbtype="video" class="right_text venobox vbox-item">Preview</a>
                                                             @else
                                                             <span class="right_text">{{ convertMinutesToHours($lesson->duration) }}</span>
                                                             @endif
@@ -144,24 +139,24 @@
                                     <div class="row align-items-center">
                                         <div class="col-lg-4 col-md-6">
                                             <div class="wsus__courses_instructor_img">
-                                                <img src="images/course_instructor_img.jpg" alt="Instructor"
+                                                <img src="{{ asset($course->instructor->image) }}" alt="Instructor"
                                                     class="img-fluid">
                                             </div>
                                         </div>
                                         <div class="col-lg-8 col-md-6">
                                             <div class="wsus__courses_instructor_text">
-                                                <h4>Ravi O'Leigh</h4>
-                                                <p class="designation">IT Technician at IBM</p>
+                                                <h4>{{ $course->instructor->name }}</h4>
+                                                <p class="designation">{{ $course->instructor->headline }}</p>
                                                 <ul class="list">
                                                     <li><i class="fas fa-star"></i> <b>74,537 Reviews</b></li>
                                                     <li><strong>4.7 Rating</strong></li>
                                                     <li>
-                                                        <span><img src="images/book_icon.png" alt="book"
+                                                        <span><img src="{{ asset('frontend/assets/images/book_icon.png') }}" alt="book"
                                                                 class="img-fluid"></span>
-                                                        8 Courses
+                                                        {{ $course->instructor->courses()->count() }} Courses
                                                     </li>
                                                     <li>
-                                                        <span><img src="images/user_icon_gray.png" alt="user"
+                                                        <span><img src="{{ asset('frontend/assets/images/user_icon_gray.png') }}" alt="user"
                                                                 class="img-fluid"></span>
                                                         32 Students
                                                     </li>
@@ -169,130 +164,51 @@
                                                 <ul class="badge d-flex flex-wrap">
                                                     <li data-bs-toggle="tooltip" data-bs-placement="top"
                                                         data-bs-title="Exclusive Author">
-                                                        <img src="images/badge_1.png" alt="Badge" class="img-fluid">
+                                                        <img src="{{ asset('frontend/assets/images/badge_1.png') }}" alt="Badge" class="img-fluid">
                                                     </li>
                                                     <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Top Earning"><img src="images/badge_2.png"
+                                                        data-bs-title="Top Earning"><img src="{{ asset('frontend/assets/images/badge_2.png') }}"
                                                             alt="Badge" class="img-fluid"></li>
                                                     <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Trending"><img src="images/badge_3.png"
+                                                        data-bs-title="Trending"><img src="{{ asset('frontend/assets/images/badge_3.png') }}"
                                                             alt="Badge" class="img-fluid"></li>
                                                     <li data-bs-toggle="tooltip" data-bs-placement="top"
                                                         data-bs-title="2 Years of Membership"><img
-                                                            src="images/badge_4.png" alt="Badge" class="img-fluid">
+                                                            src="{{ asset('frontend/assets/images/badge_4.png') }}" alt="Badge" class="img-fluid">
                                                     </li>
                                                     <li data-bs-toggle="tooltip" data-bs-placement="top"
                                                         data-bs-title="Collector Lavel 1">
-                                                        <img src="images/badge_5.png" alt="Badge" class="img-fluid">
+                                                        <img src="{{ asset('frontend/assets/images/badge_5.png') }}" alt="Badge" class="img-fluid">
                                                     </li>
                                                 </ul>
                                                 <p class="description">
-                                                    Sed mi leo placerat nulla Donec pharetra rutrum ullamcorpe Ut eget
-                                                    convallis mi. Sed cursus aliquam Nula sed allium lectus fermentum
-                                                    enim Nam maximus pretium consectetu lacinia finibus.
+                                                    {{ $course->instructor->bio }}
                                                 </p>
                                                 <ul class="link d-flex flex-wrap">
-                                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                                    @if($course->instructor->facebook)
+                                                    <li><a href="{{ $course->instructor->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                                                    @endif
+                                                    @if($course->instructor->x)
+                                                    <li><a href="{{ $course->instructor->x }}"><i class="fab fa-twitter"></i></a></li>
+                                                    @endif
+                                                    @if($course->instructor->linkedin)
+                                                    <li><a href="{{ $course->instructor->linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                                    @endif
+                                                    @if($course->instructor->website)
+                                                    <li><a href="{{ $course->instructor->website }}"><i class="fas fa-link"></i></a></li>
+                                                    @endif
+                                                    @if($course->instructor->github)
+                                                    <li><a href="{{ $course->instructor->github }}"><i class="fab fa-github"></i></a></li>
+                                                    @endif
+
+
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="pills-disabled" role="tabpanel"
-                                aria-labelledby="pills-disabled-tab" tabindex="0">
-                                <div class="wsus__course_faq box_area">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                                    aria-controls="flush-collapseOne">
-                                                    How long it take to create a video course?
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseOne" class="accordion-collapse collapse show"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
-                                                    Sed mi leo, accumsan vel ante at, viverra placerat nulla. Donec
-                                                    pharetra rutrum
-                                                    ullamcorpe Ut eget convallis mi. Sed cursus aliquam eitu Nula sed
-                                                    allium lectus
-                                                    fermentum enim Nam maximus pretium consectetu lacinia finibus ipsum,
-                                                    eget
-                                                    fermentum nulla Pellentesque id facilisis magna dictum.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                                    aria-expanded="false" aria-controls="flush-collapseTwo">
-                                                    What kind of support does EduCore provide?
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
-                                                    Sed mi leo, accumsan vel ante at, viverra placerat nulla. Donec
-                                                    pharetra rutrum
-                                                    ullamcorpe Ut eget convallis mi. Sed cursus aliquam eitu Nula sed
-                                                    allium lectus
-                                                    fermentum enim Nam maximus pretium consectetu lacinia finibus ipsum,
-                                                    eget
-                                                    fermentum nulla Pellentesque id facilisis magna dictum.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                                    aria-expanded="false" aria-controls="flush-collapseThree">
-                                                    How long do I get support & updates?
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">Placeholder content for this accordion,
-                                                    Sed mi leo, accumsan vel ante at, viverra placerat nulla. Donec
-                                                    pharetra rutrum
-                                                    ullamcorpe Ut eget convallis mi. Sed cursus aliquam eitu Nula sed
-                                                    allium lectus
-                                                    fermentum enim Nam maximus pretium consectetu lacinia finibus ipsum,
-                                                    eget
-                                                    fermentum nulla Pellentesque id facilisis magna dictum.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseThree3"
-                                                    aria-expanded="false" aria-controls="flush-collapseThree">
-                                                    How can I contact a school directly?
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseThree3" class="accordion-collapse collapse"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
-                                                    Sed mi leo, accumsan vel ante at, viverra placerat nulla. Donec
-                                                    pharetra rutrum
-                                                    ullamcorpe Ut eget convallis mi. Sed cursus aliquam eitu Nula sed
-                                                    allium lectus
-                                                    fermentum enim Nam maximus pretium consectetu lacinia finibus ipsum,
-                                                    eget
-                                                    fermentum nulla Pellentesque id facilisis magna dictum.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="tab-pane fade" id="pills-disabled2" role="tabpanel"
                                 aria-labelledby="pills-disabled-tab2" tabindex="0">
