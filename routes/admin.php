@@ -116,6 +116,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     /** Payment setting routes */
     Route::get('payment-setting', [PaymentSettingController::class, 'index'])->name('payment-setting.index');
+    Route::post('paypal-setting', [PaymentSettingController::class, 'paypalSetting'])->name('paypal-setting.update');
 
 
     /** lfm Routes */
