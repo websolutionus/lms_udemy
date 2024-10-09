@@ -11,6 +11,7 @@
         "laravel/tinker": "^2.9",
         "php-flasher/flasher-laravel": "^2.0",
         "php-flasher/flasher-notyf-laravel": "^2.0",
+        "srmklive/paypal": "~3.0",
         "unisharp/laravel-filemanager": "^2.9"
     },
     "require-dev": {

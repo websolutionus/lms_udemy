@@ -11,13 +11,20 @@ function addToCart(courseId) {
             _token: csrf_token
         },
         beforeSend: function() {
-
+            $('.add_to_cart').text('Adding...');
         },
         success: function(data) {
+            $('.cart_count').html(data.cart_count);
+            notyf.success(data.message);
 
+            $('.add_to_cart').text('Add To Cart');
         },
         error: function(xhr, status, error) {
+            console.log(xhr);
+            let errorMessage = xhr.responseJSON.message;
+            notyf.error(errorMessage);
 
+            $('.add_to_cart').text('Add To Cart');
         }
 
     });
