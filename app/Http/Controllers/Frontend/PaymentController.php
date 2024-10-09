@@ -19,9 +19,31 @@ class PaymentController extends Controller
         return view('frontend.pages.order-failed');
     }
 
+    function paypalConfig(): array {
+        return [
+            'mode'    => config('gateway_settings.paypal_mode'),
+            'sandbox' => [
+                'client_id'         => config('gateway_settings.paypal_client_id'),
+                'client_secret'     => config('gateway_settings.paypal_client_secret'),
+                'app_id'            => 'APP-80W284485P519543T',
+            ],
+            'live' => [
+                'client_id'         => config('gateway_settings.paypal_client_id'),
+                'client_secret'     => config('gateway_settings.paypal_client_secret'),
+                'app_id'            => config('gateway_settings.paypal_app_id'),
+            ],
+        
+            'payment_action' => "Sale",
+            'currency'       => config('gateway_settings.paypal_currency'),
+            'notify_url'     => '',
+            'locale'         => 'en_US',
+            'validate_ssl'   => true,
+        ];
+    }
+
     function payWithPaypal()
     {
-        $provider = new PayPalClient();
+        $provider = new PayPalClient($this->paypalConfig());
         $provider->getAccessToken();
 
         $payableAmount = cartTotal();
@@ -54,7 +76,7 @@ class PaymentController extends Controller
     function paypalSuccess(Request $request)
     {
 
-        $provider = new PayPalClient();
+        $provider = new PayPalClient($this->paypalConfig());
         $provider->getAccessToken();
 
         $response = $provider->capturePaymentOrder($request->token);
