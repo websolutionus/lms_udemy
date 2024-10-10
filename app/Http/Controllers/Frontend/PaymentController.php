@@ -141,4 +141,36 @@ class PaymentController extends Controller
 
         return redirect()->away($response->url);
     }
+
+    function stripeSuccess(Request $request) {
+        Stripe::setApiKey(config('gateway_settings.stripe_secret'));
+        
+        $response = StripeSession::retrieve($request->session_id);
+        if($response->payment_status === 'paid') {
+            $transactionId = $response->payment_intent;
+            $paidAmount = $response->amount_total / 100;
+            $currency = $response->currency;
+
+            try {
+                OrderService::storeOrder(
+                    $transactionId,
+                    auth()->user()->id,
+                    'approved',
+                    $paidAmount,
+                    $paidAmount,
+                    $currency,
+                    'stripe',
+                );
+
+                return redirect()->route('order.success');
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+        return redirect()->route('order.failed');
+    }
+
+    function stripeCancel(Request $request) {
+        return redirect()->route('order.failed');
+    }
 }
