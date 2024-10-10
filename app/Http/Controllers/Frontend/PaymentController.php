@@ -6,20 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Service\OrderService;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Stripe\Checkout\Session as StripeSession;
+use Stripe\Stripe;
 
 class PaymentController extends Controller
 {
 
-    function orderSuccess () {
+    function orderSuccess()
+    {
         return view('frontend.pages.order-success');
     }
 
 
-    function orderFailed () {
+    function orderFailed()
+    {
         return view('frontend.pages.order-failed');
     }
 
-    function paypalConfig(): array {
+    function paypalConfig(): array
+    {
         return [
             'mode'    => config('gateway_settings.paypal_mode'),
             'sandbox' => [
@@ -32,7 +37,7 @@ class PaymentController extends Controller
                 'client_secret'     => config('gateway_settings.paypal_client_secret'),
                 'app_id'            => config('gateway_settings.paypal_app_id'),
             ],
-        
+
             'payment_action' => "Sale",
             'currency'       => config('gateway_settings.paypal_currency'),
             'notify_url'     => '',
@@ -100,12 +105,40 @@ class PaymentController extends Controller
                 );
 
                 return redirect()->route('order.success');
-
             } catch (\Throwable $th) {
                 throw $th;
             }
         }
 
         return redirect()->route('order.failed');
+    }
+
+
+    function payWithStripe()
+    {
+        Stripe::setApiKey(config('gateway_settings.stripe_secret'));
+
+        $payableAmount = (cartTotal() * 100);
+        $quantityCount = cartCount();
+
+        $response = StripeSession::create([
+            'line_items' => [
+                [
+                    'price_data' => [
+                        'currency' => config('gateway_settings.stripe_currency'),
+                        'product_data' => [
+                            'name' => 'Course'
+                        ],
+                        'unit_amount' => $payableAmount
+                    ],
+                    'quantity' => $quantityCount
+                ]
+            ],
+            'mode' => 'payment',
+            'success_url' => route('stripe.success') . '?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('stripe.cancel')
+        ]);
+
+        return redirect()->away($response->url);
     }
 }
