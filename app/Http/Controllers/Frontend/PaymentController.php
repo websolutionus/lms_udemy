@@ -173,4 +173,11 @@ class PaymentController extends Controller
     function stripeCancel(Request $request) {
         return redirect()->route('order.failed');
     }
+
+    function razorpayRedirect() {
+        return view('frontend.pages.razorpay-redirect');
+    }
+    function payWithRazorpay(Request $request) {
+        
+    }
 }

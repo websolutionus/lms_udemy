@@ -38,6 +38,9 @@ use Illuminate\Support\Facades\Route;
  Route::get('stripe/payment', [PaymentController::class, 'payWithStripe'])->name('stripe.payment');
  Route::get('stripe/success', [PaymentController::class, 'stripeSuccess'])->name('stripe.success');
  Route::get('stripe/cancel', [PaymentController::class, 'stripeCancel'])->name('stripe.cancel');
+ /** Razorpay Routes */
+ Route::get('razorpay/redirect', [PaymentController::class, 'razorpayRedirect'])->name('razorpay.redirect');
+ Route::get('razorpay/payment', [PaymentController::class, 'payWithRazorpay'])->name('razorpay.payment');
 
  Route::get('order-success', [PaymentController::class, 'orderSuccess'])->name('order.success');
  Route::get('order-failed', [PaymentController::class, 'orderFailed'])->name('order.failed');
