@@ -143,6 +143,11 @@ return [
             'SOS', 'SRD', 'STD', 'SZL', 'THB', 'TJS', 'TOP', 'TRY', 'TTD', 'TWD', 'TZS', 
             'UAH', 'UGX', 'UYU', 'UZS', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XOF', 'XPF', 
             'YER', 'ZAR', 'ZMW'
+        ],
+        
+        'razorpay_currencies' => [
+            'INR', 'USD', 'EUR', 'GBP', 'SGD', 'AED', 'CAD', 'CNY', 
+            'SEK', 'NZD', 'CHF', 'DKK', 'JPY', 'MYR', 'SAR', 'IDR'
         ]
 
 ];

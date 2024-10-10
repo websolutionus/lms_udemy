@@ -118,6 +118,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::get('payment-setting', [PaymentSettingController::class, 'index'])->name('payment-setting.index');
     Route::post('paypal-setting', [PaymentSettingController::class, 'paypalSetting'])->name('paypal-setting.update');
     Route::post('stripe-setting', [PaymentSettingController::class, 'stripeSetting'])->name('stripe-setting.update');
+    Route::post('razorpay-setting', [PaymentSettingController::class, 'razorpaySetting'])->name('razorpay-setting.update');
 
 
     /** lfm Routes */

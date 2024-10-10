@@ -35,8 +35,8 @@
                                         role="tab" tabindex="-1">Stripe Settings</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a href="#tabs-activity-5" class="nav-link" data-bs-toggle="tab"
-                                        aria-selected="true" role="tab">Activity</a>
+                                    <a href="#razorpay-setting" class="nav-link" data-bs-toggle="tab"
+                                        aria-selected="true" role="tab">Razorpay Settings</a>
                                 </li>
                             </ul>
                         </div>
@@ -173,10 +173,67 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane show" id="tabs-activity-5" role="tabpanel">
-                                    <h4>Activity tab</h4>
-                                    <div>Donec ac vitae diam amet vel leo egestas consequat rhoncus in luctus amet, facilisi
-                                        sit mauris accumsan nibh habitant senectus</div>
+                                <div class="tab-pane show" id="razorpay-setting" role="tabpanel">
+                                    <form action="{{ route('admin.razorpay-setting.update') }}" method="POST">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Stripe Staus</label>
+                                                    <select name="razorpay_status" class="form-control" >
+                                                        <option @selected(config('gateway_settings.razorpay_status') === 'active') value="active">Active</option>
+                                                        <option @selected(config('gateway_settings.razorpay_status') === 'inactive') value="inactive">Inactive</option>
+                                                    </select>
+                                                    <x-input-error :messages="$errors->get('razorpay_status')" class="mt-2" />
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-5">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Currency</label>
+                                                    <select name="razorpay_currency" class="form-control select2" >
+                                                        @foreach(config('gateway_currencies.razorpay_currencies') as $key => $value)
+                                                        <option @selected(config('gateway_settings.razorpay_currency') == $value)  value="{{ $value }}">{{ $value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    
+                                                    <x-input-error :messages="$errors->get('razorpay_currency')" class="mt-2" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Rate (USD)</label>
+                                                    <input type="text" class="form-control" name="razorpay_rate"
+                                                        placeholder="Enter Razorpay Rate" value="{{ config('gateway_settings.razorpay_rate') }}">
+                                                    <x-input-error :messages="$errors->get('razorpay_rate')" class="mt-2" />
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Publishable Key</label>
+                                                    <input type="text" class="form-control" name="razorpay_key"
+                                                        placeholder="Enter Razorpay key" value="{{ config('gateway_settings.razorpay_key') }}">
+                                                    <x-input-error :messages="$errors->get('razorpay_key')" class="mt-2" />
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Clinet Secret</label>
+                                                    <input type="text" class="form-control" name="razorpay_secret"
+                                                        placeholder="Enter Razorpay client secret" value="{{ config('gateway_settings.razorpay_secret') }}">
+                                                    <x-input-error :messages="$errors->get('razorpay_secret')" class="mt-2" />
+                                                </div>
+                                            </div>
+                            
+    
+                                            
+                                        </div>
+                                        <div class="text-end">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
