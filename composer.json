@@ -11,6 +11,7 @@
         "laravel/tinker": "^2.9",
         "php-flasher/flasher-laravel": "^2.0",
         "php-flasher/flasher-notyf-laravel": "^2.0",
+        "razorpay/razorpay": "2.*",
         "srmklive/paypal": "~3.0",
         "stripe/stripe-php": "^16.1",
         "unisharp/laravel-filemanager": "^2.9"

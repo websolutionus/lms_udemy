@@ -10,7 +10,7 @@
     @php
         $payableAmount = (cartTotal() * 100);   
     @endphp
-   <form action="" method="POST">
+   <form action="{{ route('razorpay.payment') }}" method="POST">
     @csrf
     <script src="https://checkout.razorpay.com/v1/checkout.js" 
         data-key="{{ config('gateway_settings.razorpay_key') }}"

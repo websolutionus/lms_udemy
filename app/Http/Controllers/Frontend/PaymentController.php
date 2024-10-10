@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Stripe\Checkout\Session as StripeSession;
 use Stripe\Stripe;
+use Razorpay\Api\Api as RazorpayApi;
 
 class PaymentController extends Controller
 {
@@ -178,6 +179,38 @@ class PaymentController extends Controller
         return view('frontend.pages.razorpay-redirect');
     }
     function payWithRazorpay(Request $request) {
-        
+        $api = new RazorpayApi(
+            config('gateway_settings.razorpay_key'),
+            config('gateway_settings.razorpay_secret')
+        );
+
+        $payableAmount = (cartTotal() * 100);
+
+
+
+       try {
+        $response = $api->payment->fetch($request->razorpay_payment_id)->capture(['amount' => $payableAmount]);
+
+        $transactionId = $response->id;
+        $paidAmount = $response->amount / 100;
+        $currency = $response->currency;
+
+        if($response['status'] === 'captured') {
+             OrderService::storeOrder(
+                    $transactionId,
+                    auth()->user()->id,
+                    'approved',
+                    $paidAmount,
+                    $paidAmount,
+                    $currency,
+                    'razorpay',
+                );
+                return redirect()->route('order.success');
+        }
+        return redirect()->route('order.failed');
+
+       } catch (\Throwable $th) {
+        throw $th;
+       }
     }
 }

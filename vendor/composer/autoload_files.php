@@ -41,8 +41,10 @@ return array(
     '0354d0f52e96eae287281ec0e82e0beb' => $vendorDir . '/php-flasher/flasher-notyf/functions.php',
     'f323534d89c794dd71128095d196a51d' => $vendorDir . '/php-flasher/flasher-notyf/helpers.php',
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
+    '941748b3c8cae4466c827dfb5ca9602a' => $vendorDir . '/rmccue/requests/library/Deprecated.php',
     'c72349b1fe8d0deeedd3a52e8aa814d8' => $vendorDir . '/mockery/mockery/library/helpers.php',
     'ce9671a430e4846b44e1c68c7611f9f5' => $vendorDir . '/mockery/mockery/library/Mockery.php',
     'd634523d799d97a8ab4807b650bf5cea' => $vendorDir . '/pestphp/pest-plugin-laravel/src/Autoload.php',
+    '13906c19e3d8fcd1341b24ed4d51cf72' => $vendorDir . '/razorpay/razorpay/Deprecated.php',
     '7cba3915255b22813fa780b019895ba3' => $baseDir . '/app/Helpers/global_helpers.php',
 );
