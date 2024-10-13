@@ -11,6 +11,6 @@ class SettingController extends Controller
     //
 
     function index() : View{
-       return view('admin.setting.index'); 
+       return view('admin.setting.general-settings'); 
     }
 }

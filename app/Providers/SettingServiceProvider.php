@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Service\SettingService;
 use Illuminate\Support\ServiceProvider;
 
 class SettingServiceProvider extends ServiceProvider
@@ -11,7 +12,9 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(SettingService::class, function() {
+            return new SettingService();
+        });
     }
 
     /**
@@ -20,5 +23,7 @@ class SettingServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        $settings = $this->app->make(SettingService::class);
+        $settings->setGlobalSettings();
     }
 }
