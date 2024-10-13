@@ -131,6 +131,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     /** Site Settings Route */
     Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('general-settings', [SettingController::class, 'updateGeneralSettings'])->name('general-settings.update');
 
 
     /** lfm Routes */
