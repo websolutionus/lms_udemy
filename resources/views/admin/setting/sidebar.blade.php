@@ -4,9 +4,8 @@
         <div class="list-group list-group-transparent">
             <a href="{{ route('admin.settings.index') }}"
                 class="list-group-item list-group-item-action d-flex align-items-center active">General Settings</a>
-            <a href="#"
-                class="list-group-item list-group-item-action d-flex align-items-center">My
-                Notifications</a>
+            <a href="{{ route('admin.commission-settings.index') }}"
+                class="list-group-item list-group-item-action d-flex align-items-center">Commission Setings</a>
             <a href="#"
                 class="list-group-item list-group-item-action d-flex align-items-center">Connected
                 Apps</a>
