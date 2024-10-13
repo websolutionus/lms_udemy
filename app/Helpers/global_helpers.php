@@ -54,3 +54,11 @@ if(!function_exists('cartTotal')) {
         return $total;
     }
 }
+
+/** calculate cart total */
+if(!function_exists('calculateCommission')) {
+    function calculateCommission($amount, $commission) {
+        return ($amount * $commission) / 100;
+    }
+}
+
