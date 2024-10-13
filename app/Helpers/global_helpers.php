@@ -58,7 +58,7 @@ if(!function_exists('cartTotal')) {
 /** calculate cart total */
 if(!function_exists('calculateCommission')) {
     function calculateCommission($amount, $commission) {
-        return ($amount * $commission) / 100;
+        return $amount == 0 ? 0 : ($amount * $commission) / 100;
     }
 }
 
