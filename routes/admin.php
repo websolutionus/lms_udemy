@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\InstructorReqeustController;
 use App\Http\Controllers\Admin\InstructorRequestController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentSettingController;
+use App\Http\Controllers\Admin\PayoutGatewayController;
 use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
@@ -136,6 +137,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::get('commission-settings', [SettingController::class, 'commissionSettingIndex'])->name('commission-settings.index');
     Route::post('commission-settings', [SettingController::class, 'updateCommissionSetting'])->name('commission-settings.update');
 
+    /** Payout Gateway Routes */
+    Route::resource('payout-gateway', PayoutGatewayController::class);
 
 
     /** lfm Routes */
