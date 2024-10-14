@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\PasswordUpdateRequest;
 use App\Http\Requests\Frontend\ProfileUpdateRequest;
 use App\Http\Requests\Frontend\SocialUpdateRequest;
+use App\Models\InstructorPayoutInformation;
 use App\Models\PayoutGateway;
 use App\Models\User;
 use App\Traits\FileUpload;
@@ -68,5 +69,20 @@ class ProfileController extends Controller
         
         notyf()->success('Updated Successfully');
         return redirect()->back();
+    }
+
+    function updateGatewayInfo(Request $request)
+    {
+        InstructorPayoutInformation::updateOrCreate(
+            ['instructor_id' => user()->id],
+            [
+                'gateway' => $request->gateway,
+                'information' => $request->information
+            ]
+         );
+
+         notyf()->success('Updated Successfully');
+
+         return redirect()->back();
     }
 }
