@@ -126,11 +126,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="wsus__dashboard_profile_update_info">
+                                        @foreach($gateways as $gateway)
+                                        <span class="d-none gateway-{{ $gateway->id }}">{!! $gateway->description !!}</span>
+                                        @endforeach
                                         <label>Gateway</label>
-                                        <select name="" id="">
+                                        <select name="" id="" class="gateway">
                                             <option value="">Select</option>
                                             @foreach($gateways as $gateway)
-                                            <option value="{{ $gateway->name }}">{{ $gateway->name }}</option>
+                                            <option value="{{ $gateway->name }}" data-id="{{ $gateway->id }}">{{ $gateway->name }}</option>
                                             @endforeach
                                         </select>
                                         <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
@@ -140,7 +143,7 @@
                                 <div class="col-md-12">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>Gateway Information</label>
-                                        <textarea name="gateway_info" id="" style="height: 300px" class="form-control"></textarea>
+                                        <textarea name="gateway_info" id="" style="height: 300px" class="form-control gateway_description"></textarea>
                                         <x-input-error :messages="$errors->get('gateway_info')" class="mt-2" />
                                     </div>
                                 </div>
@@ -263,3 +266,13 @@
                     DASHBOARD OVERVIEW END
                 ============================-->
 @endsection
+@push('scripts')
+ <script>
+    $(function() {
+        $('.gateway').on('change', function() {
+            let id = $(this).find(':selected').data('id'); 
+            $('.gateway_description').attr('placeholder', $('.gateway-'+id).html())  
+        })
+    })
+ </script>   
+@endpush
