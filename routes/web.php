@@ -111,7 +111,8 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
 
    /** Withdrawal routes */
    Route::get('withdrawals', [WithdrawController::class, 'index'])->name('withdraw.index');
-   Route::get('withdrawals/request-payout', [WithdrawController::class, 'requestPayout'])->name('withdraw.request-payout');
+   Route::get('withdrawals/request-payout', [WithdrawController::class, 'requestPayoutIndex'])->name('withdraw.request-payout');
+   Route::post('withdrawals/request-payout', [WithdrawController::class, 'requestPayout'])->name('withdraw.request-payout.create');
 
 
 
