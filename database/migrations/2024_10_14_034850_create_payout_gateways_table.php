@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('payout_gateways', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description');
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

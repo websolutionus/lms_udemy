@@ -25,6 +25,11 @@
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea name="description" class="form-control" style="height: 300px">{!! $payout_gateway->description !!}</textarea>
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Status</label>
                             <select name="status" id="">
                                 <option @selected($payout_gateway->status == 1) value="1">Active</option>

@@ -111,6 +111,52 @@
                             </div>
                         </form>
                     </div>
+
+                    <div class="wsus__dashboard_contant">
+                        <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
+                            <div class="wsus__dashboard_heading">
+                                <h5>Payout Settings</h5>
+                                <p>Put your payout information here.</p>
+                            </div>
+                           
+                        </div>
+
+                        <form action="{{ route('instructor.profile.update-password') }}" method="POST" class="wsus__dashboard_profile_update">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Gateway</label>
+                                        <select name="" id="">
+                                            <option value="">Select</option>
+                                            @foreach($gateways as $gateway)
+                                            <option value="{{ $gateway->name }}">{{ $gateway->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Gateway Information</label>
+                                        <textarea name="gateway_info" id="" style="height: 300px" class="form-control"></textarea>
+                                        <x-input-error :messages="$errors->get('gateway_info')" class="mt-2" />
+                                    </div>
+                                </div>
+                               
+                                
+                                
+                                
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_btn">
+                                        <button type="submit" class="common_btn">Update Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                     <div class="wsus__dashboard_contant">
                         <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
                             <div class="wsus__dashboard_heading">
@@ -157,6 +203,7 @@
                             </div>
                         </form>
                     </div>
+
                     <div class="wsus__dashboard_contant">
                         <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
                             <div class="wsus__dashboard_heading">
