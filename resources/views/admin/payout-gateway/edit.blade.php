@@ -5,24 +5,32 @@
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Update Level</h3>
+                    <h3 class="card-title">Update Payout Gateway</h3>
                     <div class="card-actions">
                         <a href="{{ route('admin.course-levels.index') }}" class="btn btn-primary">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
-                           Back 
+                            Back 
                         </a>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.course-levels.update', $course_level->id) }}" method="POST">
+                    <form action="{{ route('admin.payout-gateway.update', $payout_gateway->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
                             <label class="form-label">Name</label>
                             <input type="text" class="form-control" name="name"
-                                placeholder="Enter level name" value="{{ $course_level->name }}">
+                                placeholder="Enter Level name" value="{{ $payout_gateway->name }}">
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select name="status" id="">
+                                <option @selected($payout_gateway->status == 1) value="1">Active</option>
+                                <option @selected($payout_gateway->status == 0) value="0">InActive</option>
+                            </select>
+                            <x-input-error :messages="$errors->get('status')" class="mt-2" />
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit">

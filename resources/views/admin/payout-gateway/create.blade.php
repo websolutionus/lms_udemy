@@ -5,7 +5,7 @@
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Create Level</h3>
+                    <h3 class="card-title">Create Payout Gateway</h3>
                     <div class="card-actions">
                         <a href="{{ route('admin.course-levels.index') }}" class="btn btn-primary">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -15,13 +15,21 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.course-levels.store') }}" method="POST">
+                    <form action="{{ route('admin.payout-gateway.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Name</label>
                             <input type="text" class="form-control" name="name"
                                 placeholder="Enter Level name">
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select name="status" id="">
+                                <option value="1">Active</option>
+                                <option value="0">InActive</option>
+                            </select>
+                            <x-input-error :messages="$errors->get('status')" class="mt-2" />
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit">
