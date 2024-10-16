@@ -14,4 +14,9 @@ class EnrolledCourseController extends Controller
         $enrollments = Enrollment::with('course')->where('user_id', user()->id)->get();
         return view('frontend.student-dashboard.enrolled-course.index', compact('enrollments'));     
     }
+
+    function payerIndex() : View
+    {
+        return view('frontend.student-dashboard.enrolled-course.player-index');     
+    }
 }
