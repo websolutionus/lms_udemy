@@ -22,4 +22,9 @@ class EnrolledCourseController extends Controller
         if(!Enrollment::where('user_id', user()->id)->where('course_id', $course->id)->where('have_access', 1)->exists()) return abort(404);
         return view('frontend.student-dashboard.enrolled-course.player-index', compact('course'));
     }
+
+    function getLessonContent(Request $request) 
+    {
+        dd($request->all());     
+    }
 }
