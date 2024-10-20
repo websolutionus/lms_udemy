@@ -66,7 +66,9 @@
             
 
             <div class="video_holder">
-                
+                <video id="vid1" class="video-js" width="640" height="264"
+                data-setup='{ "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "https://vimeo.com/1007718657"}], "vimeo": { "color": "#fbc51b"} }'>
+              </video> 
             </div>
 
             <div class="video_tabs_area">
@@ -1259,6 +1261,7 @@
     <!--Video player js-->
     <script src="{{ asset('frontend/assets/js/video_player.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/video_player_youtube.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/videojs-vimeo.umd.js') }}"></script>
     <!--wow js-->
     <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
 
