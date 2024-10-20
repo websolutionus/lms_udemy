@@ -17,22 +17,9 @@ function playerHtml(source_type, source) {
                 data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "${source}"}] }'>
             </video>`;
         
-        $('.video_holder').html(player);
+       return player;
     }
 
-                    // Resetting any existing player instance
-                    if (videojs.getPlayers()["vid1"]) {
-                        videojs.getPlayers()["vid1"].dispose();
-                    }
-    
-                    $(".video-payer").html(playerHtml);
-    
-                    // Initializing the player
-                    if (document.getElementById("vid1")) {
-                        videojs("vid1").ready(function () {
-                            this.play();
-                        });
-                    }
 }
 
 
@@ -54,7 +41,21 @@ $('.lesson').on('click', function() {
         },
         beforeSend: function() {},
         success: function(data) {
-            playerHtml(data.storage, data.file_path);
+            
+            $('.video_holder').html(playerHtml(data.storage, data.file_path));
+
+            // resetting any existing player
+            if(videojs.getPlayers()["vid1"]) {
+                videojs.getPlayers()["vid1"].dispose();
+            }
+
+            // initializing the player
+
+            if($('#vid1').length > 0) {
+                videojs("vid1").ready(function() {
+                    this.play();
+                });
+            }
         },
         error: function(xhr, status, error) {}
     })
