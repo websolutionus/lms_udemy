@@ -66,9 +66,7 @@
             
 
             <div class="video_holder">
-                <video id="vid1" class="video-js" width="640" height="264"
-                data-setup='{ "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "https://vimeo.com/1007718657"}], "vimeo": { "color": "#fbc51b"} }'>
-              </video> 
+                
             </div>
 
             <div class="video_tabs_area">

@@ -18,6 +18,12 @@ function playerHtml(source_type, source) {
             </video>`;
         
        return player;
+    }else if(source_type == 'vimeo') {
+        let player = `<video id="vid1" class="video-js" width="640" height="264"
+                data-setup='{ "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "${source}"}], "vimeo": { "color": "#fbc51b"} }'>
+              </video> `;
+
+        return player;
     }
 
 }
