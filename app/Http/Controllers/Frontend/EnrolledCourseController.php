@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\CourseChapterLession;
 use App\Models\Enrollment;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -25,6 +26,12 @@ class EnrolledCourseController extends Controller
 
     function getLessonContent(Request $request) 
     {
-        dd($request->all());     
+        $lesson = CourseChapterLession::where([
+            'course_id' => $request->course_id,
+            'chapter_id' => $request->chapter_id,
+            'id' => $request->lesson_id
+        ])->first();
+
+        return response()->json($lesson);
     }
 }
