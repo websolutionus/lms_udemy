@@ -9,5 +9,5 @@ class WatchHistory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'course_id', 'chapter_id', 'lesson_id', 'updated_at'];
+    protected $fillable = ['user_id', 'course_id', 'chapter_id', 'lesson_id', 'is_completed', 'updated_at'];
 }

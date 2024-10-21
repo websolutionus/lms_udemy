@@ -3,11 +3,12 @@
 const csrf_token = $(`meta[name="csrf_token"]`).attr('content');
 const base_url = $(`meta[name="base_url"]`).attr('content');
 
-/** htmls */
+/** Notyf init */
+var notyf = new Notyf({
+    duration: 5000,
+    dismissible: true
+});
 
-var youtubeHtml = `
-
-`
 
 /** Reusable Functions */
 
@@ -117,7 +118,7 @@ $('.make_completed').on('click', function() {
         },
         beforeSend: function() {},
         success: function(data) {
-            
+            notyf.success(data.message);
         },
         error: function(xhr, status, error) {}
     })
