@@ -33,6 +33,25 @@ function playerHtml(source_type, source) {
 }
 
 
+function updateWatchHistory(courseId, chapterId, lessonId) {
+    $.ajax({
+        method: 'POST',
+        url: `${base_url}/student/update-watch-history`,
+        data: {
+            '_token' : csrf_token,
+            'chapter_id': chapterId,
+            'lesson_id': lessonId,
+            'course_id': courseId
+        },
+        beforeSend: function() {},
+        success: function(data) {
+           
+        },
+        error: function(xhr, status, error) {}
+    })
+}
+
+
 /** On DOM Load */
 
 $('.lesson').on('click', function() {
@@ -66,6 +85,10 @@ $('.lesson').on('click', function() {
                     this.play();
                 });
             }
+
+            // update watch history
+
+            updateWatchHistory(courseId, chapterId, lessonId)
         },
         error: function(xhr, status, error) {}
     })
