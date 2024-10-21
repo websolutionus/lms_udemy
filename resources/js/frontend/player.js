@@ -56,6 +56,9 @@ function updateWatchHistory(courseId, chapterId, lessonId) {
 
 $('.lesson').on('click', function() {
 
+    $('.lesson').removeClass('active');
+    $(this).addClass('active');
+
     let chapterId = $(this).data('chapter-id');
     let lessonId = $(this).data('lesson-id');
     let courseId = $(this).data('course-id');

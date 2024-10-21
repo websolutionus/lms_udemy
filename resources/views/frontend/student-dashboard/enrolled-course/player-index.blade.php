@@ -1334,6 +1334,10 @@
                     lessonId == {{ $lastWatchHistory->lesson_id }}
                 ) {
                     $(lesson).click();
+                    $(lesson).addClass('active');
+
+                    $(lesson).closest('.accordion-collapse').addClass('show');
+                    
                 }
             })
         })

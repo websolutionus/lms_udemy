@@ -22,7 +22,7 @@ class EnrolledCourseController extends Controller
     {
         $course = Course::where('slug', $slug)->firstOrFail();
         if(!Enrollment::where('user_id', user()->id)->where('course_id', $course->id)->where('have_access', 1)->exists()) return abort(404);
-        $lastWatchHistory = WatchHistory::where(['user_id' => user()->id, 'course_id' => $course->id])->latest()->first();
+        $lastWatchHistory = WatchHistory::where(['user_id' => user()->id, 'course_id' => $course->id])->orderBy('updated_at', 'desc')->first();
         return view('frontend.student-dashboard.enrolled-course.player-index', compact('course', 'lastWatchHistory'));
     }
 
@@ -38,11 +38,16 @@ class EnrolledCourseController extends Controller
     }
 
     function updateWatchHistory(Request $request) {
-       WatchHistory::updateOrCreate([
-        'user_id' => user()->id,
+       WatchHistory::updateOrCreate(
+        [
+            'user_id' => user()->id,
+            'lesson_id' => $request->lesson_id
+
+        ],
+        [
         'course_id' => $request->course_id,
         'chapter_id' => $request->chapter_id,
-        'lesson_id' => $request->lesson_id
+        'updated_at' => now()
        ]);
     }
 }

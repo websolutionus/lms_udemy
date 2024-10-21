@@ -15663,3 +15663,9 @@ select {
   padding: 11px !important;
   margin-top: 5px !important;
 }
+
+
+.lesson.active label {
+    color: #356df1;
+    font-weight: 600;
+}
