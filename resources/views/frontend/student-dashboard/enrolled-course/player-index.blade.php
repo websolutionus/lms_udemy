@@ -63,10 +63,10 @@
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/webm" />
             </video> -->
 
-            
+
 
             <div class="video_holder">
-                
+
             </div>
 
             <div class="video_tabs_area">
@@ -88,13 +88,13 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                            aria-selected="false">Announcements</button>
+                            data-bs-target="#pills-contact" type="button" role="tab"
+                            aria-controls="pills-contact" aria-selected="false">Announcements</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled"
-                            aria-selected="false">Reviews</button>
+                            data-bs-target="#pills-disabled" type="button" role="tab"
+                            aria-controls="pills-disabled" aria-selected="false">Reviews</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -143,9 +143,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -190,9 +193,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -237,9 +243,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -284,9 +293,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -331,9 +343,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -378,9 +393,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -425,9 +443,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -472,9 +493,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -519,9 +543,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -566,9 +593,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -613,9 +643,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -660,9 +693,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -707,9 +743,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -754,9 +793,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -801,9 +843,12 @@
                                                         <i class="fas fa-folder-open"></i> Resources
                                                     </button>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="#">Resources File 01</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 02</a></li>
-                                                        <li><a class="dropdown-item" href="#">Resources 03</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources File
+                                                                01</a></li>
+                                                        <li><a class="dropdown-item" href="#">Resources 02</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Resources 03</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -889,8 +934,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-                        tabindex="0">
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                        aria-labelledby="pills-profile-tab" tabindex="0">
                         <div class="video_qna">
 
                             <div class="qna_list_area">
@@ -928,7 +973,8 @@
                                             <img src="images/testimonial_user_1.png" alt="img">
                                         </div>
                                         <div class="text">
-                                            <a class="qna_title" href="#">mailtrap.io doe not send email verifications
+                                            <a class="qna_title" href="#">mailtrap.io doe not send email
+                                                verifications
                                                 directly to the user's
                                                 email?</a>
                                             <p>Hi, how do I make mailtrap.io send the email verification directly to the
@@ -946,7 +992,8 @@
                                             <img src="images/testimonial_user_2.png" alt="img">
                                         </div>
                                         <div class="text">
-                                            <a class="qna_title" href="#">mailtrap.io doe not send email verifications
+                                            <a class="qna_title" href="#">mailtrap.io doe not send email
+                                                verifications
                                                 directly to the user's
                                                 email?</a>
                                             <p>Hi, how do I make mailtrap.io send the email verification directly to the
@@ -964,7 +1011,8 @@
                                             <img src="images/testimonial_user_3.png" alt="img">
                                         </div>
                                         <div class="text">
-                                            <a class="qna_title" href="#">mailtrap.io doe not send email verifications
+                                            <a class="qna_title" href="#">mailtrap.io doe not send email
+                                                verifications
                                                 directly to the user's
                                                 email?</a>
                                             <p>Hi, how do I make mailtrap.io send the email verification directly to the
@@ -989,7 +1037,8 @@
                                         <img src="images/review-author.png" alt="img">
                                     </div>
                                     <div class="text">
-                                        <a class="qna_title" href="#">mailtrap.io doe not send email verifications
+                                        <a class="qna_title" href="#">mailtrap.io doe not send email
+                                            verifications
                                             directly to the user's
                                             email?</a>
                                         <p>Hi, how do I make mailtrap.io send the email verification directly to the
@@ -1075,16 +1124,16 @@
 
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
-                        tabindex="0">
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                        aria-labelledby="pills-contact-tab" tabindex="0">
                         <div class="video_announcement">
                             <h1>No announcements posted yet</h1>
                             <p>The instructor hasn’t added any announcements to this course yet. Announcements are used
                                 to inform you of updates or additions to the course.</p>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab"
-                        tabindex="0">
+                    <div class="tab-pane fade" id="pills-disabled" role="tabpanel"
+                        aria-labelledby="pills-disabled-tab" tabindex="0">
                         <div class="video_review">
                             <h2>Reviews (09)</h2>
                             <div class="course-review-head">
@@ -1177,31 +1226,35 @@
         <div class="wsus__course_sidebar d-none d-lg-block">
             <h2 class="video_heading">Course Content</h2>
             <div class="accordion" id="accordionExample">
-                @foreach($course->chapters as $chapter)
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-{{ $chapter->id }}" aria-expanded="true" aria-controls="collapse-{{ $chapter->id }}">
-                            <b>{{ $chapter->title }}</b>
-                            <span>5/5</span>
-                        </button>
-                    </h2>
-                    <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            @foreach($chapter->lessons as $lesson)
-                            <div class="form-check lesson" data-course-id="{{ $course->id }}" data-lesson-id="{{ $lesson->id }}" data-chapter-id="{{ $chapter->id }}">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label">
-                                    {{ $lesson->title }}
-                                    <span>
-                                        <img src="{{ asset('frontend/assets/images/video_icon_black_2.png') }}" alt="video" class="img-fluid">
-                                        {{ convertMinutesToHours($lesson->duration) }}
-                                    </span>
-                                </label>
-                            </div>
-                            @endforeach
-                            
-                            {{-- <div class="dropdown">
+                @foreach ($course->chapters as $chapter)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse-{{ $chapter->id }}" aria-expanded="true"
+                                aria-controls="collapse-{{ $chapter->id }}">
+                                <b>{{ $chapter->title }}</b>
+                                <span>5/5</span>
+                            </button>
+                        </h2>
+                        <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                @foreach ($chapter->lessons as $lesson)
+                                    <div class="form-check lesson" data-course-id="{{ $course->id }}"
+                                        data-lesson-id="{{ $lesson->id }}" data-chapter-id="{{ $chapter->id }}">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <label class="form-check-label">
+                                            {{ $lesson->title }}
+                                            <span>
+                                                <img src="{{ asset('frontend/assets/images/video_icon_black_2.png') }}"
+                                                    alt="video" class="img-fluid">
+                                                {{ convertMinutesToHours($lesson->duration) }}
+                                            </span>
+                                        </label>
+                                    </div>
+                                @endforeach
+
+                                {{-- <div class="dropdown">
                                 <button class="btn btn-secondary" type="button">
                                     <i class="fas fa-folder-open"></i> Resources
                                 </button>
@@ -1211,9 +1264,9 @@
                                     <li><a class="dropdown-item" href="#">Resources 03</a></li>
                                 </ul>
                             </div> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -1265,6 +1318,26 @@
 
     <!--main/custom js-->
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+
+    <script>
+        $(function() {
+            let lessons = $('.lesson');
+
+            $.each(lessons, function(index, lesson) {
+                let chapterId = $(lesson).data('chapter-id');
+                let courseId = $(lesson).data('course-id');
+                let lessonId = $(lesson).data('lesson-id');
+
+                if (
+                    chapterId == {{ $lastWatchHistory->chapter_id }} &&
+                    courseId == {{ $lastWatchHistory->course_id }} &&
+                    lessonId == {{ $lastWatchHistory->lesson_id }}
+                ) {
+                    $(lesson).click();
+                }
+            })
+        })
+    </script>
 
 </body>
 

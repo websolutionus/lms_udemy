@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseChapterLession;
 use App\Models\Enrollment;
+use App\Models\WatchHistory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class EnrolledCourseController extends Controller
     {
         $course = Course::where('slug', $slug)->firstOrFail();
         if(!Enrollment::where('user_id', user()->id)->where('course_id', $course->id)->where('have_access', 1)->exists()) return abort(404);
-        return view('frontend.student-dashboard.enrolled-course.player-index', compact('course'));
+        $lastWatchHistory = WatchHistory::where(['user_id' => user()->id, 'course_id' => $course->id])->latest()->first();
+        return view('frontend.student-dashboard.enrolled-course.player-index', compact('course', 'lastWatchHistory'));
     }
 
     function getLessonContent(Request $request) 
@@ -36,6 +38,11 @@ class EnrolledCourseController extends Controller
     }
 
     function updateWatchHistory(Request $request) {
-       dd($request->all()); 
+       WatchHistory::updateOrCreate([
+        'user_id' => user()->id,
+        'course_id' => $request->course_id,
+        'chapter_id' => $request->chapter_id,
+        'lesson_id' => $request->lesson_id
+       ]);
     }
 }
