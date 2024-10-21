@@ -97,3 +97,29 @@ $('.lesson').on('click', function() {
     })
 
 });
+
+
+
+$('.make_completed').on('click', function() {
+
+    let chapterId = $(this).data('chapter-id');
+    let lessonId = $(this).data('lesson-id');
+    let courseId = $(this).data('course-id');
+
+    $.ajax({
+        method: 'POST',
+        url: `${base_url}/student/update-lesson-completion`,
+        data: {
+            '_token' : csrf_token,
+            'chapter_id': chapterId,
+            'lesson_id': lessonId,
+            'course_id': courseId
+        },
+        beforeSend: function() {},
+        success: function(data) {
+            
+        },
+        error: function(xhr, status, error) {}
+    })
+
+});

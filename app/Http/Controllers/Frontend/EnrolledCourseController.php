@@ -9,6 +9,7 @@ use App\Models\Enrollment;
 use App\Models\WatchHistory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class EnrolledCourseController extends Controller
 {
@@ -49,5 +50,10 @@ class EnrolledCourseController extends Controller
         'chapter_id' => $request->chapter_id,
         'updated_at' => now()
        ]);
+    }
+
+    function updateLessonCompletion(Request $request) : Response
+    {
+        dd($request->all());
     }
 }

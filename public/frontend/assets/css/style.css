@@ -15665,7 +15665,7 @@ select {
 }
 
 
-.lesson.active label {
+.form-check-label.lesson.active {
     color: #356df1;
     font-weight: 600;
 }

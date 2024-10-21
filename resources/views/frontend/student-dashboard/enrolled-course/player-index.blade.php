@@ -1240,10 +1240,10 @@
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 @foreach ($chapter->lessons as $lesson)
-                                    <div class="form-check lesson" data-course-id="{{ $course->id }}"
+                                    <div class="form-check" >
+                                        <input class="form-check-input make_completed" data-course-id="{{ $course->id }}" data-lesson-id="{{ $lesson->id }}" data-chapter-id="{{ $chapter->id }}" name="" type="checkbox" value="">
+                                        <label class="form-check-label lesson" data-course-id="{{ $course->id }}"
                                         data-lesson-id="{{ $lesson->id }}" data-chapter-id="{{ $chapter->id }}">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <label class="form-check-label">
                                             {{ $lesson->title }}
                                             <span>
                                                 <img src="{{ asset('frontend/assets/images/video_icon_black_2.png') }}"
