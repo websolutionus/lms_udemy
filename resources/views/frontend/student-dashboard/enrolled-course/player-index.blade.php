@@ -52,7 +52,7 @@
         <div class="col-12">
             <div class="wsus__course_header">
                 <a href="index.html"><i class="fas fa-angle-left"></i> Speaking English for Beginners</a>
-                <p>Your Progress: 20 of 15 (75%)</p>
+                <p>Your Progress: {{ $lessonCount }} of {{ count($watchedLessonIds) }} ({{ (count($watchedLessonIds) / $lessonCount) * 100 }}%)</p>
             </div>
         </div>
 

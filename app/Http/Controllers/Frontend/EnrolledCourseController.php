@@ -22,10 +22,12 @@ class EnrolledCourseController extends Controller
     function payerIndex(string $slug) : View
     {
         $course = Course::where('slug', $slug)->firstOrFail();
+
         if(!Enrollment::where('user_id', user()->id)->where('course_id', $course->id)->where('have_access', 1)->exists()) return abort(404);
+        $lessonCount = CourseChapterLession::where('course_id', $course->id)->count();
         $lastWatchHistory = WatchHistory::where(['user_id' => user()->id, 'course_id' => $course->id])->orderBy('updated_at', 'desc')->first();
         $watchedLessonIds = WatchHistory::where(['user_id' => user()->id, 'course_id' => $course->id, 'is_completed' => 1])->pluck('lesson_id')->toArray();
-        return view('frontend.student-dashboard.enrolled-course.player-index', compact('course', 'lastWatchHistory', 'watchedLessonIds'));
+        return view('frontend.student-dashboard.enrolled-course.player-index', compact('course', 'lastWatchHistory', 'watchedLessonIds', 'lessonCount'));
     }
 
     function getLessonContent(Request $request) 

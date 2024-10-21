@@ -15670,5 +15670,7 @@ select {
     font-weight: 600;
 }
 
-.video_holder {
+.video_holder iframe{
+    width: 100%;
+    height: 700px;
 }
