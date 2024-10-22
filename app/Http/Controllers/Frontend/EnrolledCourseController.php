@@ -76,4 +76,10 @@ class EnrolledCourseController extends Controller
 
         return response(['status' => 'success', 'message' => 'Updated Successfully!']);
     }
+
+    function fileDownload(string $id)
+    {
+        $lesson = CourseChapterLession::findOrFail($id);
+        return response()->download(public_path($lesson->file_path));     
+    }
 }

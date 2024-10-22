@@ -10,7 +10,8 @@
       window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
       window.SetUrl = function (items) {
         var file_path = items.map(function (item) {
-          return item.url;
+          let base_url = $('meta[name="base_url"]').attr('content');
+          return item.url.replace(base_url, '');
         }).join(',');
 
         // set the value of the desired input to image url

@@ -12,7 +12,7 @@ var notyf = new Notyf({
 
 /** Reusable Functions */
 
-function playerHtml(source_type, source, file_type) {
+function playerHtml(id, source_type, source, file_type) {
     if(source_type == 'youtube') {
         let player = `<video id="vid1" class="video-js vjs-default-skin" controls autoplay width="640" height="264"
                 data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "${source}"}] }'>
@@ -35,7 +35,8 @@ function playerHtml(source_type, source, file_type) {
             <div class="file_type_inner">
                     <div><img src="${base_url}/default-files/folder.png" alt=""></div>
                     <h6 class="mt-2">Type: File</h6>
-                    <a href="" class="common_btn mt-3">Download</a>
+                    ${source_type == 'external_link' ? `<a href="${source}" target="_blank" class="common_btn mt-3">Download</a>` : `<a href="${base_url}/student/file-download/${id}" class="common_btn mt-3">Download</a>`}
+                    
             </div>
         </div>`;
             return player;
@@ -105,7 +106,7 @@ $('.lesson').on('click', function() {
         },
         success: function(data) {
             
-            $('.video_holder').html(playerHtml(data.storage, data.file_path, data.file_type));
+            $('.video_holder').html(playerHtml(data.id, data.storage, data.file_path, data.file_type));
 
             // load about lecture description
             $('.about_lecture').text(data.description);

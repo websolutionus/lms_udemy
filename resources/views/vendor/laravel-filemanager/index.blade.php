@@ -11,6 +11,7 @@
   <meta name="msapplication-navbutton-color" content="#333844">
   <!-- iOS Safari -->
   <meta name="apple-mobile-web-app-status-bar-style" content="#333844">
+  <meta name="base_url" content="{{ url('/') }}">
 
   <title>{{ trans('laravel-filemanager::lfm.title-page') }}</title>
   <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/laravel-filemanager/img/72px color.png') }}">
