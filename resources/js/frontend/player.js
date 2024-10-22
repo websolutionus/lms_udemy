@@ -30,6 +30,15 @@ function playerHtml(source_type, source, file_type) {
         if(file_type == 'doc') {
             renderDocPreview(source);
             return;
+        } else if(file_type == 'file') {
+            let player = `    <div class="file_type">
+            <div class="file_type_inner">
+                    <div><img src="${base_url}/default-files/folder.png" alt=""></div>
+                    <h6 class="mt-2">Type: File</h6>
+                    <a href="" class="common_btn mt-3">Download</a>
+            </div>
+        </div>`;
+            return player;
         }
 
         let player = `<iframe src="${source}" width="640" height="264" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;

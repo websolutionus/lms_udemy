@@ -65,7 +65,11 @@ return [
                 'application/doc',
                 'application/docx',
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'application/zip',
+                'application/x-rar-compressed',
+                'application/x-zip-compressed',
 
+                
             ],
         ],
         'image' => [
