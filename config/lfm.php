@@ -64,7 +64,8 @@ return [
                 'audio/webm',
                 'application/doc',
                 'application/docx',
-                ''
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+
             ],
         ],
         'image' => [

@@ -12,7 +12,7 @@ var notyf = new Notyf({
 
 /** Reusable Functions */
 
-function playerHtml(source_type, source) {
+function playerHtml(source_type, source, file_type) {
     if(source_type == 'youtube') {
         let player = `<video id="vid1" class="video-js vjs-default-skin" controls autoplay width="640" height="264"
                 data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "${source}"}] }'>
@@ -27,11 +27,29 @@ function playerHtml(source_type, source) {
         return player;
     }else if(source_type == 'upload' || source_type == 'external_link') {
 
+        if(file_type == 'doc') {
+            renderDocPreview(source);
+            return;
+        }
+
         let player = `<iframe src="${source}" width="640" height="264" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;
 
-    return player;
+        return player;
     }
 
+}
+
+async function renderDocPreview(url) {
+    const response = await fetch(url);
+
+    if(!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+    }
+
+    const blob = await response.blob();
+
+    docx.renderAsync(blob, document.getElementsByClassName("video_holder"))
+        .then(x => console.log("docx: finished"));
 }
 
 
@@ -78,7 +96,7 @@ $('.lesson').on('click', function() {
         },
         success: function(data) {
             
-            $('.video_holder').html(playerHtml(data.storage, data.file_path));
+            $('.video_holder').html(playerHtml(data.storage, data.file_path, data.file_type));
 
             // load about lecture description
             $('.about_lecture').text(data.description);
