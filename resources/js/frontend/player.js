@@ -26,6 +26,7 @@ function playerHtml(source_type, source) {
 
         return player;
     }else if(source_type == 'upload' || source_type == 'external_link') {
+
         let player = `<iframe src="${source}" width="640" height="264" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`;
 
     return player;
@@ -72,10 +73,15 @@ $('.lesson').on('click', function() {
             'lesson_id': lessonId,
             'course_id': courseId
         },
-        beforeSend: function() {},
+        beforeSend: function() {
+            $('.about_lecture').text('Loading...');
+        },
         success: function(data) {
             
             $('.video_holder').html(playerHtml(data.storage, data.file_path));
+
+            // load about lecture description
+            $('.about_lecture').text(data.description);
 
             // resetting any existing player
             if(videojs.getPlayers()["vid1"]) {

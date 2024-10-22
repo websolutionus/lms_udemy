@@ -59,6 +59,12 @@ return [
                 'video/mp4',
                 'video/mpeg',
                 'audio/mp3',
+                'audio/mpeg',
+                'audio/wav',
+                'audio/webm',
+                'application/doc',
+                'application/docx',
+                ''
             ],
         ],
         'image' => [
