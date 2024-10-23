@@ -70,10 +70,10 @@
                         </div>
                         <div class="card-body">
                             <div class="certificate-body" style="background-image: url({{ asset($certificate->background) }});">
-                                <div class="title">{{ $certificate->title }}</div>
-                                <div class="subtitle">{{ $certificate->sub_title }}</div>
-                                <div class="descrition">{{ $certificate->description }}</div>
-                                <div class="signature"><img src="{{ asset($certificate->signature) }}" alt=""></div>
+                                <div class="title draggable-element">{{ $certificate->title }}</div>
+                                <div class="subtitle draggable-element">{{ $certificate->sub_title }}</div>
+                                <div class="descrition draggable-element">{{ $certificate->description }}</div>
+                                <div class="signature draggable-element"><img src="{{ asset($certificate->signature) }}" alt=""></div>
                             </div>
                         </div>
                     </div>

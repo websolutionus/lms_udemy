@@ -162,6 +162,9 @@ textarea {
     background-repeat: no-repeat;
     text-align: center;
 }
+.certificate-body div {
+    display: inline-block;
+}
 
 .certificate-body .title {
     font-size: 20px;
