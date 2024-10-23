@@ -163,7 +163,7 @@ textarea {
     text-align: center;
 }
 .certificate-body div {
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .certificate-body .title {
