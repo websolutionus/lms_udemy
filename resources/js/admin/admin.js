@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import $ from 'jquery';
 
 window.$ = window.jQuery = $;
@@ -6,6 +7,9 @@ var notyf = new Notyf({
     duration: 8000,
     dismissible: true
 });
+
+const csrf_token = $(`meta[name="csrf_token"]`).attr('content');
+const base_url = $(`meta[name="base_url"]`).attr('content');
 
 document.addEventListener("DOMContentLoaded", function () {
     var el;
@@ -30,9 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }));
 });
 
-
-
-const csrf_token = $(`meta[name=csrf_token]`).attr('content');
 var delete_url = null;
 
 $(function() {
@@ -80,6 +81,27 @@ $('.delete-confirm').on('click', function(e) {
 /** Certificate js */
 
 $(function() {
-    $('.draggable-element').draggable();
+    $('.draggable-element').draggable({
+        containment: '.certificate-body',
+        stop: function(event, ui) {
+            var elementId = $(this).attr('id');
+            var xPosition = ui.position.left;
+            var yPosition = ui.position.top;
+
+            $.ajax({
+                method: 'POST',
+                url: `${base_url}/admin/certificate-item`,
+                data: {
+                    '_token': csrf_token,
+                    'element_id': elementId,
+                    'x_position': xPosition,
+                    'y_position': yPosition
+                },
+                success: function(data) {},
+                error: function(xhr, status, error) {
+                }
+
+            })
+        }
+    });
 })
-    

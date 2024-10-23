@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CertificateBuilderUpdateRequest;
 use App\Models\CertificateBuilder;
+use App\Models\CertificateBuilderItem;
 use App\Traits\FileUpload;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CertificateBuilderController extends Controller
 {
@@ -42,5 +44,24 @@ class CertificateBuilderController extends Controller
         notyf()->success('Updated Successfully');
 
         return redirect()->back();
+    }
+
+    function itemUpdate(Request $request) : Response
+    {
+        $request->validate([
+            'element_id' => 'required|in:title,subtitle,description,signature',
+        ]);
+
+       CertificateBuilderItem::updateOrCreate(
+            [
+                'element_id' => $request->element_id
+            ],
+            [
+                'x_position' => $request->x_position,
+                'y_position' => $request->y_position
+            ]
+        );
+
+        return response(['success' => true]);
     }
 }
