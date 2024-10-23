@@ -180,3 +180,7 @@ textarea {
     height: 100px;
 
   }
+
+.certificate-body .draggable-element {
+    cursor: move;
+}

@@ -19,7 +19,8 @@ class CertificateBuilderController extends Controller
     function index(): View
     {
         $certificate = CertificateBuilder::first();
-        return view('admin.certificate-builder.index', compact('certificate'));
+        $certificateItems = CertificateBuilderItem::all();
+        return view('admin.certificate-builder.index', compact('certificate', 'certificateItems'));
     }
 
     function update(CertificateBuilderUpdateRequest $request): RedirectResponse

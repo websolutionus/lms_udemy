@@ -82,3 +82,14 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <style>
+        @foreach($certificateItems as $item)
+            #{{ $item->element_id }} {
+                left: {{ $item->x_position }}px;
+                top: {{ $item->y_position }}px;
+            }
+        @endforeach
+    </style>
+@endpush
