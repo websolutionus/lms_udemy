@@ -15,24 +15,27 @@
                                 @csrf
                                 <div class="form-group mt-3">
                                     <label class="form-label">Certificate Title</label>
-                                    <input type="text" class="form-control" name="title" placeholder="Enter certificate title">
+                                    <input type="text" class="form-control" name="title" value="{{ $certificate->title }}" placeholder="Enter certificate title">
                                     <x-input-error :messages="$errors->get('title')" class="mt-2" />
                                 </div>
                                 <div class="form-group mt-3">
                                     <label class="form-label">Certificate Subtitle</label>
-                                    <input type="text" class="form-control" name="subtitle" placeholder="Enter certificate subtitle">
+                                    <input type="text" class="form-control" name="subtitle" value="{{ $certificate->sub_title }}" placeholder="Enter certificate subtitle">
                                     <x-input-error :messages="$errors->get('subtitle')" class="mt-2" />
 
                                 </div>
 
                                 <div class="form-group mt-3">
                                     <label class="form-label">Certificate Description</label>
-                                    <textarea name="description" class="form-control" placeholder="Enter certificate description"></textarea>
+                                    <textarea name="description" class="form-control" placeholder="Enter certificate description">{{ $certificate->description }}</textarea>
                                     <x-input-error :messages="$errors->get('description')" class="mt-2" />
 
                                 </div>
 
                                 <div class="form-group mt-3">
+                                    @if ($certificate->background)
+                                    <x-image-preview src="{{ asset($certificate->background) }}" />
+                                    @endif
                                     <label class="form-label">Certificate Background</label>
                                     <input type="file" name="background" class="form-control">
                                     <x-input-error :messages="$errors->get('background')" class="mt-2" />
@@ -40,8 +43,11 @@
                                 </div>
 
                                 <div class="form-group mt-3">
-                                    <label class="form-label">Certificate Segnature</label>
-                                    <input type="file" name="segnature" class="form-control">
+                                    @if ($certificate->signature)
+                                    <x-image-preview src="{{ asset($certificate->signature) }}" />
+                                    @endif
+                                    <label class="form-label">Certificate Signature</label>
+                                    <input type="file" name="signature" class="form-control">
                                     <x-input-error :messages="$errors->get('segrature')" class="mt-2" />
 
                                 </div>
@@ -63,7 +69,12 @@
     
                         </div>
                         <div class="card-body">
-    
+                            <div class="certificate-body" style="background-image: url({{ asset($certificate->background) }});">
+                                <div class="title">{{ $certificate->title }}</div>
+                                <div class="subtitle">{{ $certificate->sub_title }}</div>
+                                <div class="descrition">{{ $certificate->description }}</div>
+                                <div class="signature"><img src="{{ asset($certificate->signature) }}" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>

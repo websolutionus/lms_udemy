@@ -11,7 +11,7 @@ class CertificateBuilder extends Model
 
     protected $fillable = [
         'title',
-        'subtitle',
+        'sub_title',
         'description',
         'signature',
         'background',

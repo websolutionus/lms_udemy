@@ -16,12 +16,13 @@ class CertificateBuilderController extends Controller
 
     function index(): View
     {
-        return view('admin.certificate-builder.index');
+        $certificate = CertificateBuilder::first();
+        return view('admin.certificate-builder.index', compact('certificate'));
     }
 
     function update(CertificateBuilderUpdateRequest $request): RedirectResponse
     {
-        $data = ['title' => $request->title, 'subtitle' => $request->subtitle, 'description' => $request->description];
+        $data = ['title' => $request->title, 'sub_title' => $request->subtitle, 'description' => $request->description];
 
         if($request->hasFile('signature')) {
             $signature = $this->uploadFile($request->file('signature'));
@@ -37,6 +38,8 @@ class CertificateBuilderController extends Controller
             ['id' => 1],
             $data
         );
+
+        notyf()->success('Updated Successfully');
 
         return redirect()->back();
     }

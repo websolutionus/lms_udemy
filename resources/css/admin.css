@@ -153,3 +153,27 @@ textarea {
         max-width: 100%;
     }
 }
+
+
+.certificate-body {
+    height: 600px;
+    width: 930px;
+    background: gray;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.certificate-body .title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.certificate-body .subtitle {
+  font-size: 18px;
+  font-weight: 400;
+}
+.certificate-body .signature img {
+    width: 120px;
+    height: 100px;
+
+  }
