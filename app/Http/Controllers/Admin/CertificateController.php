@@ -16,9 +16,9 @@ class CertificateController extends Controller
         $certificate = CertificateBuilder::first();
         $certificateItems = CertificateBuilderItem::all();
         $pdf = Pdf::loadView('frontend.student-dashboard.enrolled-course.certificate', compact('certificate', 'certificateItems'))
-        ->setPaper('a4', 'landscape')->stream();
-        return $pdf;    
-        // return $pdf->download('certificate.pdf'); 
+        ->setPaper('a4', 'landscape');
+        // return $pdf;    
+        return $pdf->download('certificate.pdf'); 
     //    return view('frontend.student-dashboard.enrolled-course.certificate', compact('certificate', 'certificateItems')); 
     }
 

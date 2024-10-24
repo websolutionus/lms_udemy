@@ -9,11 +9,20 @@
     <title>Certificate</title>
     <style>
         .certificate-body {
-            width: 100%;
-            height: 100%;
+            width: 930px !important;
+            height: 600px !important;
             background: gray;
             background-repeat: no-repeat;
             text-align: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        @page {
+            size: 930px 600px;
+            margin: 0;
         }
 
         .certificate-body div {
@@ -47,11 +56,11 @@
 </head>
 
 <body>
-    <div class="certificate-body" style="background-image: url({{ asset($certificate->background) }});">
+    <div class="certificate-body" style="background-image: url({{ public_path($certificate->background) }});">
         <div id="title" class="title draggable-element">{{ $certificate->title }}</div>
         <div id="subtitle" class="subtitle draggable-element">{{ $certificate->sub_title }}</div>
         <div id="description" class="descrition draggable-element">{{ $certificate->description }}</div>
-        <div id="signature" class="signature draggable-element"><img src="{{ asset($certificate->signature) }}"
+        <div id="signature" class="signature draggable-element"><img src="{{ public_path($certificate->signature) }}"
                 alt=""></div>
     </div>
 </body>
