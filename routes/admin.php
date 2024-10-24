@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\PayoutGatewayController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WithdrawRequestController;
+use App\Http\Controllers\Frontend\HeroController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(["middleware" => "guest:admin", "prefix" => "admin", "as" => "admin."], function () {
@@ -152,6 +153,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::post('certificate-builder', [CertificateBuilderController::class, 'update'])->name('certificate-builder.update');
     Route::post('certificate-item', [CertificateBuilderController::class, 'itemUpdate'])->name('certificate-item.update');
 
+    /** Hero Routes */
+    Route::resource('hero', HeroController::class);
 
     /** lfm Routes */
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin']], function () {

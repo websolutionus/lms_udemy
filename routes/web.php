@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\CoursePageController;
 use App\Http\Controllers\Frontend\EnrolledCourseController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\HeroController;
 use App\Http\Controllers\Frontend\InstructorDashboardController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\PaymentController;
@@ -48,6 +49,8 @@ use Illuminate\Support\Facades\Route;
 
  Route::get('order-success', [PaymentController::class, 'orderSuccess'])->name('order.success');
  Route::get('order-failed', [PaymentController::class, 'orderFailed'])->name('order.failed');
+
+
 
 
 /**
