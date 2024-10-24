@@ -14,6 +14,11 @@ class CertificateController extends Controller
 {
     //
     function download(Course $course) {
+        $watchedLessonCount = \App\Models\WatchHistory::where(['user_id' => user()->id, 'course_id' => $course->id, 'is_completed' => 1])->count();
+        $lessonCount = $course->lessons()->count();
+
+        if($watchedLessonCount != $lessonCount) return abort(404);
+
         $certificate = CertificateBuilder::first();
         $certificateItems = CertificateBuilderItem::all();
         $html = view('frontend.student-dashboard.enrolled-course.certificate', compact('certificate', 'certificateItems'))->render();
