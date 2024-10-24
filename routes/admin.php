@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\CourseLanguageController;
 use App\Http\Controllers\Admin\CourseLevelController;
 use App\Http\Controllers\Admin\CourseSubCategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\InstructorReqeustController;
 use App\Http\Controllers\Admin\InstructorRequestController;
 use App\Http\Controllers\Admin\OrderController;
@@ -155,6 +156,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     /** Hero Routes */
     Route::resource('hero', HeroController::class);
+    /** Feature Routes */
+    Route::resource('feature', FeatureController::class);
 
     /** lfm Routes */
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin']], function () {
