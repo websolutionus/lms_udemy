@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:student'], 'p
    Route::get('file-download/{id}', [EnrolledCourseController::class, 'fileDownload'])->name('file-download');
 
    /** Certificate Routes */
-   Route::get('certificate', [CertificateController::class, 'index'])->name('certificate.index');
+   Route::get('certificate/{course}/download', [CertificateController::class, 'download'])->name('certificate.download');
 });
 
 /**
