@@ -9,13 +9,13 @@
                     
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.hero.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.feature.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <x-image-preview src="" />
+                                    <x-image-preview src="{{ asset($feature->image_one) }}" style="background-color: rgb(197, 197, 197)" />
                                     <label class="form-label">Image One</label>
                                     <input type="file" class="form-control" name="image_one"
                                         placeholder="">
@@ -27,7 +27,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title One</label>
                                     <input type="text" class="form-control" name="title_one"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $feature->title_one }}">
                                     <x-input-error :messages="$errors->get('title_one')" class="mt-2" />
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Subtitle One</label>
                                     <input type="text" class="form-control" name="subtitle_one"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $feature->subtitle_one }}">
                                     <x-input-error :messages="$errors->get('subtitle_one')" class="mt-2" />
                                 </div>
                             </div>
@@ -43,11 +43,11 @@
                             <hr>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <x-image-preview src="" />
+                                    <x-image-preview src="{{ asset($feature->image_two) }}" style="background-color: rgb(197, 197, 197)" />
                                     <label class="form-label">Image Two</label>
                                     <input type="file" class="form-control" name="image_two"
                                         placeholder="">
-                                    <input type="hidden" name="old_image_two" value="">
+                                    <input type="hidden" name="old_image_two" value="{{ asset($feature->image_two) }}">
                                     <x-input-error :messages="$errors->get('image_two')" class="mt-2" />
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title Two</label>
                                     <input type="text" class="form-control" name="title_two"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $feature->title_two }}">
                                     <x-input-error :messages="$errors->get('title_two')" class="mt-2" />
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Subtitle Two</label>
                                     <input type="text" class="form-control" name="subtitle_two"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $feature->subtitle_two }}">
                                     <x-input-error :messages="$errors->get('subtitle_two')" class="mt-2" />
                                 </div>
                             </div>
@@ -71,11 +71,11 @@
                             <hr>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <x-image-preview src="" />
+                                    <x-image-preview src="{{ asset($feature->image_three) }}" style="background-color: rgb(197, 197, 197)" />
                                     <label class="form-label">Image Three</label>
                                     <input type="file" class="form-control" name="image_three"
                                         placeholder="">
-                                    <input type="hidden" name="old_image_three" value="">
+                                    <input type="hidden" name="old_image_three" value="{{ asset($feature->image_three) }}">
                                     <x-input-error :messages="$errors->get('image_three')" class="mt-2" />
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title Three</label>
                                     <input type="text" class="form-control" name="title_three"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $feature->title_three }}">
                                     <x-input-error :messages="$errors->get('title_three')" class="mt-2" />
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Subtitle Three</label>
                                     <input type="text" class="form-control" name="subtitle_three"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $feature->subtitle_three }}">
                                     <x-input-error :messages="$errors->get('subtitle_three')" class="mt-2" />
                                 </div>
                             </div>
