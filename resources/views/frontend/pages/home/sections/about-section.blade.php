@@ -4,11 +4,11 @@
             <div class="col-lg-6 wow fadeInLeft">
                 <div class="wsus__about_3_img">
 
-                    <img src="images/about_3_img_1.png" alt="About us" class="about_3_large img-fluid w-100">
+                    <img src="{{ asset($about->image) }}" alt="About us" class="about_3_large img-fluid w-100">
 
                     <div class="text">
-                        <h4> <span>20K+</span> Enrolled Learners</h4>
-                        <img src="images/banner_2_photo_list.png" alt="Photo" class="img-fluid">
+                        <h4> <span>{{ $about->lerner_count }}</span> {{ $about->lerner_count_text }}</h4>
+                        <img src="{{ asset($about->lerner_image) }}" alt="Photo" class="img-fluid">
                     </div>
 
                     <div class="circle_box">
@@ -22,7 +22,7 @@
                             </defs>
                             <text>
                                 <textPath xlink:href="#circle">
-                                    take the worldwide best online course
+                                    {{ $about->rounded_text }}
                                 </textPath>
                             </text>
                         </svg>
@@ -33,24 +33,24 @@
                 <div class="wsus__about_3_text">
                     <div class="wsus__section_heading heading_left mb_15">
                         <h5>Learn More About Us</h5>
-                        <h2>Study & Develop Your Skills Regardless of Location.</h2>
+                        <h2>{{ $about->title }}</h2>
                     </div>
-                    <p>Nullam tincidunt tortor est, ac maximus justo gravida non phasellus dignissim quam odio ipsum
-                        sollicitudin rhoncus venenatis ex metus in turpis.</p>
-                    <ul>
-                        <li>Expert Trainers</li>
-                        <li>Online Remote Learning</li>
-                        <li>Lifetime Access</li>
-                    </ul>
-                    <a class="common_btn" href="#">Start Free Trial</a>
+                    {!! $about->description !!}
+                    @if($about->button_text)
+                    <br>
+                    <a class="common_btn" href="{{ $about->button_url }}">{{ $about->button_text }}</a>
+                    @endif
+
+                    @if($about->video_url)
                     <div class="about_video">
-                        <img src="images/about_3_img_2.jpg" alt="Video" class="img-fluid w-100">
+                        <img src="{{ asset($about->video_image) }}" alt="Video" class="img-fluid w-100">
                         <span>live</span>
                         <a class="play_btn venobox" data-autoplay="true" data-vbtype="video"
-                            href="https://youtu.be/sVPYIRF9RCQ?si=labNkx-xlyOWtptr">
-                            <img src="images/play_icon.png" alt="Play" class="img-fluid">
+                            href="{{ $about->video_url }}">
+                            <img src="{{ asset('frontend/assets/images/play_icon_white.png') }}" alt="Play" class="img-fluid">
                         </a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

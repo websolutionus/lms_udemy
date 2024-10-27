@@ -36,7 +36,7 @@ class AboutUsSectionController extends Controller
          'description' => $request->about_description,
          'button_text' => $request->button_text,
          'button_url' => $request->button_url,
-         'video_url' => $request->lerner_count_text,
+         'video_url' => $request->video_url,
        ];
 
        if($request->hasFile('image')) {
