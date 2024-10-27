@@ -71,7 +71,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">About Description</label>
-                                    <textarea name="about_description">{!! $about->description !!}</textarea>
+                                    <textarea class="editor" name="about_description">{!! $about->description !!}</textarea>
                                     <x-input-error :messages="$errors->get('about_description')" class="mt-2" />
                                 </div>
                             </div>
