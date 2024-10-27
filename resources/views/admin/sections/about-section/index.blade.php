@@ -9,29 +9,110 @@
                     
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.feature.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.about-section.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <x-image-preview src="" style="background-color: rgb(197, 197, 197)" />
-                                    <label class="form-label">Image One</label>
-                                    <input type="file" class="form-control" name="image_one"
+                                    <label class="form-label">Image</label>
+                                    <input type="file" class="form-control" name="image"
                                         placeholder="">
-                                    <input type="hidden" name="old_image_one" value="">
-                                    <x-input-error :messages="$errors->get('image_one')" class="mt-2" />
+                                    <input type="hidden" name="old_image" value="">
+                                    <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Rounded Text</label>
+                                    <input type="text" class="form-control" name="rounded_text"
+                                        placeholder="" value="">
+                                    <x-input-error :messages="$errors->get('rounded_text')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Lerner Count</label>
+                                    <input type="text" class="form-control" name="lerner_count"
+                                        placeholder="" value="">
+                                    <x-input-error :messages="$errors->get('lerner_count')" class="mt-2" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Title One</label>
-                                    <input type="text" class="form-control" name="title_one"
+                                    <label class="form-label">Learner Count Text</label>
+                                    <input type="text" class="form-control" name="lerner_count_text"
                                         placeholder="" value="">
-                                    <x-input-error :messages="$errors->get('title_one')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('lerner_count_text')" class="mt-2" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <x-image-preview src="" style="background-color: rgb(197, 197, 197)" />
+                                    <label class="form-label">Learner Image</label>
+                                    <input type="file" class="form-control" name="lerner_image"
+                                        placeholder="">
+                                    <input type="hidden" name="old_lerner_image" value="">
+                                    <x-input-error :messages="$errors->get('lerner_image')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">About Title</label>
+                                    <input type="text" class="form-control" name="about_title"
+                                        placeholder="" value="">
+                                    <x-input-error :messages="$errors->get('about_title')" class="mt-2" />
                                 </div>
                             </div>
                             
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">About Description</label>
+                                    <textarea name="about_description"></textarea>
+                                    <x-input-error :messages="$errors->get('about_description')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Button Text</label>
+                                    <input type="text" class="form-control" name="button_text"
+                                        placeholder="" value="">
+                                    <x-input-error :messages="$errors->get('button_text')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Button Url</label>
+                                    <input type="text" class="form-control" name="button_url"
+                                        placeholder="" value="">
+                                    <x-input-error :messages="$errors->get('button_url')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="mb-3">
+
+                                    <x-image-preview src="" style="background-color: rgb(197, 197, 197)" />
+                                    <label class="form-label">Video Image</label>
+                                    <input type="file" class="form-control" name="video_image"
+                                        placeholder="">
+                                    <x-input-error :messages="$errors->get('video_image')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Video Url</label>
+                                    <input type="text" class="form-control" name="video_url"
+                                        placeholder="" value="">
+                                    <x-input-error :messages="$errors->get('video_url')" class="mt-2" />
+                                </div>
+                            </div>
 
                             <div class="mb-3">
                                 <button class="btn btn-primary" type="submit">
