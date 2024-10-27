@@ -17,7 +17,7 @@
                     </div>
                     <div class="text">
                         <h4>{{ $category->name }}</h4>
-                        <p>{{ $category?->courses_count }} Course</p>
+                        <p>{{ $category?->active_course_count }} Course</p>
                     </div>
                 </a>
             </div>

@@ -16,6 +16,6 @@ class CourseCategory extends Model
 
 
     function courses() : HasMany {
-       return $this->hasMany(Course::class, 'category_id')->where(['is_approved' => 'approved', 'status' => 'active']); 
+       return $this->hasMany(Course::class, 'category_id'); 
     }
 }

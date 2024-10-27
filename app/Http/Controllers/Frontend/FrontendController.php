@@ -14,7 +14,12 @@ class FrontendController extends Controller
    function index() : View {
       $hero = Hero::first();
       $feature = Feature::first();
-      $featuredCategories = CourseCategory::withCount('courses')->where(['parent_id' => null, 'show_at_trending' => 1])->limit(12)->get();
+      $featuredCategories = CourseCategory::withCount(['subCategories as active_course_count' => function($query) {
+         $query->whereHas('courses', function($query) {
+            $query->where(['is_approved' => 'approved', 'status' => 'active']);
+         });
+      }])->where(['parent_id' => null, 'show_at_trending' => 1])->limit(12)->get();
+     
     return view('frontend.pages.home.index', compact('hero', 'feature', 'featuredCategories'));
    } 
 }
