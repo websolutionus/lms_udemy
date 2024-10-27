@@ -13,7 +13,7 @@
     <!--===========================
         CATEGORY 4 START
     ============================-->
-    {{-- @include('frontend.pages.home.sections.category-section') --}}
+    @include('frontend.pages.home.sections.category-section')
     <!--===========================
         CATEGORY 4 END
     ============================-->

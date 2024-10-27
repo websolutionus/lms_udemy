@@ -13,4 +13,9 @@ class CourseCategory extends Model
     function subCategories() : HasMany{
         return $this->hasMany(CourseCategory::class, 'parent_id');
     }
+
+
+    function courses() : HasMany {
+       return $this->hasMany(Course::class, 'category_id')->where(['is_approved' => 'approved', 'status' => 'active']); 
+    }
 }
