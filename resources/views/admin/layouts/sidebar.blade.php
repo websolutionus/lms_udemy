@@ -398,6 +398,12 @@
                                 </a>
 
                             </div>
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.about-section.index') }}">
+                                    About Us
+                                </a>
+
+                            </div>
                            
                         </div>
                     </div>
