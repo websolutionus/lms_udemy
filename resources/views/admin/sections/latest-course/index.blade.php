@@ -5,7 +5,7 @@
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Hero</h3>
+                    <h3 class="card-title">Latest Course Categories</h3>
 
                 </div>
                 <div class="card-body">
@@ -23,7 +23,7 @@
                                             @if ($category->subCategories->isNotEmpty())
                                                 <optgroup label="{{ $category->name }}">
                                                     @foreach ($category->subCategories as $subCategory)
-                                                        <option value="{{ $subCategory->id }}">
+                                                        <option @selected($latestCourseSection->category_one == $subCategory->id) value="{{ $subCategory->id }}">
                                                             {{ $subCategory->name }}</option>
                                                     @endforeach
                                                 </optgroup>
@@ -44,7 +44,7 @@
                                             @if ($category->subCategories->isNotEmpty())
                                                 <optgroup label="{{ $category->name }}">
                                                     @foreach ($category->subCategories as $subCategory)
-                                                        <option value="{{ $subCategory->id }}">
+                                                        <option @selected($latestCourseSection->category_two == $subCategory->id) value="{{ $subCategory->id }}">
                                                             {{ $subCategory->name }}</option>
                                                     @endforeach
                                                 </optgroup>
@@ -67,7 +67,7 @@
                                             @if ($category->subCategories->isNotEmpty())
                                                 <optgroup label="{{ $category->name }}">
                                                     @foreach ($category->subCategories as $subCategory)
-                                                        <option value="{{ $subCategory->id }}">
+                                                        <option @selected($latestCourseSection->category_three == $subCategory->id) value="{{ $subCategory->id }}">
                                                             {{ $subCategory->name }}</option>
                                                     @endforeach
                                                 </optgroup>
@@ -88,7 +88,7 @@
                                             @if ($category->subCategories->isNotEmpty())
                                                 <optgroup label="{{ $category->name }}">
                                                     @foreach ($category->subCategories as $subCategory)
-                                                        <option value="{{ $subCategory->id }}">
+                                                        <option @selected($latestCourseSection->category_four == $subCategory->id) value="{{ $subCategory->id }}">
                                                             {{ $subCategory->name }}</option>
                                                     @endforeach
                                                 </optgroup>
@@ -109,7 +109,7 @@
                                             @if ($category->subCategories->isNotEmpty())
                                                 <optgroup label="{{ $category->name }}">
                                                     @foreach ($category->subCategories as $subCategory)
-                                                        <option value="{{ $subCategory->id }}">
+                                                        <option @selected($latestCourseSection->category_five == $subCategory->id) value="{{ $subCategory->id }}">
                                                             {{ $subCategory->name }}</option>
                                                     @endforeach
                                                 </optgroup>

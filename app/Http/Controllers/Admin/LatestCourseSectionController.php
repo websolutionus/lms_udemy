@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseCategory;
+use App\Models\LatestCourseSection;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class LatestCourseSectionController extends Controller
     public function index() : View
     {
         $categories = CourseCategory::all();
-        return view('admin.sections.latest-course.index', compact('categories'));
+        $latestCourseSection = LatestCourseSection::first();
+        return view('admin.sections.latest-course.index', compact('categories', 'latestCourseSection'));
     }
 
     /**
@@ -31,7 +33,18 @@ class LatestCourseSectionController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $validatedData = $request->validate([
+            'category_one' => ['nullable', 'integer', 'exists:course_categories,id'],
+            'category_two' => ['nullable', 'integer', 'exists:course_categories,id'],
+            'category_three' => ['nullable', 'integer', 'exists:course_categories,id'],
+            'category_four' => ['nullable', 'integer', 'exists:course_categories,id'],
+            'category_five' => ['nullable', 'integer', 'exists:course_categories,id'],
+        ]);
+
+        LatestCourseSection::updateOrCreate(['id' => 1], $validatedData);
+
+        notyf()->success('Update Successfully!');
+        return redirect()->back();
     }
 
     /**
