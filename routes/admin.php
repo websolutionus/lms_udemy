@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\PayoutGatewayController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\VideoSectionController;
 use App\Http\Controllers\Admin\WithdrawRequestController;
 use App\Http\Controllers\Frontend\HeroController;
 use App\Models\BecomeInstructorSection;
@@ -174,6 +175,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     /** Become Instructor Section Routes */
     Route::resource('become-instructor-section', BecomeInstructorSectionController::class);
 
+    /** Video Section Routes */
+    Route::resource('video-section', VideoSectionController::class);
 
 
 
