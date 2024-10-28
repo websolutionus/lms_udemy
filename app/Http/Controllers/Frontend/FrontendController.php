@@ -8,8 +8,10 @@ use App\Models\CourseCategory;
 use App\Models\Feature;
 use App\Models\Hero;
 use App\Models\LatestCourseSection;
+use App\Models\Newsletter;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class FrontendController extends Controller
 {
@@ -28,4 +30,21 @@ class FrontendController extends Controller
      
     return view('frontend.pages.home.index', compact('hero', 'feature', 'featuredCategories', 'about', 'latestCourses'));
    } 
+
+
+   function subscribe(Request $request) : Response {
+      $request->validate([
+         'email' => 'required|email|unique:newsletters,email'
+      ],[
+         'email.required' => 'Email is required',
+         'email.email' => 'Email is invalid',
+         'email.unique' => 'Email is already subscribed'
+      ]);
+
+      $newsletter = new Newsletter();
+      $newsletter->email = $request->email;
+      $newsletter->save();
+
+      return response(['status' => 'success', 'message' => 'Successfully subscribed!']);
+   }
 }

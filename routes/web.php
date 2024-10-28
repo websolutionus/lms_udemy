@@ -50,6 +50,7 @@ use Illuminate\Support\Facades\Route;
  Route::get('order-success', [PaymentController::class, 'orderSuccess'])->name('order.success');
  Route::get('order-failed', [PaymentController::class, 'orderFailed'])->name('order.failed');
 
+ Route::post('newsletter-subscribe', [FrontendController::class, 'subscribe'])->name('newsletter.subscribe');
 
 
 
