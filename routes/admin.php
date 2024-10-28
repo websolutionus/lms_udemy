@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\BecomeInstructorSectionController;
 use App\Http\Controllers\Admin\CertificateBuilderController;
 use App\Http\Controllers\Admin\CourseCategoryController;
 use App\Http\Controllers\Admin\CourseContentController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\Admin\PayoutGatewayController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WithdrawRequestController;
 use App\Http\Controllers\Frontend\HeroController;
+use App\Models\BecomeInstructorSection;
 use App\Models\LatestCourseSection;
 use Illuminate\Support\Facades\Route;
 
@@ -169,6 +171,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     /** Latest Courses Routes */
     Route::resource('latest-courses-section', LatestCourseSectionController::class);
 
+    /** Become Instructor Section Routes */
+    Route::resource('become-instructor-section', BecomeInstructorSectionController::class);
 
 
 

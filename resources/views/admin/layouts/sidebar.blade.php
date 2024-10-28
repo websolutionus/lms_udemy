@@ -410,6 +410,11 @@
                                 </a>
                             </div>
                            
+                             <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.become-instructor-section.index') }}">
+                                    Become Instructor Banner
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </li>

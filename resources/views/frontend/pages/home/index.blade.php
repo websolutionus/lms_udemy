@@ -49,7 +49,7 @@
     <!--===========================
         BECOME INSTRUCTOR START
     ============================-->
-    {{-- @include('frontend.pages.home.sections.become-instructor-section') --}}
+    @include('frontend.pages.home.sections.become-instructor-section')
 
     <!--===========================
         BECOME INSTRUCTOR END

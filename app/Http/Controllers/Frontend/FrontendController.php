@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUsSection;
+use App\Models\BecomeInstructorSection;
 use App\Models\CourseCategory;
 use App\Models\Feature;
 use App\Models\Hero;
@@ -27,8 +28,9 @@ class FrontendController extends Controller
       $about = AboutUsSection::first();
 
       $latestCourses = LatestCourseSection::first();
+      $becomeInstructorBanner = BecomeInstructorSection::first();
      
-    return view('frontend.pages.home.index', compact('hero', 'feature', 'featuredCategories', 'about', 'latestCourses'));
+    return view('frontend.pages.home.index', compact('hero', 'feature', 'featuredCategories', 'about', 'latestCourses', 'becomeInstructorBanner'));
    } 
 
 
