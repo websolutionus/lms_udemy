@@ -68,7 +68,7 @@
     <!--===========================
         BRAND START
     ============================-->
-    {{-- @include('frontend.pages.home.sections.brand-section')   --}}
+    @include('frontend.pages.home.sections.brand-section')  
     <!--===========================
         BRAND END
     ============================-->

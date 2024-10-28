@@ -3,44 +3,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="wsus__brand_slider_area wow fadeInUp">
-                    <h6>Trusted by Over 24,758 Outstanding Teams</h6>
+                    <h6>Our Partners</h6>
                     <div class="marquee_animi">
                         <ul class="d-flex flex-wrap">
+                            @foreach($brands as $brand)
                             <li>
-                                <a href="#">
-                                    <img src="images/brand_icon_1.png" alt="brand" class="img-fluid w-100">
+                                <a href="{{ $brand->url }}">
+                                    <img src="{{ asset($brand->image) }}" alt="brand" class="img-fluid w-100">
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/brand_icon_2.png" alt="brand" class="img-fluid w-100">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/brand_icon_3.png" alt="brand" class="img-fluid w-100">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/brand_icon_4.png" alt="brand" class="img-fluid w-100">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/brand_icon_5.png" alt="brand" class="img-fluid w-100">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/brand_icon_6.png" alt="brand" class="img-fluid w-100">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/brand_icon_7.png" alt="brand" class="img-fluid w-100">
-                                </a>
-                            </li>
+                            @endforeach
+                           
                         </ul>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUsSection;
 use App\Models\BecomeInstructorSection;
+use App\Models\Brand;
 use App\Models\CourseCategory;
 use App\Models\Feature;
 use App\Models\Hero;
@@ -31,8 +32,10 @@ class FrontendController extends Controller
       $latestCourses = LatestCourseSection::first();
       $becomeInstructorBanner = BecomeInstructorSection::first();
       $video = VideoSection::first();
+      $brands = Brand::where('status', 1)->get();
      
-    return view('frontend.pages.home.index', compact('hero', 'feature', 'featuredCategories', 'about', 'latestCourses', 'becomeInstructorBanner', 'video'));
+    return view('frontend.pages.home.index', compact('hero', 'feature', 'featuredCategories', 'about', 'latestCourses', 'becomeInstructorBanner', 'video', 'brands'));
+
    } 
 
 
