@@ -86,7 +86,7 @@
     <!--===========================
         TESTIMONIAL START
     ============================-->
-    {{-- @include('frontend.pages.home.sections.testimonial-section')   --}}
+    @include('frontend.pages.home.sections.testimonial-section')  
 
     <!--===========================
         TESTIMONIAL END

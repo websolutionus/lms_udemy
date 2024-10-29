@@ -44,7 +44,7 @@
                                         <i class="ti ti-star"></i>
                                     @endfor
                                 </td>
-                                <td>{{ $testimonial->review }}</td>
+                                <td style="width: 500px">{{ $testimonial->review }}</td>
 
                                 <td>
                                     <a href="{{ route('admin.testimonial-section.edit', $testimonial->id) }}" class="btn-sm btn-primary">
