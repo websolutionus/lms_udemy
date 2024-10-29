@@ -432,6 +432,13 @@
                                    Featured Instructor 
                                 </a>
                             </div>
+
+                             <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.testimonial-section.index') }}">
+                                    Testimonial
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </li>

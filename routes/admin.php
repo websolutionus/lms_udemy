@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\PayoutGatewayController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\VideoSectionController;
 use App\Http\Controllers\Admin\WithdrawRequestController;
 use App\Http\Controllers\Frontend\HeroController;
@@ -187,7 +188,24 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     /** Featured Instructor Section Routes */
     Route::get('get-instructor-courses/{id}', [FeaturedInstructorController::class, 'getInstructorCourses'])->name('get-instructor-courses');
     Route::resource('featured-instructor-section', FeaturedInstructorController::class);
+
+
+    /** Video Section Routes */
+    Route::resource('testimonial-section', TestimonialController::class);
     
+
+
+
+
+
+
+
+
+
+
+
+
+
     /** lfm Routes */
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
