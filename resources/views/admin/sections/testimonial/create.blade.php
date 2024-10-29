@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.testimonial-section.store') }}" method="POST">
+                    <form action="{{ route('admin.testimonial-section.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Rating</label>
@@ -26,13 +26,13 @@
                                 <option value="2">2</option>
                                 <option value="1">1</option>
                             </select>
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('rating')" class="mt-2" />
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Review</label>
                             <textarea name="review" class="form-control"></textarea>
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('review')" class="mt-2" />
                         </div>
 
                         <div class="mb-3">
