@@ -18,7 +18,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title</label>
                                     <input type="text" class="form-control" name="title"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $featuredInstructor?->title }}">
                                     <x-input-error :messages="$errors->get('title')" class="mt-2" />
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Subtitle</label>
-                                    <textarea name="subtitle" class="form-control"></textarea>
+                                    <textarea name="subtitle" class="form-control">{{ $featuredInstructor?->subtitle }}</textarea>
                                    <x-input-error :messages="$errors->get('subtitle')" class="mt-2" />
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Button Text</label>
                                     <input type="text" class="form-control" name="button_text"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $featuredInstructor?->button_text }}">
                                     <x-input-error :messages="$errors->get('button_text')" class="mt-2" />
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Button Url</label>
                                     <input type="text" class="form-control" name="button_url"
-                                        placeholder="" value="">
+                                        placeholder="" value="{{ $featuredInstructor?->button_url }}">
                                     <x-input-error :messages="$errors->get('button_url')" class="mt-2" />
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                     <select name="instructor_id" class="select2 select_instructor" >
                                         <option value="">Select</option>
                                         @foreach ($instructors as $instructor)
-                                        <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
+                                        <option @selected($featuredInstructor?->instructor_id == $instructor->id) value="{{ $instructor?->id }}">{{ $instructor?->name }}</option>
                                         @endforeach
                                     </select>
                                     <x-input-error :messages="$errors->get('instructor')" class="mt-2" />
@@ -66,7 +66,9 @@
                                 <div class="mb-3">
                                     <label class="form-label">Courses</label>
                                     <select name="featured_courses[]" class="select2 instructor_courses" multiple>
-                                       
+                                      @foreach ($selectedInstructorCourses as $course)
+                                      <option @selected(in_array($course->id, $selectedCourses)) value="{{ $course?->id }}" >{{ $course?->title }}</option>
+                                      @endforeach
                                     </select>
                                     <x-input-error :messages="$errors->get('courses')" class="mt-2" />
                                 </div>
@@ -74,6 +76,7 @@
 
                             <div class="col-md-12">
                                 <div class="mb-3">
+                                    <x-image-preview src="{{ asset($featuredInstructor?->instructor_image) }}" style="background-color: rgb(197, 197, 197)" />
                                     <label class="form-label">Instructor Image</label>
                                     <input type="file" class="form-control" name="instructor_image"
                                         placeholder="">

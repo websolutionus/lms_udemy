@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('button_url')->nullable();
             $table->foreignId('instructor_id')->constrained('users')->nullable();
             $table->json('featured_courses')->nullable();
+            $table->string('instructor_image')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,11 @@ class FeaturedInstructorController extends Controller
     public function index()
     {
         $instructors = User::where('role', 'instructor')->where('approve_status', 'approved')->get();
-        return view('admin.sections.featured-instructor.index', compact('instructors'));
+        $featuredInstructor = FeaturedInstructor::first();
+        $selectedCourses = json_decode($featuredInstructor?->featured_courses);
+        
+        $selectedInstructorCourses = Course::select(['id', 'title'])->where('instructor_id', $featuredInstructor?->instructor_id)->get();
+        return view('admin.sections.featured-instructor.index', compact('instructors', 'featuredInstructor', 'selectedCourses', 'selectedInstructorCourses'));
     }
 
     function getInstructorCourses(string $id) : Response {
