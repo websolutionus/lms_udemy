@@ -52,10 +52,10 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Instructor</label>
-                                    <select name="instructor" class="select2">
+                                    <select name="instructor" class="select2 select_instructor" >
                                         <option value="">Select</option>
                                         @foreach ($instructors as $instructor)
-                                        <option value="">{{ $instructor->name }}</option>
+                                        <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
                                         @endforeach
                                     </select>
                                     <x-input-error :messages="$errors->get('instructor')" class="mt-2" />
@@ -65,11 +65,8 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Courses</label>
-                                    <select name="instructor" class="select2" multiple>
-                                        <option value="">Select</option>
-                                        <option value="">Select</option>
-                                        <option value="">Test</option>
-                                        <option value="">Test 2</option>
+                                    <select name="instructor" class="select2 instructor_courses" multiple>
+                                       
                                     </select>
                                     <x-input-error :messages="$errors->get('instructor')" class="mt-2" />
                                 </div>

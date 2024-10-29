@@ -123,3 +123,29 @@ $(function() {
         }
     });
 })
+
+
+/** Featured Instructor js */
+$(function() {
+    $('.select_instructor').on('change', function() {
+        let id = $(this).val();
+
+        $.ajax({
+            method: 'get',
+            url: `${base_url}/admin/get-instructor-courses/${id}`,
+            beforeSend: function() {
+                $('.instructor_courses').empty();
+            },
+            success: function(data) {
+                $.each(data.courses, function(key, value) {
+                    
+                        let option = `<option value="${value.id}">${value.title}</option>`;
+                    $('.instructor_courses').append(option);
+                })
+            },
+            error: function(xhr, status, error) {
+                notyf.error(data.error);
+            }
+        })
+    });
+});
