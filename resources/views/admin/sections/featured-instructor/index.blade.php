@@ -9,7 +9,7 @@
                     
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.feature.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.featured-instructor-section.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                        
                         <div class="row">
@@ -27,7 +27,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Subtitle</label>
                                     <textarea name="subtitle" class="form-control"></textarea>
-                                   <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                                   <x-input-error :messages="$errors->get('subtitle')" class="mt-2" />
                                 </div>
                             </div>
 
@@ -52,7 +52,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Instructor</label>
-                                    <select name="instructor" class="select2 select_instructor" >
+                                    <select name="instructor_id" class="select2 select_instructor" >
                                         <option value="">Select</option>
                                         @foreach ($instructors as $instructor)
                                         <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
@@ -65,10 +65,10 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Courses</label>
-                                    <select name="instructor" class="select2 instructor_courses" multiple>
+                                    <select name="featured_courses[]" class="select2 instructor_courses" multiple>
                                        
                                     </select>
-                                    <x-input-error :messages="$errors->get('instructor')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('courses')" class="mt-2" />
                                 </div>
                             </div>
 
