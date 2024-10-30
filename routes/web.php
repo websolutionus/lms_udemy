@@ -57,6 +57,7 @@ use Illuminate\Support\Facades\Route;
 
  /** Contact route */
  Route::get('contact', [FrontendContactController::class, 'index'])->name('contact.index');
+ Route::post('contact', [FrontendContactController::class, 'sendMail'])->name('send.contact');
 
 
 /**

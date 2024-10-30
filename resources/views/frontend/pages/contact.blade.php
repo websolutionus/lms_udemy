@@ -53,19 +53,28 @@
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-7">
-                        <form class="wsus__contact_form">
+                        <form action="" method="POST" class="wsus__contact_form">
+                            @csrf
                             <h4>Send Us Message</h4>
                             <p>Your email address will not be published. Required fields are marked *</p>
 
                             <div class="row">
                                 <div class="col-xl-6 col-md-6">
-                                    <input type="text" placeholder="Name*">
+                                    <input type="text" name="name" placeholder="Name*">
+                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                 </div>
                                 <div class="col-xl-6 col-md-6">
-                                    <input type="email" placeholder="Email*">
+                                    <input type="email" name="email" placeholder="Email*">
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" name="subject" placeholder="Subject*">
+                                    <x-input-error :messages="$errors->get('subject')" class="mt-2" />
                                 </div>
                                 <div class="col-xl-12">
-                                    <textarea rows="5" placeholder="Comment*"></textarea>
+                                    <textarea rows="5" placeholder="Your Message*" name="message"></textarea>
+                                    <x-input-error :messages="$errors->get('message')" class="mt-2" />
+
                                     <button type="submit" class="common_btn">Submit Now</button>
                                 </div>
                             </div>
