@@ -32,44 +32,18 @@
     <section class="wsus__contact_us mt_95 xs_mt_75 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
+                @foreach($contactCards as $contactCard)
                 <div class="col-xl-3 col-md-6 col-lg-4 wow fadeInUp">
                     <div class="wsus__contact_info">
                         <div class="icon">
-                            <img src="images/contact_icon_1.png" alt="contact" class="img-fluid">
+                            <img src="{{ $contactCard->icon }}" alt="contact" class="img-fluid">
                         </div>
-                        <h4>Office Address</h4>
-                        <p>7232 Broadway Suite 3087 Madison Heights, 57256</p>
+                        <h4>{{ $contactCard->title }}</h4>
+                        <p>{{ $contactCard->line_one }}</p>
+                        <p>{{ $contactCard->line_two }}</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6 col-lg-4 wow fadeInUp">
-                    <div class="wsus__contact_info">
-                        <div class="icon">
-                            <img src="images/contact_icon_2.png" alt="contact" class="img-fluid">
-                        </div>
-                        <h4>Send a Message</h4>
-                        <a href="mailto:example@gmail.com">lms@gmail.com</a>
-                        <a href="mailto:example@gmail.com">lmscompany@gmail.com</a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-4 wow fadeInUp">
-                    <div class="wsus__contact_info">
-                        <div class="icon">
-                            <img src="images/contact_icon_3.png" alt="contact" class="img-fluid">
-                        </div>
-                        <h4>Let's Discuss</h4>
-                        <a href="callto:1234567890">Phone: 088 6578 654 87</a>
-                        <a href="callto:1234567890">Fax: 088 6548 658 54</a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-4 wow fadeInUp">
-                    <div class="wsus__contact_info">
-                        <div class="icon">
-                            <img src="images/contact_icon_4.png" alt="contact" class="img-fluid">
-                        </div>
-                        <h4>Team Up with Us</h4>
-                        <p>Sed nec libero ante odio mauris pellentesque eget et neque.</p>
-                    </div>
-                </div>
+                @endforeach 
             </div>
             <div class="wsus__contact_form_area mt_30 wow fadeInUp">
                 <div class="row align-items-center">
