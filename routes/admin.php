@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BecomeInstructorSectionController;
 use App\Http\Controllers\Admin\BrandSectionController;
 use App\Http\Controllers\Admin\CertificateBuilderController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CounterController;
 use App\Http\Controllers\Admin\CourseCategoryController;
 use App\Http\Controllers\Admin\CourseContentController;
@@ -197,6 +198,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     /** Counter Routes */
     Route::resource('counter-section', CounterController::class);
 
+    /** Contact Routes */
+    Route::resource('contact', ContactController::class);
 
 
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\CourseContentController;
 use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\CoursePageController;
 use App\Http\Controllers\Frontend\EnrolledCourseController;
+use App\Http\Controllers\Frontend\FrontendContactController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\HeroController;
 use App\Http\Controllers\Frontend\InstructorDashboardController;
@@ -54,6 +55,8 @@ use Illuminate\Support\Facades\Route;
  /** about route */
  Route::get('about', [FrontendController::class, 'about'])->name('about.index');
 
+ /** Contact route */
+ Route::get('contact', [FrontendContactController::class, 'index'])->name('contact.index');
 
 
 /**
