@@ -171,6 +171,9 @@
                     <a class="nav-link" href="{{ route('courses.index') }}">Courses</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about.index') }}">About</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Courses <i class="far fa-angle-down"></i></a>
                     <ul class="droap_menu">
                         <li><a href="courses.html">Courses</a></li>
