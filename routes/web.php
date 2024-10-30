@@ -51,6 +51,8 @@ use Illuminate\Support\Facades\Route;
  Route::get('order-failed', [PaymentController::class, 'orderFailed'])->name('order.failed');
 
  Route::post('newsletter-subscribe', [FrontendController::class, 'subscribe'])->name('newsletter.subscribe');
+ /** about route */
+ Route::get('about', [FrontendController::class, 'about'])->name('about.index');
 
 
 
