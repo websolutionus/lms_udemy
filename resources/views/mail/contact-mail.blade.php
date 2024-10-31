@@ -324,7 +324,10 @@
                     <!-- START MAIN CONTENT AREA -->
         <tr>
             <td class="wrapper">
-
+                <p>Name: {{ $name }}</p>
+                <p>Email: {{ $email }}</p>
+                <p>Subject: {{ $subject }}</p>
+                <p>Message: {{ $contactMessage }}</p>
             </td>
         </tr>
 
