@@ -154,6 +154,9 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::get('commission-settings', [SettingController::class, 'commissionSettingIndex'])->name('commission-settings.index');
     Route::post('commission-settings', [SettingController::class, 'updateCommissionSetting'])->name('commission-settings.update');
 
+    Route::get('smtp-settings', [SettingController::class, 'smtpSetting'])->name('smtp-settings.index');
+    Route::post('smtp-settings', [SettingController::class, 'updateSmtpSetting'])->name('smtp-settings.update');
+
     /** Payout Gateway Routes */
     Route::resource('payout-gateway', PayoutGatewayController::class);
 
