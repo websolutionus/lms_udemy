@@ -24,6 +24,12 @@ class CoursePageController extends Controller
             ->when($request->has('category') && $request->filled('category'), function($query) use ($request) {
                 $query->whereIn('category_id', $request->category);
             })
+            ->when($request->has('level') && $request->filled('level'), function($query) use ($request) {
+                $query->whereIn('course_level_id', $request->level);
+            })
+            ->when($request->has('language') && $request->filled('language'), function($query) use ($request) {
+                $query->whereIn('course_language_id', $request->language);
+            })
             ->paginate(12);
 
         $categories = CourseCategory::where('status', 1)->whereNull('parent_id')->get();

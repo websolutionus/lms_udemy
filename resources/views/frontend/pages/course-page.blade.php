@@ -69,7 +69,7 @@
                                 <h3>Difficulty Level</h3>
                                 @foreach($levels as $level)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="level-{{ $level->id }}">
+                                    <input class="form-check-input" type="checkbox" value="{{ $level->id }}" name="level[]" id="level-{{ $level->id }}" @checked(in_array($level->id, request()->level ?? [])) >
                                     <label class="form-check-label" for="level-{{ $level->id }}">
                                         {{ $level->name }}
                                     </label>
@@ -118,7 +118,7 @@
                                 <h3>Language</h3>
                                 @foreach($languages as $language)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="language-{{ $language->id }}">
+                                    <input class="form-check-input" type="checkbox" value="{{ $language->id }}" name="language[]" id="language-{{ $language->id }}" @checked(in_array($language->id, request()->language ?? []))>
                                     <label class="form-check-label" for="language-{{ $language->id }}">
                                         {{ $language->name }}
                                     </label>
