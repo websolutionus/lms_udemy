@@ -34,9 +34,9 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-8 order-2 order-lg-1 wow fadeInLeft">
                     <div class="wsus__sidebar">
-                        <form action="#">
+                        <form action="{{ route('courses.index') }}">
                             <div class="wsus__sidebar_search">
-                                <input type="text" placeholder="Search Course">
+                                <input type="text" placeholder="Search Course" name="search" value="{{ request()->search ?? '' }}">
                                 <button type="submit">
                                     <img src="{{ asset('frontend/assets/images/search_icon.png') }}" alt="Search" class="img-fluid">
                                 </button>

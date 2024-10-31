@@ -12,10 +12,14 @@ use Illuminate\Http\Request;
 
 class CoursePageController extends Controller
 {
-    function index(): View
+    function index(Request $request): View
     {
         $courses = Course::where('is_approved', 'approved')
             ->where('status', 'active')
+            ->when($request->has('search') && $request->filled('search'), function($query) use ($request) {
+                $query->where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('description', 'like', '%' . $request->search . '%');
+            })
             ->paginate(12);
 
         $categories = CourseCategory::where('status', 1)->whereNull('parent_id')->get();
