@@ -14,11 +14,15 @@ class CoursePageController extends Controller
 {
     function index(Request $request): View
     {
+        // dd($request->all());
         $courses = Course::where('is_approved', 'approved')
             ->where('status', 'active')
             ->when($request->has('search') && $request->filled('search'), function($query) use ($request) {
                 $query->where('title', 'like', '%' . $request->search . '%')
                 ->orWhere('description', 'like', '%' . $request->search . '%');
+            })
+            ->when($request->has('category') && $request->filled('category'), function($query) use ($request) {
+                $query->whereIn('category_id', $request->category);
             })
             ->paginate(12);
 

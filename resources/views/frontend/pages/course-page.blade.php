@@ -46,13 +46,13 @@
                                 <h3>Categories</h3>
                                 <ul class="categoty_list">
                                     @foreach($categories as $category)
-                                    <li class="">{{ $category->name }}
+                                    <li class="active">{{ $category->name }}
                                         <div class="wsus__sidebar_sub_category">
                                             @foreach($category->subCategories as $subCategory)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefaultc1">
-                                                <label class="form-check-label" for="flexCheckDefaultc1">
+                                                <input class="form-check-input" type="checkbox" value="{{ $subCategory->id }}"
+                                                    id="category-{{ $subCategory->id }}" name="category[]" @checked(in_array($subCategory->id, request()->category ?? []))>
+                                                <label class="form-check-label" for="category-{{ $subCategory->id }}">
                                                     {{ $subCategory->name }}
                                                 </label>
                                             </div>
@@ -130,6 +130,10 @@
                             <div class="wsus__sidebar_rating">
                                 <h3>Price Range</h3>
                                 <div class="range_slider"></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <button type="submit" class="common_btn">Search</button>
                             </div>
 
                         </form>
