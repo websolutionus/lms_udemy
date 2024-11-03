@@ -54,34 +54,5 @@ class FrontendContactController extends Controller
         return redirect()->back();
     }
 
-    function storeReview(Request $request) : RedirectResponse{
-       $request->validate([
-        'rating' => ['required', 'numeric'],
-        'review' => ['required', 'string', 'max:1000'],
-        'course' => ['required', 'integer']
-       ]);
 
-       $checkPurchase = Enrollment::where('user_id', user()->id)->where('course_id', $request->course)->exists();
-       $alreadyReviewed = Review::where('user_id', user()->id)->where('course_id', $request->course)->where('status', 1)->exists();
-
-       if(!$checkPurchase) {
-        notyf()->error('Please Purchase Course First!');
-        return redirect()->back();
-       }
-
-       if($alreadyReviewed) {
-        notyf()->error('You Already Reviewed This Course!');
-        return redirect()->back();
-       }
-
-       $review = new Review();
-       $review->user_id = user()->id;
-       $review->course_id = $request->course;
-       $review->rating = $request->rating;
-       $review->review = $request->review;
-       $review->save();
-
-       notyf()->success('Review Submitted Successfully!');
-       return redirect()->back();
-    }
 }

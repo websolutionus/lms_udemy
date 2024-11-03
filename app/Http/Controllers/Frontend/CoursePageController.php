@@ -7,7 +7,10 @@ use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\CourseLanguage;
 use App\Models\CourseLevel;
+use App\Models\Enrollment;
+use App\Models\Review;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CoursePageController extends Controller
@@ -44,11 +47,45 @@ class CoursePageController extends Controller
 
     function show(string $slug): View
     {
-        $course = Course::where('slug', $slug)
+        $course = Course::with('reviews')->where('slug', $slug)
             ->where('is_approved', 'approved')
             ->where('status', 'active')
             ->firstOrFail();
+        $reviews = Review::where('course_id', $course->id)->where('status', 1)->paginate(10);
+        
 
-        return view('frontend.pages.course-details-page', compact('course'));
+        return view('frontend.pages.course-details-page', compact('course', 'reviews'));
+    }
+
+    function storeReview(Request $request) : RedirectResponse
+    {
+       $request->validate([
+        'rating' => ['required', 'numeric'],
+        'review' => ['required', 'string', 'max:1000'],
+        'course' => ['required', 'integer']
+       ]);
+
+       $checkPurchase = Enrollment::where('user_id', user()->id)->where('course_id', $request->course)->exists();
+       $alreadyReviewed = Review::where('user_id', user()->id)->where('course_id', $request->course)->where('status', 1)->exists();
+
+       if(!$checkPurchase) {
+        notyf()->error('Please Purchase Course First!');
+        return redirect()->back();
+       }
+
+       if($alreadyReviewed) {
+        notyf()->error('You Already Reviewed This Course!');
+        return redirect()->back();
+       }
+
+       $review = new Review();
+       $review->user_id = user()->id;
+       $review->course_id = $request->course;
+       $review->rating = $request->rating;
+       $review->review = $request->review;
+       $review->save();
+
+       notyf()->success('Review Submitted Successfully!');
+       return redirect()->back();
     }
 }
