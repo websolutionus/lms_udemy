@@ -8,10 +8,10 @@
                 <div class="row">
                     <div class="col-12 wow fadeInUp">
                         <div class="wsus__breadcrumb_text">
-                            <h1>Instructor Dashboard</h1>
+                            <h1>Student Dashboard</h1>
                             <ul>
                                 <li><a href="{{ url('/') }}">Home</a></li>
-                                <li>Instructor Dashboard</li>
+                                <li>Student Dashboard</li>
                             </ul>
                         </div>
                     </div>
@@ -56,13 +56,13 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="del" href="{{ route('student.review.destroy', $review->id) }}"><i class="fas fa-trash-alt"></i></a>
+                                    <a class="del delete-item" href="{{ route('student.review.destroy', $review->id) }}"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                             @empty
 
                             <tr>
-                                <td>No Data Found</td>
+                                <td colspan="5" class="text-center">No Data Found</td>
                             </tr>
                             @endforelse
                         </tbody>

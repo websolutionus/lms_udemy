@@ -92,7 +92,7 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:student'], 'p
 
    /** Review Routes */
    Route::get('review', [StudentDashboardController::class, 'review'])->name('review.index');
-   Route::delete('review', [StudentDashboardController::class, 'reviewDestroy'])->name('review.destroy');
+   Route::delete('review/{id}', [StudentDashboardController::class, 'reviewDestroy'])->name('review.destroy');
 });
 
 /**

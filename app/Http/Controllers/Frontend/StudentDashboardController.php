@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Review;
 use App\Models\User;
 use App\Traits\FileUpload;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -45,6 +46,14 @@ class StudentDashboardController extends Controller
     }
 
     function reviewDestroy(string $id) {
-        
+       try {
+           $review = Review::where('id', $id)->where('user_id', user()->id)->firstOrFail();
+           $review->delete();
+           notyf()->success('Deleted Successfully!');
+           return response(['message' => 'Deleted Successfully!'], 200);
+       } catch (Exception $e) {
+           logger("Review Error >> " . $e);
+           return response(['message' => 'Something went wrong!'], 500);
+       } 
     }
 }
