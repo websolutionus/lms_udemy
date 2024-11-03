@@ -279,6 +279,13 @@
                                 </a>
 
                             </div>
+
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.reviews.index') }}">
+                                    Course Reviews
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -447,6 +454,8 @@
                         </div>
                     </div>
                 </li>
+
+                
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
