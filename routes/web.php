@@ -59,6 +59,9 @@ use Illuminate\Support\Facades\Route;
  Route::get('contact', [FrontendContactController::class, 'index'])->name('contact.index');
  Route::post('contact', [FrontendContactController::class, 'sendMail'])->name('send.contact');
 
+ /** Review Routes */
+ Route::post('review', [FrontendContactController::class, 'storeReview'])->name('review.store');
+
 
 /**
  * ------------------------------------------------------
