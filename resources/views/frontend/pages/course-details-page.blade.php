@@ -328,6 +328,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @auth
                                 <div class="wsus__courses_review_input box_area mt_40">
                                     <h3>Write a Review</h3>
                                     <p class="short_text">Your email address will not be published. Required fields are
@@ -339,6 +340,7 @@
                                         @csrf
                                         <div class="row">
                                             <input type="hidden" name="rating" value="" id="rating">
+                                            <input type="hidden" name="course" value="{{ $course->id }}">
                                             <div class="col-xl-12">
                                                 <textarea rows="7" placeholder="Review" name="review"></textarea>
                                             </div>
@@ -348,6 +350,9 @@
                                         </div>
                                     </form>
                                 </div>
+                                @else
+                                <div class="alert alert-info mt-3 text-center" role="alert">Please <a href="{{ route('login') }}">Login</a> First To Write A Review</div>
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -486,8 +491,6 @@
 
 <script>
     $(function() {
-      
-
       $('#starRating li').on('click', function() {
         var $starRating = $('#starRating').find('.active').length;
 

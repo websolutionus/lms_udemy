@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
 use App\Models\Contact;
 use App\Models\ContactSetting;
+use App\Models\Enrollment;
+use App\Models\Review;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -53,6 +55,33 @@ class FrontendContactController extends Controller
     }
 
     function storeReview(Request $request) : RedirectResponse{
-       dd($request->all()); 
+       $request->validate([
+        'rating' => ['required', 'numeric'],
+        'review' => ['required', 'string', 'max:1000'],
+        'course' => ['required', 'integer']
+       ]);
+
+       $checkPurchase = Enrollment::where('user_id', user()->id)->where('course_id', $request->course)->exists();
+       $alreadyReviewed = Review::where('user_id', user()->id)->where('course_id', $request->course)->where('status', 1)->exists();
+
+       if(!$checkPurchase) {
+        notyf()->error('Please Purchase Course First!');
+        return redirect()->back();
+       }
+
+       if($alreadyReviewed) {
+        notyf()->error('You Already Reviewed This Course!');
+        return redirect()->back();
+       }
+
+       $review = new Review();
+       $review->user_id = user()->id;
+       $review->course_id = $request->course;
+       $review->rating = $request->rating;
+       $review->review = $request->review;
+       $review->save();
+
+       notyf()->success('Review Submitted Successfully!');
+       return redirect()->back();
     }
 }
