@@ -142,13 +142,11 @@
                 <div class="col-xl-9 col-lg-8 order-lg-1">
                     <div class="wsus__page_courses_header wow fadeInUp">
                         <p>Showing <span>1-9</span> Of <span>62</span> Results</p>
-                        <form action="#">
+                        <form action="{{ route('courses.index', request()->query()) }}">
                             <p>Sort-by:</p>
-                            <select class="select_js">
-                                <option value="">Regular</option>
-                                <option value="">Top Rated</option>
-                                <option value="">Popular Courses</option>
-                                <option value="">Recent Courses</option>
+                            <select class="select_js" name="order" onchange="this.form.submit()">
+                                <option value="desc" @selected(request()->order == 'desc')>New to Old</option>
+                                <option value="asc" @selected(request()->order == 'asc')>Old to New</option>
                             </select>
                         </form>
                     </div>

@@ -30,6 +30,10 @@ class CoursePageController extends Controller
             ->when($request->has('language') && $request->filled('language'), function($query) use ($request) {
                 $query->whereIn('course_language_id', $request->language);
             })
+            ->when($request->has('from') && $request->has('to') && $request->filled('from') && $request->filled('to'), function($query) use ($request) {
+                $query->whereBetween('price', [$request->from, $request->to]);
+            })
+            ->orderBy('id', $request->filled('order') ? $request->order : 'desc')
             ->paginate(12);
 
         $categories = CourseCategory::where('status', 1)->whereNull('parent_id')->get();
