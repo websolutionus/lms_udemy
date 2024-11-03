@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Review;
 use App\Models\User;
 use App\Traits\FileUpload;
 use Illuminate\Contracts\View\View;
@@ -35,5 +36,15 @@ class StudentDashboardController extends Controller
         ]);
 
         return redirect()->route('student.dashboard');
+    }
+
+    function review() : View
+    {
+        $reviews = Review::where('user_id', user()->id)->paginate(10);
+        return view('frontend.student-dashboard.review.index', compact('reviews'));
+    }
+
+    function reviewDestroy(string $id) {
+        
     }
 }

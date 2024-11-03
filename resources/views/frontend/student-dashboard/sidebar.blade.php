@@ -36,6 +36,14 @@
                    Enrolled Courses 
                 </a>
             </li>
+            <li>
+                <a href="{{ route('student.review.index') }}" class="">
+                    <div class="img">
+                        <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
+                    </div>
+                   Reviews
+                </a>
+            </li>
 
             <li>
                 <a href="javascript:;"
