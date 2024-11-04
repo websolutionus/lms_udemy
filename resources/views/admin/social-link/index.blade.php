@@ -19,42 +19,31 @@
                             <thead>
                                 <tr>
                                     <th>Icon</th>
-                                    <th>Name</th>
-                                    <th>Treading</th>
+                                    <th>Url</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse ($categories as $category)
+                                @forelse ($socialLinks as $link)
                                     <tr>
-                                        <td><img src="{{ asset($category->image) }}" alt=""></td>
-                                        <td>{{ $category->name }}</td>
+                                        <td><img width="50" style="background-color: gray" src="{{ asset($link->icon) }}" alt=""></td>
+                                        <td>{{ $link->url }}</td>
                                         <td>
-                                            @if ($category->show_at_trending == 1)
+                                            @if ($link->status == 1)
                                                <span class="badge bg-lime text-lime-fg">Yes</span> 
                                             @else 
                                                <span class="badge bg-red text-red-fg">No</span> 
                                             @endif
                                         </td>
                                         <td>
-                                            @if ($category->status == 1)
-                                               <span class="badge bg-lime text-lime-fg">Yes</span> 
-                                            @else 
-                                               <span class="badge bg-red text-red-fg">No</span> 
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('admin.course-sub-categories.index', $category->id) }}"
-                                                class="btn-sm btn-warning text-warning">
-                                                <i class="ti ti-list"></i>
-                                            </a>
-                                            <a href="{{ route('admin.course-categories.edit', $category->id) }}"
+                                           
+                                            <a href="{{ route('admin.social-links.edit', $link->id) }}"
                                                 class="btn-sm btn-primary">
                                                 <i class="ti ti-edit"></i>
                                             </a>
                                             
-                                            <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
+                                            <a href="{{ route('admin.social-links.destroy', $link->id) }}"
                                                 class="text-red delete-item">
                                                 <i class="ti ti-trash-x"></i>
                                             </a>
@@ -62,15 +51,13 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="text-center">No Data Found!</td>
+                                        <td colspan="4" class="text-center">No Data Found!</td>
                                     </tr>
-                                @endforelse --}}
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
-                    <div class="mt-4">
-                        {{-- {{ $categories->links() }} --}}
-                    </div>
+                    
                 </div>
             </div>
         </div>
