@@ -34,6 +34,7 @@ use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\PayoutGatewayController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\TopBarController;
 use App\Http\Controllers\Admin\VideoSectionController;
@@ -219,10 +220,11 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     /** Top bar routes */
     Route::resource('top-bar', TopBarController::class);
 
-
     /** Footer routes */
     Route::resource('footer', FooterController::class);
 
+    /** Social links routes */
+    Route::resource('social-links', SocialLinkController::class);
 
 
 

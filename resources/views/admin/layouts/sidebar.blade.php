@@ -530,6 +530,11 @@
                                   Footer Content 
                                 </a>
                             </div>                          
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.social-links.index') }}">
+                                  Social Links
+                                </a>
+                            </div>  
                             
                         </div>
                     </div>
