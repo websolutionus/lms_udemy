@@ -1,4 +1,7 @@
-<footer class="footer_3" style="background: url(images/footer_3_bg.jpg);">
+@php
+    $footer = \App\Models\Footer::first();
+@endphp
+<footer class="footer_3" style="background: url({{ asset('frontend/assets/images/footer_3_bg.jpg') }});">
     <div class="footer_3_overlay pt_120 xs_pt_100">
         <div class="wsus__footer_bottom">
             <div class="container">
@@ -8,7 +11,7 @@
                             <a class="logo" href="index.html">
                                 <img src="images/footer_logo.png" alt="EduCore" class="img-fluid">
                             </a>
-                            <p>Nunc in sollicitudin diam, ut bibendum malesuada sodales porttitor.</p>
+                            <p>{{ $footer->description }}</p>
                             <h2>Follow Us On</h2>
                             <ul class="d-flex flex-wrap">
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -43,28 +46,33 @@
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp">
                         <div class="wsus__footer_3_subscribe">
-                            <h3>Subscribe Our Newsletter</h3>
-                            <form action="#">
-                                <input type="text" placeholder="Enter Your Email">
-                                <button type="submit" class="common_btn">Subscribe</button>
-                            </form>
+                            <h3>Connect With Us</h3>
                             <ul>
                                 <li>
                                     <div class="icon">
-                                        <img src="images/call_icon_white.png" alt="Call" class="img-fluid">
+                                        <img src="{{ asset('frontend/assets/images/mail.png') }}" alt="Call" class="img-fluid">
                                     </div>
                                     <div class="text">
-                                        <h4>Call us:</h4>
-                                        <a href="mailto:example@gmail.com">example@gmail.com</a>
+                                        <h4>Email us:</h4>
+                                        <a href="mailto:{{ $footer->email }}">{{ $footer->email }}</a>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <img src="images/location_icon_white.png" alt="Call" class="img-fluid">
+                                        <img src="{{ asset('frontend/assets/images/call_icon_white.png') }}" alt="Call" class="img-fluid">
                                     </div>
                                     <div class="text">
-                                        <h4>Office:</h4>
-                                        <p>25-02 44th Queens, NY 3645, United States</p>
+                                        <h4>Call us:</h4>
+                                        <a href="callto:{{ $footer->phone }}">{{ $footer->phone }}</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <img src="{{ asset('frontend/assets/images/location_icon_white.png') }}" alt="Call" class="img-fluid">
+                                    </div>
+                                    <div class="text">
+                                        <h4>Address:</h4>
+                                        <p>{{ $footer->address }}</p>
                                     </div>
                                 </li>
                             </ul>
@@ -77,12 +85,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="wsus__footer_copyright_text">
-                            <p>Copyright © 2024 All Rights Reserved by EduCore Education</p>
-                            <ul>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Term of Service</a></li>
-                            </ul>
+                        <div class="wsus__footer_copyright_text text-center" style="display: block;">
+                            <p>{{ $footer->copyright }}</p>
+                           
                         </div>
                     </div>
                 </div>

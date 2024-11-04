@@ -51,7 +51,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
-                                    <input type="text" class="form-control" name="offer_button_text"
+                                    <input type="text" class="form-control" name="address"
                                         placeholder="" value="{{ $footer?->address }}">
                                     <x-input-error :messages="$errors->get('address')" class="mt-2" />
                                 </div>
