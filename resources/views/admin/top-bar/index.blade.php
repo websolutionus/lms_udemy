@@ -9,23 +9,23 @@
                     
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.course-levels.store') }}" method="POST">
+                    <form action="{{ route('admin.top-bar.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
                                     <input type="text" class="form-control" name="email"
-                                        placeholder="">
+                                        placeholder="" value="{{ $topbar->email }}">
                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">phone</label>
+                                    <label class="form-label">Phone</label>
                                     <input type="text" class="form-control" name="phone"
-                                        placeholder="">
+                                        placeholder="" value="{{ $topbar->phone }}">
                                     <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                                 </div>
                             </div>
@@ -34,35 +34,35 @@
                                 <div class="mb-3">
                                     <label class="form-label">Offer Name</label>
                                     <input type="text" class="form-control" name="offer_name"
-                                        placeholder="">
+                                        placeholder="" value="{{ $topbar->offer_name }}">
                                     <x-input-error :messages="$errors->get('offer_name')" class="mt-2" />
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Short Discription</label>
-                                    <input type="text" class="form-control" name="short_discription"
-                                        placeholder="">
-                                    <x-input-error :messages="$errors->get('short_discription')" class="mt-2" />
+                                    <label class="form-label">Short Description</label>
+                                    <input type="text" class="form-control" name="offer_short_description"
+                                        placeholder="" value="{{ $topbar->offer_short_description }}">
+                                    <x-input-error :messages="$errors->get('offer_short_description')" class="mt-2" />
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Button Text</label>
-                                    <input type="text" class="form-control" name="button_text"
-                                        placeholder="">
-                                    <x-input-error :messages="$errors->get('button_text')" class="mt-2" />
+                                    <input type="text" class="form-control" name="offer_button_text"
+                                        placeholder="" value="{{ $topbar->offer_button_text }}">
+                                    <x-input-error :messages="$errors->get('offer_button_text')" class="mt-2" />
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Button Url</label>
-                                    <input type="text" class="form-control" name="button_url"
-                                        placeholder="">
-                                    <x-input-error :messages="$errors->get('button_url')" class="mt-2" />
+                                    <input type="text" class="form-control" name="offer_button_url"
+                                        placeholder="" value="{{ $topbar->offer_button_url }}">
+                                    <x-input-error :messages="$errors->get('offer_button_url')" class="mt-2" />
                                 </div>
                             </div>
                         </div>
