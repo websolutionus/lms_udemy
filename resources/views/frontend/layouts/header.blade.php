@@ -1,5 +1,6 @@
    @php 
         $topbar = \App\Models\TopBar::first();
+        $categories = \App\Models\CourseCategory::whereNull('parent_id')->where('status', 1)->get();
    @endphp
     <!--===========================
         HEADER START
@@ -46,104 +47,25 @@
                 </div>
                 Category
                 <ul>
+                    @foreach($categories as $category)
                     <li>
-                        <a href="#">
+                        <a href="javascript:;">
                             <span>
-                                <img src="images/menu_category_icon_1.png" alt="Category" class="img-fluid">
+                                <img src="{{ asset($category->image) }}" alt="Category" class="img-fluid">
                             </span>
-                            Development
+                            {{ $category->name }}
                         </a>
+                        @if($category->subCategories->count() > 0)
                         <ul class="category_sub_menu">
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Graphic Design</a></li>
+                            @foreach($category->subCategories as $subCategory)
+                            <li><a href="{{ route('courses.index', ['category' => $subCategory->id]) }}">{{ $subCategory->name }}</a></li>
+                            @endforeach
+                            
                         </ul>
+                        @endif
                     </li>
-                    <li>
-                        <a href="#">
-                            <span>
-                                <img src="images/menu_category_icon_2.png" alt="Category" class="img-fluid">
-                            </span>
-                            Business
-                        </a>
-                        <ul class="category_sub_menu">
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Graphic Design</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>
-                                <img src="images/menu_category_icon_3.png" alt="Category" class="img-fluid">
-                            </span>
-                            Marketing
-                        </a>
-                        <ul class="category_sub_menu">
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Graphic Design</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>
-                                <img src="images/menu_category_icon_4.png" alt="Category" class="img-fluid">
-                            </span>
-                            Lifestyle
-                        </a>
-                        <ul class="category_sub_menu">
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Graphic Design</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>
-                                <img src="images/menu_category_icon_5.png" alt="Category" class="img-fluid">
-                            </span>
-                            Health & Fitness
-                        </a>
-                        <ul class="category_sub_menu">
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Graphic Design</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>
-                                <img src="images/menu_category_icon_6.png" alt="Category" class="img-fluid">
-                            </span>
-                            Design
-                        </a>
-                        <ul class="category_sub_menu">
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Graphic Design</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>
-                                <img src="images/menu_category_icon_7.png" alt="Category" class="img-fluid">
-                            </span>
-                            Academics
-                        </a>
-                        <ul class="category_sub_menu">
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Graphic Design</a></li>
-                        </ul>
-                    </li>
+                    @endforeach
+                   
                 </ul>
             </div>
             <ul class="navbar-nav m-auto">

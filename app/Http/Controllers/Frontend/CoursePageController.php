@@ -25,7 +25,11 @@ class CoursePageController extends Controller
                 ->orWhere('description', 'like', '%' . $request->search . '%');
             })
             ->when($request->has('category') && $request->filled('category'), function($query) use ($request) {
-                $query->whereIn('category_id', $request->category);
+                if(is_array($request->category)){
+                    $query->whereIn('category_id', $request->category);
+                }else {
+                    $query->where('category_id', $request->category);
+                }
             })
             ->when($request->has('level') && $request->filled('level'), function($query) use ($request) {
                 $query->whereIn('course_level_id', $request->level);

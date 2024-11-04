@@ -51,7 +51,11 @@
                                             @foreach($category->subCategories as $subCategory)
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="{{ $subCategory->id }}"
-                                                    id="category-{{ $subCategory->id }}" name="category[]" @checked(in_array($subCategory->id, request()->category ?? []))>
+                                                    id="category-{{ $subCategory->id }}" name="category[]" @checked(
+                                                    is_array(request()->category) ?
+                                                    in_array($subCategory->id, request()->category ?? []):
+                                                    $subCategory->id == request()->category
+                                                    )>
                                                 <label class="form-check-label" for="category-{{ $subCategory->id }}">
                                                     {{ $subCategory->name }}
                                                 </label>
