@@ -78,15 +78,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about.index') }}">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Courses <i class="far fa-angle-down"></i></a>
-                    <ul class="droap_menu">
-                        <li><a href="courses.html">Courses</a></li>
-                        <li><a href="courses_details.html">Course details</a></li>
-                        <li><a href="course_video.html">Course video</a></li>
-                    </ul>
-                </li>
-
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact.index') }}">contact us</a>
@@ -106,14 +97,7 @@
                             <b class="cart_count">{{ cartCount() }}</b>
                         </a>
                     </li>
-                    <li>
-                        <a class="admin" href="#">
-                            <span>
-                                <img src="{{ asset('frontend/assets/images/user_icon_black.png') }}" alt="user" class="img-fluid">
-                            </span>
-                            admin
-                        </a>
-                    </li>
+                  
                     <li>
                         <a class="common_btn" href="{{ route('login') }}">Sign in</a>
                     </li>
@@ -123,8 +107,8 @@
         </div>
     </nav>
     <div class="wsus__menu_3_search_area">
-        <form action="#">
-            <input type="text" placeholder="Search School, Online.....">
+        <form action="{{ route('courses.index') }}">
+            <input type="text" placeholder="Search School, Online....." name="search">
             <button class="common_btn" type="submit">Search</button>
             <span class="close_search"><i class="far fa-times"></i></span>
         </form>
