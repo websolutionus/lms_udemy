@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\CourseSubCategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\FeaturedInstructorController;
+use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\InstructorReqeustController;
 use App\Http\Controllers\Admin\InstructorRequestController;
 use App\Http\Controllers\Admin\LatestCourseSectionController;
@@ -40,6 +41,7 @@ use App\Http\Controllers\Admin\WithdrawRequestController;
 use App\Http\Controllers\Frontend\HeroController;
 use App\Models\BecomeInstructorSection;
 use App\Models\FeaturedInstructor;
+use App\Models\Footer;
 use App\Models\LatestCourseSection;
 use App\Models\TopBar;
 use Illuminate\Support\Facades\Route;
@@ -218,6 +220,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::resource('top-bar', TopBarController::class);
 
 
+    /** Footer routes */
+    Route::resource('footer', FooterController::class);
 
 
 
