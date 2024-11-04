@@ -34,12 +34,14 @@ use App\Http\Controllers\Admin\PayoutGatewayController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\TopBarController;
 use App\Http\Controllers\Admin\VideoSectionController;
 use App\Http\Controllers\Admin\WithdrawRequestController;
 use App\Http\Controllers\Frontend\HeroController;
 use App\Models\BecomeInstructorSection;
 use App\Models\FeaturedInstructor;
 use App\Models\LatestCourseSection;
+use App\Models\TopBar;
 use Illuminate\Support\Facades\Route;
 
 Route::group(["middleware" => "guest:admin", "prefix" => "admin", "as" => "admin."], function () {
@@ -212,6 +214,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     /** Review Routes */
     Route::resource('reviews', ReviewController::class);
 
+    /** Top bar routes */
+    Route::resource('top-bar', TopBarController::class);
 
 
 
