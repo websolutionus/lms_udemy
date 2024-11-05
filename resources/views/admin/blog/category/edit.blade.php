@@ -5,7 +5,7 @@
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Create Category</h3>
+                    <h3 class="card-title">Update Category</h3>
                     <div class="card-actions">
                         <a href="{{ route('admin.blog-categories.index') }}" class="btn btn-primary">
                             <i class="ti ti-arrow-left"></i>
@@ -14,23 +14,24 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.blog-categories.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.blog-categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="row">
 
                             <div class="col-md-12">
-                                <x-input-block name="name" placeholder="Enter name" />
+                                <x-input-block name="name" placeholder="Enter name" :value="$category->name" />
                             </div>  
 
                             <div class="col-md-3">
-                                <x-input-toggle-block name="status" label="Status" />
+                                <x-input-toggle-block name="status" label="Status" :checked="$category->status == 1" />
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit">
                                 <i class="ti ti-device-floppy"></i>  
-                                Create
+                                Update
                             </button>
                         </div>
                     </form>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BlogCategory;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Intervention\Image\Colors\Rgb\Channels\Red;
 
 class BlogCategoryController extends Controller
 {
@@ -15,7 +17,8 @@ class BlogCategoryController extends Controller
      */
     public function index() : View
     {
-        return view('admin.blog.category.index');
+        $categories = BlogCategory::paginate(20);
+        return view('admin.blog.category.index', compact('categories'));
     }
 
     /**
@@ -47,28 +50,35 @@ class BlogCategoryController extends Controller
         return to_route('admin.blog-categories.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id) : View
     {
-        //
+        $category = BlogCategory::findOrFail($id);
+        return view('admin.blog.category.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) : RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'unique:blog_categories,name, ' . $id],
+            'status' => ['nullable', 'boolean'],
+        ]);
+
+        $category = BlogCategory::findOrFail($id);
+        $category->name = $request->name;
+        $category->slug = \Str::slug($request->name);
+        $category->status = $request->status ?? 0;
+        $category->save();
+
+        notyf()->success('Update Successfully!');
+
+        return to_route('admin.blog-categories.index');
     }
 
     /**
@@ -76,6 +86,14 @@ class BlogCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $category = BlogCategory::findOrFail($id);
+            $category->delete();
+            notyf()->success('Deleted Successfully!');
+            return response(['message' => 'Deleted Successfully!'], 200);
+        }catch(Exception $e) {
+            logger("Social Link Error >> ".$e);
+            return response(['message' => 'Something went wrong!'], 500);
+        }
     }
 }
