@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BecomeInstructorSectionController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BrandSectionController;
 use App\Http\Controllers\Admin\CertificateBuilderController;
 use App\Http\Controllers\Admin\ContactController;
@@ -187,7 +188,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     /** Feature Routes */
     Route::resource('about-section', AboutUsSectionController::class);
-    
+
 
     /** Latest Courses Routes */
     Route::resource('latest-courses-section', LatestCourseSectionController::class);
@@ -208,7 +209,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     /** Video Section Routes */
     Route::resource('testimonial-section', TestimonialController::class);
-    
+
     /** Counter Routes */
     Route::resource('counter-section', CounterController::class);
 
@@ -238,6 +239,9 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     /** footer column one routes */
     Route::resource('custom-page', CustomPageController::class);
+
+    /** blog category routes */
+    Route::resource('blog-categories', BlogCategoryController::class);
 
 
     /** lfm Routes */
