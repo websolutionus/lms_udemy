@@ -62,6 +62,8 @@ use Illuminate\Support\Facades\Route;
  /** Review Routes */
  Route::post('review', [CoursePageController::class, 'storeReview'])->name('review.store');
 
+ /** Custom page Routes */
+ Route::get('page/{slug}', [FrontendController::class, 'customPage'])->name('custom-page');
 
 /**
  * ------------------------------------------------------

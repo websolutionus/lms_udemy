@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\Counter;
 use App\Models\Course;
 use App\Models\CourseCategory;
+use App\Models\CustomPage;
 use App\Models\Feature;
 use App\Models\FeaturedInstructor;
 use App\Models\Hero;
@@ -81,5 +82,10 @@ class FrontendController extends Controller
       $newsletter->save();
 
       return response(['status' => 'success', 'message' => 'Successfully subscribed!']);
+   }
+
+   function customPage(string $slug) : View {
+      $page = CustomPage::where('slug', $slug)->where('status', 1)->firstOrFail();
+      return view('frontend.pages.custom-page', compact('page'));
    }
 }
