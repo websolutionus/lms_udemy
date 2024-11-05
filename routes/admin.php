@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\FeaturedInstructorController;
 use App\Http\Controllers\Admin\FooterColumnOneController;
+use App\Http\Controllers\Admin\FooterColumnTwoController;
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\InstructorReqeustController;
 use App\Http\Controllers\Admin\InstructorRequestController;
@@ -230,6 +231,9 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     /** footer column one routes */
     Route::resource('footer-column-one', FooterColumnOneController::class);
+
+    /** footer column one routes */
+    Route::resource('footer-column-two', FooterColumnTwoController::class);
 
     /** lfm Routes */
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin']], function () {
