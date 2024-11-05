@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\CourseSubCategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\FeaturedInstructorController;
+use App\Http\Controllers\Admin\FooterColumnOneController;
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\InstructorReqeustController;
 use App\Http\Controllers\Admin\InstructorRequestController;
@@ -43,6 +44,7 @@ use App\Http\Controllers\Frontend\HeroController;
 use App\Models\BecomeInstructorSection;
 use App\Models\FeaturedInstructor;
 use App\Models\Footer;
+use App\Models\FooterColumnOne;
 use App\Models\LatestCourseSection;
 use App\Models\TopBar;
 use Illuminate\Support\Facades\Route;
@@ -226,7 +228,8 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     /** Social links routes */
     Route::resource('social-links', SocialLinkController::class);
 
-
+    /** footer column one routes */
+    Route::resource('footer-column-one', FooterColumnOneController::class);
 
     /** lfm Routes */
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin']], function () {

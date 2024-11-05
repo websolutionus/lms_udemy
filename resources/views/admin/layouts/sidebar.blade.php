@@ -531,6 +531,11 @@
                                 </a>
                             </div>                          
                             <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.footer-column-one.index') }}">
+                                  Footer Column One
+                                </a>
+                            </div> 
+                            <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="{{ route('admin.social-links.index') }}">
                                   Social Links
                                 </a>
