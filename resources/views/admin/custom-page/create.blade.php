@@ -26,6 +26,7 @@
                                <div class="form-group">
                                 <label for="">Description</label>
                                 <textarea name="description" class="editor" ></textarea>
+                                <x-input-error :messages="$errors->get('description')" class="mt-2" />
                                 </div> 
                             </div>  
 
@@ -36,7 +37,9 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <label for="" class="mb-2">Seo Description</label>
-                                    <textarea name="description" class="form-control" ></textarea>
+                                    <textarea name="seo_description" class="form-control" ></textarea>
+                                <x-input-error :messages="$errors->get('seo_description')" class="mt-2" />
+
                                  </div> 
                             </div>  
 
