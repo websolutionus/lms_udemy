@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Traits\FileUpload;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class BlogController extends Controller
 {
@@ -18,7 +20,8 @@ class BlogController extends Controller
      */
     public function index() : View
     {
-        return view('admin.blog.index');
+        $blogs = Blog::with('category')->paginate(20);
+        return view('admin.blog.index', compact('blogs'));
     }
 
     /**
@@ -62,34 +65,63 @@ class BlogController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id) : View
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $categories = BlogCategory::all();
+        return view('admin.blog.edit', compact('blog', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) : RedirectResponse
     {
-        //
+        $request->validate([
+            'title' => ['required', 'string', 'max:255', 'unique:blogs,title,' . $id],
+            'image' => ['nullable', 'image', 'max:3000'],
+            'description' => ['required', 'string'],
+            'category' => ['required', 'exists:blog_categories,id'],
+            'status' => ['nullable', 'boolean'],
+        ]);
+
+
+        $blog = Blog::findOrFail($id);
+
+        if($request->hasFile('image')) {
+            $image = $this->uploadFile($request->file('image'));
+            $this->deleteFile($request->old_image);
+            $blog->image = $image;
+        }
+
+        $blog->title = $request->title;
+        $blog->slug = \Str::slug($request->title);
+        $blog->description = $request->description;
+        $blog->blog_category_id = $request->category;
+        $blog->status = $request->status ?? 0;
+        $blog->save();
+
+        notyf()->success('Updated Successfully!');
+
+        return to_route('admin.blogs.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id) : Response
     {
-        //
+        try {
+            $blog = Blog::findOrFail($id);
+            $this->deleteFile($blog->image);
+            $blog->delete();
+            notyf()->success('Deleted Successfully!');
+            return response(['message' => 'Deleted Successfully!'], 200);
+        }catch(Exception $e) {
+            logger("Social Link Error >> ".$e);
+            return response(['message' => 'Something went wrong!'], 500);
+        }
     }
 }

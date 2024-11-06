@@ -18,19 +18,21 @@
                         <table class="table table-vcenter card-table">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Slug</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse ($categories as $category)
+                                @forelse ($blogs as $blog)
                                     <tr>
-                                        <td>{{ $category->name }}</td>
-                                        <td>{{ $category->slug }}</td>
+                                        <td><img width="100" src="{{ asset($blog->image) }}" alt=""></td>
+                                        <td>{{ $blog->title }}</td>
+                                        <td>{{ $blog->category->name}}</td>
                                         <td>
-                                            @if ($category->status == 1)
+                                            @if ($blog->status == 1)
                                                <span class="badge bg-lime text-lime-fg">Active</span> 
                                             @else 
                                                <span class="badge bg-red text-red-fg">Inactive</span> 
@@ -38,12 +40,12 @@
                                         </td>
                                         <td>
                                            
-                                            <a href="{{ route('admin.blog-categories.edit', $category->id) }}"
+                                            <a href="{{ route('admin.blogs.edit', $blog->id) }}"
                                                 class="btn-sm btn-primary">
                                                 <i class="ti ti-edit"></i>
                                             </a>
                                             
-                                            <a href="{{ route('admin.blog-categories.destroy', $category->id) }}"
+                                            <a href="{{ route('admin.blogs.destroy', $blog->id) }}"
                                                 class="text-red delete-item">
                                                 <i class="ti ti-trash-x"></i>
                                             </a>
@@ -51,9 +53,9 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="text-center">No Data Found!</td>
+                                        <td colspan="5" class="text-center">No Data Found!</td>
                                     </tr>
-                                @endforelse --}}
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
