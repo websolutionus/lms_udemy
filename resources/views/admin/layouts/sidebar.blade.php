@@ -380,6 +380,14 @@
                             </div>
                            
                         </div>
+
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.blogs.index') }}">
+                                    Blogs
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </li>
 
