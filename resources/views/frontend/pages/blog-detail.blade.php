@@ -176,10 +176,10 @@
                 </div>
                 <div class="col-lg-4 wow fadeInRight">
                     <div class="wsus__blog_sidebar wsus__sidebar">
-                        <form action="#" class="wsus__sidebar_search">
-                            <input type="text" placeholder="Search Here...">
+                        <form action="{{ route('blog.index') }}" class="wsus__sidebar_search" method="get">
+                            <input type="text" placeholder="Search Here..." name="search">
                             <button type="submit">
-                                <img src="images/search_icon.png" alt="Search" class="img-fluid">
+                                <img src="{{ asset('frontend/assets/images/search_icon.png') }}" alt="Search" class="img-fluid">
                             </button>
                         </form>
                         <div class="wsus__sidebar_recent_post">
@@ -209,24 +209,13 @@
                             <ul>
                                 @foreach($blogCategories as $category)
                                 <li>
-                                    <a href="">{{ $category->name }} <span>({{ $category->blogs_count }})</span></a>
+                                    <a href="{{ route('blog.index', ['category' => $category->slug]) }}">{{ $category->name }} <span>({{ $category->blogs_count }})</span></a>
                                 </li>
                                 @endforeach
                                
                             </ul>
                         </div>
-                        <div class="wsus__sidebar_blog_tags">
-                            <h3>Tags</h3>
-                            <ul class="d-flex flex-wrap">
-                                <li><a href="#">Course</a></li>
-                                <li><a href="#">Education</a></li>
-                                <li><a href="#">Learn</a></li>
-                                <li><a href="#">Online</a></li>
-                                <li><a href="#">eLearning</a></li>
-                                <li><a href="#">LMS</a></li>
-                                <li><a href="#">Development</a></li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

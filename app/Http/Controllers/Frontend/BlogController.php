@@ -11,9 +11,20 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     //
-    function index() : View
+    function index(Request $request) : View
     {
-        $blogs = Blog::where('status', 1)->paginate(20);
+        $blogs = Blog::where('status', 1)
+        ->when($request->filled('search'), function ($query) use ($request) {
+            $query->where('title', 'like', '%' . $request->search . '%')
+            ->orWhere('description', 'like', '%' . $request->search . '%');
+        })
+        ->when($request->filled('category'), function ($query) use ($request) {
+            $slug = $request->category;
+            $query->whereHas('category', function ($q) use ($slug) {
+                $q->where('slug', $slug);
+            });
+        })
+        ->paginate(20);
         return view('frontend.pages.blog', compact('blogs'));     
     }
 
