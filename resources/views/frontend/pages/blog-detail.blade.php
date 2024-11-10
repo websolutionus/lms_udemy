@@ -53,7 +53,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        <img src="images/calendar_gray.png" alt="calendar" class="img-fluid">
+                                        <img src="{{ asset('frontend/assets/images/calendar_gray.png') }}" alt="calendar" class="img-fluid">
                                     </span>
                                     {{ date('M d, Y', strtotime($blog->created_at)) }}
                                 </li>
@@ -67,7 +67,7 @@
                                     <span>
                                         <img src="{{ asset('frontend/assets/images/comment_icon_gray.png') }}" alt="bookmark" class="img-fluid">
                                     </span>
-                                    3 Comments
+                                    {{ $blog->comments()->count() }} Comments
                                 </li>
                             </ul>
                             <h2>{{ $blog->title }}</h2>

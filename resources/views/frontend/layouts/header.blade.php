@@ -79,6 +79,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about.index') }}">About</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('blog.index') }}">Blogs</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact.index') }}">contact us</a>
