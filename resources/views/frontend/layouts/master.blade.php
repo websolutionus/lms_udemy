@@ -9,7 +9,7 @@
     <meta name="csrf_token" content="{{ csrf_token() }}">
     @stack('meta')
     <title>EduCore - Online Courses & Education HTML Template</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset(config('settings.site_favicon')) }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/animated_barfiller.css') }}">

@@ -35,7 +35,7 @@
     ============================-->
     <nav class="navbar navbar-expand-lg main_menu main_menu_3">
         <a class="navbar-brand" href="index_3.html">
-            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="EduCore" class="img-fluid">
+            <img src="{{ asset(config('settings.site_logo')) }}" alt="EduCore" class="img-fluid">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

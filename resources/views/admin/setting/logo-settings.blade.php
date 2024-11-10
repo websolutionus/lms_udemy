@@ -9,11 +9,11 @@
                 @csrf
                 <div class="row g-3">
                     <div class="col-md-12">
-                        <x-image-preview src="{{ asset(config('settings.site_logo')) }}" />
+                        <x-image-preview src="{{ asset(config('settings.site_logo')) }}" style="width: 300px" />
                         <x-input-file-block name="site_logo" />
                     </div>
                     <div class="col-md-12">
-                        <x-image-preview src="{{ asset(config('settings.site_footer_logo')) }}" />
+                        <x-image-preview src="{{ asset(config('settings.site_footer_logo')) }}" style="width: 300px" />
                         <x-input-file-block name="site_footer_logo" />
                     </div>
                     <div class="col-md-12">
@@ -21,7 +21,7 @@
                         <x-input-file-block name="site_favicon" />
                     </div>
                     <div class="col-md-12">
-                        <x-image-preview src="{{ config('settings.site_breadcrumb') }}" />
+                        <x-image-preview src="{{ config('settings.site_breadcrumb') }}" style="width: 300px" />
                         <x-input-file-block name="site_breadcrumb" />
                     </div>
                     
