@@ -104,74 +104,41 @@
                         </div>
                         <div class="wsus__blog_comment_area mt_75">
                             <h2>Comments</h2>
+                            @foreach($blog->comments()->orderBy('id', 'desc')->get() ?? [] as $comment)
                             <div class="wsus__blog_single_comment">
                                 <div class="img">
-                                    <img src="images/testimonial_user_1.png" alt="Comments" class="img-fluid">
+                                    <img src="{{ $comment->user->image ? asset($comment->user->image) : asset('default-files/avatar.png') }}" alt="Comments" class="img-fluid">
                                 </div>
                                 <div class="text">
-                                    <h4>Ravi O'Leigh</h4>
-                                    <h6>March 23, 2024 at 12:30 pm <a href="#"><i class="fas fa-reply"></i></a></h6>
-                                    <p>Nulla a ipsum nibh. Fusce purus elit, tristique vitae enim sed, auctor placerat
-                                        est. Maecenas consequat nibh consequat malesuada fringilla, mauris lorem dapibus
-                                        metus, non imperdiet nunc erat ultricies est. Praesent ames nec lorem sit amet
-                                        leo consequat rutrum non nibh sem eget metus.</p>
+                                    <h4>{{ $comment->user->name }}</h4>
+                                    <h6>{{ date('M d, Y', strtotime($comment->created_at)) }}</h6>
+                                    <p>{{ $comment->comment }}</p>
                                 </div>
                             </div>
-                            <div class="wsus__blog_single_comment single_comment_reply">
-                                <div class="img">
-                                    <img src="images/testimonial_user_2.png" alt="Comments" class="img-fluid">
-                                </div>
-                                <div class="text">
-                                    <h4>Doug Lyphe</h4>
-                                    <h6>June 25, 2024 at 08:45 pm <a href="#"><i class="fas fa-reply"></i></a></h6>
-                                    <p>Nulla a ipsum nibh. Fusce purus elit, tristique vitae enim sed, auctor placerat
-                                        est. Maecenas consequat nibh consequat malesuada fringilla, mauris lorem dapibus
-                                        metus, non imperdiet nunc erat ultricies est. Praesent ames nec lorem sit amet
-                                        leo consequat rutrum non nibh sem eget metus.</p>
-                                </div>
-                            </div>
-                            <div class="wsus__blog_single_comment">
-                                <div class="img">
-                                    <img src="images/testimonial_user_3.png" alt="Comments" class="img-fluid">
-                                </div>
-                                <div class="text">
-                                    <h4>Doug Lyphe</h4>
-                                    <h6>June 25, 2024 at 08:45 pm <a href="#"><i class="fas fa-reply"></i></a></h6>
-                                    <p>Nulla a ipsum nibh. Fusce purus elit, tristique vitae enim sed, auctor placerat
-                                        est. Maecenas consequat nibh consequat malesuada fringilla, mauris lorem dapibus
-                                        metus, non imperdiet nunc erat ultricies est. Praesent ames nec lorem sit amet
-                                        leo consequat rutrum non nibh sem eget metus.</p>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                         </div>
+                        @auth
                         <div class="wsus__blog_comment_input_area mt_75">
                             <h2>Post a Comment</h2>
-                            <p>Your email address will not be published. Required fields are marked *</p>
-                            <form action="#">
+                            <p>Please add your comment here</p>
+                            <form action="{{ route('blog.comment.store', $blog->id) }}" method="POST">
+                                @csrf
                                 <div class="row">
-                                    <div class="col-xl-6">
-                                        <input type="text" placeholder="Name">
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <input type="email" placeholder="Email">
-                                    </div>
+                                    
                                     <div class="col-xl-12">
-                                        <textarea rows="5" placeholder="Leave a reply"></textarea>
+                                        <textarea rows="5" placeholder="Leave a comment" name="comment"></textarea>
                                     </div>
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Save my name, email, and website in this browser for the next time I
-                                                comment.
-                                            </label>
-                                        </div>
+                                    <div class="col-12 mt-4">
+                                        
                                         <button type="submit" class="common_btn">Post Comment</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        @else
+                        <div class="alert alert-info text-center">You need to login to comment</div>
+                        @endauth
                     </div>
                 </div>
                 <div class="col-lg-4 wow fadeInRight">
