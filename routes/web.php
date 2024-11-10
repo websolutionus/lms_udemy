@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CourseContentController;
@@ -64,6 +65,9 @@ use Illuminate\Support\Facades\Route;
 
  /** Custom page Routes */
  Route::get('page/{slug}', [FrontendController::class, 'customPage'])->name('custom-page');
+
+ /** Blog Routes */
+ Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 
 /**
  * ------------------------------------------------------
