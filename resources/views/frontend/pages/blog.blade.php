@@ -50,9 +50,9 @@
                                     3 Comments
                                 </li>
                             </ul>
-                            <a href="#" class="title">{{ $blog->title }}</a>
+                            <a href="{{ route('blog.show', $blog->slug) }}" class="title">{{ $blog->title }}</a>
                             <p>{{ Str::limit(strip_tags($blog->description), 120) }}</p>
-                            <a href="#" class="common_btn">Read More <i class="far fa-arrow-right"></i></a>
+                            <a href="{{ route('blog.show', $blog->slug) }}" class="common_btn">Read More <i class="far fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
