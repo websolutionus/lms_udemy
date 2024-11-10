@@ -23,6 +23,53 @@
                         <x-input-error :messages="$errors->get('receiver_email')" class="mt-2" />
                     </div>
 
+                    <div class="col-md-6">
+                        <div class="form-label">Mail Mailer</div>
+                        <input type="text" class="form-control" name="mail_mailer"
+                            value="{{ config('settings.mail_mailer') }}">
+                        <x-input-error :messages="$errors->get('mail_mailer')" class="mt-2" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label">Mail Host</div>
+                        <input type="text" class="form-control" name="mail_host"
+                            value="{{ config('settings.mail_host') }}">
+                        <x-input-error :messages="$errors->get('mail_host')" class="mt-2" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-label">Mail Port</div>
+                        <input type="text" class="form-control" name="mail_port"
+                            value="{{ config('settings.mail_port') }}">
+                        <x-input-error :messages="$errors->get('mail_port')" class="mt-2" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label">Mail User Name</div>
+                        <input type="text" class="form-control" name="mail_username"
+                            value="{{ config('settings.mail_username') }}">
+                        <x-input-error :messages="$errors->get('mail_username')" class="mt-2" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label">Mail Password</div>
+                        <input type="text" class="form-control" name="mail_password"
+                            value="{{ config('settings.mail_password') }}">
+                        <x-input-error :messages="$errors->get('mail_password')" class="mt-2" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label">Mail Encryption</div>
+                        <input type="text" class="form-control" name="mail_encryption"
+                            value="{{ config('settings.mail_encryption') }}">
+                        <x-input-error :messages="$errors->get('mail_encryption')" class="mt-2" />
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-label">Mail Queue</div>
+                        <select name="mail_queue" id="" class="form-control">
+                            <option value="1">On</option>
+                            <option value="0">Off</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('mail_queue')" class="mt-2" />
+                    </div>
+
                 </div>
 
             </div>

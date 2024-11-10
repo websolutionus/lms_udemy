@@ -79,6 +79,16 @@ class SettingController extends Controller
        $validatedData = $request->validate([
             'receiver_email' => ['required', 'email', 'max:255'],
             'sender_email' => ['required', 'email', 'max:255'],
+
+            'mail_mailer' => ['required', 'string', 'max:255'],
+            'mail_host' => ['required', 'string', 'max:255'],
+            'mail_port' => ['required', 'numeric'],
+            'mail_port' => ['required', 'string', 'max:255'],
+            'mail_username' => ['required', 'string', 'max:255'],
+            'mail_password' => ['required', 'string', 'max:255'],
+            'mail_encryption' => ['required', 'string', 'max:255'],
+            'mail_queue' => ['required', 'boolean'],
+
         ]);
 
         foreach ($validatedData as $key => $value) {
