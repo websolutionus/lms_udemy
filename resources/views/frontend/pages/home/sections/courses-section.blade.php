@@ -41,7 +41,7 @@
                         </li>
                     @endif
 
-                    @if ($categoryTwo)
+                    @if ($categoryThree)
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-{{ $categoryThree->id }}-tab"
                                 data-bs-toggle="pill" data-bs-target="#pills-{{ $categoryThree->id }}" type="button"
@@ -50,7 +50,7 @@
                         </li>
                     @endif
 
-                    @if ($categoryTwo)
+                    @if ($categoryFour)
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-{{ $categoryFour->id }}-tab"
                                 data-bs-toggle="pill" data-bs-target="#pills-{{ $categoryFour->id }}" type="button"
@@ -59,7 +59,7 @@
                         </li>
                     @endif
 
-                    @if ($categoryTwo)
+                    @if ($categoryFive)
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-{{ $categoryFive->id }}-tab"
                                 data-bs-toggle="pill" data-bs-target="#pills-{{ $categoryFive->id }}" type="button"
@@ -84,36 +84,18 @@
                         <div class="wsus__single_courses_3">
                             <div class="wsus__single_courses_3_img">
                                 <img src="{{ asset($course->thumbnail) }}" alt="Courses" class="img-fluid">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/love_icon_black.png') }}" alt="Love" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/compare_icon_black.png') }}" alt="Compare"
-                                                class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/cart_icon_black.png') }}" alt="Cart" class="img-fluid">
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                                 <span class="time"><i class="far fa-clock"></i> 15 Hours</span>
                             </div>
                             <div class="wsus__single_courses_text_3">
                                 <div class="rating_area">
                                     <!-- <a href="#" class="category">Design</a> -->
                                     <p class="rating">
+                                        @for($i = 1; $i <= $course->reviews()->avg('rating'); $i++)
                                         <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span>(4.8 Rating)</span>
+                                        @endfor
+                                        
+                                        <span>({{ $course->reviews()->avg('rating') }} Rating)</span>
                                     </p>
                                 </div>
 
@@ -161,43 +143,30 @@
                         <div class="wsus__single_courses_3">
                             <div class="wsus__single_courses_3_img">
                                 <img src="{{ asset($course->thumbnail) }}" alt="Courses" class="img-fluid">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/love_icon_black.png') }}" alt="Love" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/compare_icon_black.png') }}" alt="Compare"
-                                                class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/cart_icon_black.png') }}" alt="Cart" class="img-fluid">
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                                 <span class="time"><i class="far fa-clock"></i> 15 Hours</span>
                             </div>
                             <div class="wsus__single_courses_text_3">
                                 <div class="rating_area">
                                     <!-- <a href="#" class="category">Design</a> -->
                                     <p class="rating">
+                                        @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= $course->reviews()->avg('rating'))
                                         <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span>(4.8 Rating)</span>
+                                        @else
+                                        <i class="far fa-star"></i>
+                                        @endif  
+                                           
+                                        @endfor
+                                        
+                                        <span>({{ number_format($course->reviews()->avg('rating'), 2) ?? 0 }} Rating)</span>
                                     </p>
                                 </div>
 
                                 <a class="title" href="{{ route('courses.show', $course->slug) }}">{{ $course->title }}</a>
                                 <ul>
-                                    <li>24 Lessons</li>
-                                    <li>38 Student</li>
+                                    <li>{{ $course->lessons()->count() }} Lessons</li>
+                                    <li>{{ $course->enrollments()->count() }} Student</li>
                                 </ul>
                                 <a class="author" href="#">
                                     <div class="img">
@@ -210,7 +179,7 @@
                                 <a class="common_btn add_to_cart" href="#" data-course-id="{{ $course->id }}">Add to Cart<i class="far fa-arrow-right"></i></a>
                                 <p>
                                     @if($course->discount > 0)
-                                    <del>${{ $course->discount }}</del> ${{ $course->price }}
+                                    <del>${{ $course->price }}</del> ${{ $course->discount }}
                                     @else
                                     ${{ $course->price }}
                                     @endif
@@ -238,24 +207,7 @@
                         <div class="wsus__single_courses_3">
                             <div class="wsus__single_courses_3_img">
                                 <img src="{{ asset($course->thumbnail) }}" alt="Courses" class="img-fluid">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/love_icon_black.png') }}" alt="Love" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/compare_icon_black.png') }}" alt="Compare"
-                                                class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/cart_icon_black.png') }}" alt="Cart" class="img-fluid">
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                                 <span class="time"><i class="far fa-clock"></i> 15 Hours</span>
                             </div>
                             <div class="wsus__single_courses_text_3">
@@ -315,24 +267,7 @@
                         <div class="wsus__single_courses_3">
                             <div class="wsus__single_courses_3_img">
                                 <img src="{{ asset($course->thumbnail) }}" alt="Courses" class="img-fluid">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/love_icon_black.png') }}" alt="Love" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/compare_icon_black.png') }}" alt="Compare"
-                                                class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('frontend/assets/images/cart_icon_black.png') }}" alt="Cart" class="img-fluid">
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                                 <span class="time"><i class="far fa-clock"></i> 15 Hours</span>
                             </div>
                             <div class="wsus__single_courses_text_3">
