@@ -69,4 +69,8 @@ class User extends Authenticatable
     function reviews() : HasMany {
        return $this->hasMany(Review::class, 'instructor_id', 'id'); 
     }
+
+    function enrollments() : HasMany{
+       return $this->hasMany(Enrollment::class, 'user_id', 'id'); 
+    }
 }

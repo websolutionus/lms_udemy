@@ -18,12 +18,15 @@
                     <div class="col-12 wow fadeInUp">
                         <div class="wsus__breadcrumb_text">
                             <p class="rating">
+                                @for($i = 1; $i <= 5; $i++) 
+                                @if($i <= $course->reviews()->avg('rating'))
                                 <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(4 Reviews)</span>
+                                @else
+                                <i class="far fa-star"></i>
+                                @endif
+                                @endfor
+                                <span>({{ number_format($course->reviews()->avg('rating'), 2) ?? 0 }} Reviews)</span>
+
                             </p>
                             <h1>{{ $course->title }}</h1>
                             <ul class="list">
@@ -369,7 +372,7 @@
                                                 alt="User" class="img-fluid"></span>
                                         Student Enrolled
                                     </p>
-                                    47
+                                    {{ $course->enrollments()->count() }}
                                 </li>
                                 <li>
                                     <p>
@@ -380,11 +383,9 @@
                                     {{ $course->language->name }}
                                 </li>
                             </ul>
-                            <a class="common_btn" href="#">Enroll The Course <i class="far fa-arrow-right"></i></a>
+                            <a class="common_btn add_to_cart" data-course-id="{{ $course->id }}" href="" >Add to Cart <i class="far fa-arrow-right"></i></a>
                         </div>
-                        <div class="wsus__courses_sidebar_share_btn d-flex flex-wrap justify-content-between">
-                            <a href="#" class="common_btn"><i class="far fa-heart"></i> Add to Wishlist</a>
-                        </div>
+                        
                         <div class="wsus__courses_sidebar_share_area">
                             <span>Share:</span>
                             <ul>
@@ -424,24 +425,10 @@
                                 </div>
                                 <div class="text">
                                     <h3>{{ $course->instructor->name }}</h3>
-                                    <p><span>Instructor</span> Level 2</p>
+                                    <p><span>Instructor</span></p>
                                 </div>
                             </div>
-                            <ul class="d-flex flex-wrap">
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Exclusive Author">
-                                    <img src="{{ asset('frontend/assets/images/badge_1.png') }}" alt="Badge" class="img-fluid">
-                                </li>
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Top Earning"><img
-                                        src="{{ asset('frontend/assets/images/badge_2.png') }}" alt="Badge" class="img-fluid"></li>
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Trending"><img
-                                        src="{{ asset('frontend/assets/images/badge_3.png') }}" alt="Badge" class="img-fluid"></li>
-                                <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-title="2 Years of Membership"><img src="{{ asset('frontend/assets/images/badge_4.png') }}" alt="Badge"
-                                        class="img-fluid"></li>
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Collector Lavel 1">
-                                    <img src="{{ asset('frontend/assets/images/badge_5.png') }}" alt="Badge" class="img-fluid">
-                                </li>
-                            </ul>
+                            
                         </div>
                     </div>
                 </div>
