@@ -807,27 +807,33 @@ $(function () {
     });
 
 
-    // Sticky menu
+    // Mobile menu
     const mobile_menu = document.querySelectorAll(".mobile_dropdown");
     mobile_menu.forEach((dropdown) => {
         const innerMenu = dropdown.querySelector(".inner_menu");
-        dropdown.addEventListener("click", () => {
-            if (innerMenu.style.maxHeight) {
-                innerMenu.style.maxHeight = null;
-                dropdown.classList.remove("active");
-            } else {
-                mobile_menu.forEach((item) => {
-                    const menu = item.querySelector(".inner_menu");
-                    if (menu !== innerMenu) {
-                        menu.style.maxHeight = null;
-                        item.classList.remove("active");
-                    }
-                });
-                innerMenu.style.maxHeight = innerMenu.scrollHeight + "px";
-                dropdown.classList.add("active");
-            }
-        });
+    
+        // Only add the event listener if innerMenu exists
+        if (innerMenu) {
+            dropdown.addEventListener("click", () => {
+                if (innerMenu.style.maxHeight) {
+                    innerMenu.style.maxHeight = null;
+                    dropdown.classList.remove("active");
+                } else {
+                    mobile_menu.forEach((item) => {
+                        const menu = item.querySelector(".inner_menu");
+                        if (menu) {  // Check if menu exists
+                            menu.style.maxHeight = null;
+                            item.classList.remove("active");
+                        }
+                    });
+                    innerMenu.style.maxHeight = innerMenu.scrollHeight + "px";
+                    dropdown.classList.add("active");
+                }
+            });
+        }
     });
+    
+    
 
 
     // WOW js

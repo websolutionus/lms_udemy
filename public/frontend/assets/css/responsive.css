@@ -7026,6 +7026,7 @@
     =============================*/
     .header_3 {
         padding: 0px 30px;
+        display: none;
     }
 
     .wsus__banner_3 {

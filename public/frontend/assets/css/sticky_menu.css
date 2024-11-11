@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    top: 40px;
+    top: 0px;
     left: 0;
     background: var(--colorWhite);
     width: 100%;

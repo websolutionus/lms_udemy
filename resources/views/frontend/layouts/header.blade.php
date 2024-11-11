@@ -136,7 +136,7 @@
     ==============================-->
    <div class="mobile_menu_area">
        <div class="mobile_menu_area_top">
-           <a class="mobile_menu_logo" href="index.html">
+           <a class="mobile_menu_logo" href="{{ url('/') }}">
                <img src="{{ asset(config('settings.site_logo')) }}" alt="{{ config('settings.site_title') }}">
            </a>
            <div class="mobile_menu_icon d-block d-lg-none" data-bs-toggle="offcanvas"
@@ -151,13 +151,13 @@
            <div class="offcanvas-body">
 
                <ul class="mobile_menu_header d-flex flex-wrap">
-                   <li><a href="cart_view.html"><i class="far fa-shopping-basket"></i> <span>2</span></a>
+                   <li><a href="{{ route('cart.index') }}"><i class="far fa-shopping-basket"></i> <span class="cart_count">{{ cartCount() }}</span></a>
                    </li>
-                   <li><a href="dashboard.html"><i class="far fa-user"></i></a></li>
+                   <li><a href="{{ route('login') }}"><i class="far fa-user"></i></a></li>
                </ul>
 
-               <form class="mobile_menu_search">
-                   <input type="text" placeholder="Search">
+               <form class="mobile_menu_search" action="{{ route('courses.index') }}">
+                   <input type="text" placeholder="Search" name="search">
                    <button type="submit"><i class="far fa-search"></i></button>
                </form>
 
@@ -176,65 +176,27 @@
                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                            aria-labelledby="nav-home-tab" tabindex="0">
                            <ul class="main_mobile_menu">
-                               <li class="mobile_dropdown">
-                                   <a href="#">home</a>
-                                   <ul class="inner_menu">
-                                       <li><a class="active" href="index.html">Home style 01</a></li>
-                                       <li><a href="index_2.html">Home style 02</a></li>
-                                       <li><a href="index_3.html">Home style 03</a></li>
-                                       <li><a href="index_4.html">Home style 04</a></li>
-                                       <li><a href="index_5_dark.html">Home Dark</a></li>
-                                   </ul>
-                               </li>
-                               <li class="mobile_dropdown">
-                                   <a href="#">courses</a>
-                                   <ul class="inner_menu">
-                                       <li><a href="courses.html">Courses</a></li>
-                                       <li><a href="courses_details.html">Course details</a></li>
-                                       <li><a href="course_video.html">Course video</a></li>
-                                   </ul>
-                               </li>
-                               <li class="mobile_dropdown">
-                                   <a href="#">shop</a>
-                                   <ul class="inner_menu">
-                                       <li><a href="products.html">product</a></li>
-                                       <li><a href="products_2.html">product 2</a></li>
-                                       <li><a href="product_details.html">product details</a></li>
-                                   </ul>
-                               </li>
-                               <li class="mobile_dropdown">
-                                   <a href="#">pages</a>
-                                   <ul class="inner_menu">
-                                       <li><a href="about.html">about us</a></li>
-                                       <li><a href="category.html">Categories</a></li>
-                                       <li><a href="cart_view.html">cart view</a></li>
-                                       <li><a href="checkout.html">checkout</a></li>
-                                       <li><a href="contact.html">contact</a></li>
-                                       <li><a href="payment.html">payment</a></li>
-                                       <li><a href="pricing.html">pricing</a></li>
-                                       <li><a href="student_reviews.html">student review</a></li>
-                                       <li><a href="instructor.html">Instructor</a></li>
-                                       <li><a href="instructor_details.html">Instructor details</a></li>
-                                       <li><a href="instructor_finder.html">Instructor finder</a></li>
-                                       <li><a href="error.html">error</a></li>
-                                       <li><a href="faq.html">faq</a></li>
-                                       <li><a href="sign_in.html">sign in</a></li>
-                                       <li><a href="sign_up.html">sign up</a></li>
-                                       <li><a href="forum.html">forum</a></li>
-                                       <li><a href="forum_categories.html">forum Categories</a></li>
-                                       <li><a href="forum_create_topic.html">forum create topic</a></li>
-                                       <li><a href="forum_single_topic.html">forum single topic</a></li>
-                                       <li><a href="dashboard.html">Dashboard</a></li>
-                                   </ul>
-                               </li>
-                               <li class="mobile_dropdown">
-                                   <a href="#">blog</a>
-                                   <ul class="inner_menu">
-                                       <li><a href="blogs.html">blog grid view</a></li>
-                                       <li><a href="blog_list.html">blog list view</a></li>
-                                       <li><a href="blog_details.html">blog details</a></li>
-                                   </ul>
-                               </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ url('/') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('courses.index') }}">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('about.index') }}">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('blog.index') }}">Blogs</a>
+                            </li>
+             
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contact.index') }}">contact us</a>
+                            </li>
+                            @foreach ($customPages as $page)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('custom-page', $page->slug) }}">{{ $page->title }}</a>
+                                </li>
+                            @endforeach
                            </ul>
                        </div>
                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
