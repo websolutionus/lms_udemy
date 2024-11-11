@@ -148,7 +148,11 @@
                                                 <h4>{{ $course->instructor->name }}</h4>
                                                 <p class="designation">{{ $course->instructor->headline }}</p>
                                                 <ul class="list">
-                                                    <li><i class="fas fa-star"></i> <b>74,537 Reviews</b></li>
+                                                    @php
+                                                        $coursesId = $course->instructor->courses()->pluck('id')->toArray();
+                                                        $reviewsCount = \App\Models\Review::whereIn('course_id', $coursesId)->count();
+                                                    @endphp
+                                                    <li><i class="fas fa-star"></i> <b> {{ $reviewsCount }} Reviews</b></li>
                                                     <li><strong>4.7 Rating</strong></li>
                                                     <li>
                                                         <span><img src="{{ asset('frontend/assets/images/book_icon.png') }}" alt="book"
@@ -158,29 +162,10 @@
                                                     <li>
                                                         <span><img src="{{ asset('frontend/assets/images/user_icon_gray.png') }}" alt="user"
                                                                 class="img-fluid"></span>
-                                                        32 Students
+                                                        {{ $course->instructor->students()->count() }} Students
                                                     </li>
                                                 </ul>
-                                                <ul class="badge d-flex flex-wrap">
-                                                    <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Exclusive Author">
-                                                        <img src="{{ asset('frontend/assets/images/badge_1.png') }}" alt="Badge" class="img-fluid">
-                                                    </li>
-                                                    <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Top Earning"><img src="{{ asset('frontend/assets/images/badge_2.png') }}"
-                                                            alt="Badge" class="img-fluid"></li>
-                                                    <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Trending"><img src="{{ asset('frontend/assets/images/badge_3.png') }}"
-                                                            alt="Badge" class="img-fluid"></li>
-                                                    <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="2 Years of Membership"><img
-                                                            src="{{ asset('frontend/assets/images/badge_4.png') }}" alt="Badge" class="img-fluid">
-                                                    </li>
-                                                    <li data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Collector Lavel 1">
-                                                        <img src="{{ asset('frontend/assets/images/badge_5.png') }}" alt="Badge" class="img-fluid">
-                                                    </li>
-                                                </ul>
+                                               
                                                 <p class="description">
                                                     {{ $course->instructor->bio }}
                                                 </p>
