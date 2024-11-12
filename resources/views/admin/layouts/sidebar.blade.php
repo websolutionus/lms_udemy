@@ -252,36 +252,36 @@
                         </span>
                     </a>
 
-                    <div class="dropdown-menu show">
+                    <div class="dropdown-menu">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{ route('admin.courses.index') }}">
+                                <a class="dropdown-item {{ sidebarItemActive(['admin.courses.*']) }}" href="{{ route('admin.courses.index') }}">
                                     Courses
                                 </a>
 
                             </div>
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{ route('admin.course-categories.index') }}">
+                                <a class="dropdown-item {{ sidebarItemActive(['admin.course-categories.*']) }}" href="{{ route('admin.course-categories.index') }}">
                                     Course Categories
                                 </a>
 
                             </div>
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{ route('admin.course-languages.index') }}">
+                                <a class="dropdown-item {{ sidebarItemActive(['admin.course-languages.*']) }}" href="{{ route('admin.course-languages.index') }}">
                                     Course Languages
                                 </a>
 
                             </div>
 
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{ route('admin.course-levels.index') }}">
+                                <a class="dropdown-item {{ sidebarItemActive(['admin.course-levels.*']) }}" href="{{ route('admin.course-levels.index') }}">
                                     Course Levels
                                 </a>
 
                             </div>
 
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{ route('admin.reviews.index') }}">
+                                <a class="dropdown-item {{ sidebarItemActive(['admin.reviews.*']) }}" href="{{ route('admin.reviews.index') }}">
                                     Course Reviews
                                 </a>
 

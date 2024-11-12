@@ -184,3 +184,13 @@ textarea {
 .certificate-body .draggable-element {
     cursor: move;
 }
+
+.nav-item.dropdown.active > .dropdown-menu {
+    display: block !important;  
+}
+
+.dropdown-item.active {
+    color: white !important;
+    background: #0000004a !important;
+}
+
