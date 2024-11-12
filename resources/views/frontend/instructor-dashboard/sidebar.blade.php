@@ -12,7 +12,7 @@
         </div>
         <ul class="wsus__dashboard_sidebar_menu">
             <li>
-                <a href="dashboard.html" class="active">
+                <a href="{{ route('instructor.dashboard') }}" class="{{ sidebarItemActive(['instructor.dashboard']) }}">
                     <div class="img">
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('instructor.profile.index') }}" class="">
+                <a href="{{ route('instructor.profile.index') }}" class="{{ sidebarItemActive(['instructor.profile.index']) }}">
                     <div class="img">
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>
@@ -29,7 +29,7 @@
             </li>
 
             <li>
-                <a href="{{ route('instructor.courses.index') }}" class="">
+                <a href="{{ route('instructor.courses.index') }}" class="{{ sidebarItemActive(['instructor.courses.index']) }}">
                     <div class="img">
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>
@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('instructor.orders.index') }}" class="">
+                <a href="{{ route('instructor.orders.index') }}" class="{{ sidebarItemActive(['instructor.orders.index']) }}">
                     <div class="img">
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>
@@ -46,7 +46,7 @@
             </li>
 
             <li>
-                <a href="{{ route('instructor.withdraw.index') }}" class="">
+                <a href="{{ route('instructor.withdraw.index') }}" class="{{ sidebarItemActive(['instructor.withdraw.index']) }}">
                     <div class="img">
                         <img src="{{ asset('frontend/assets/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100">
                     </div>

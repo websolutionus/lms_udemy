@@ -62,3 +62,10 @@ if(!function_exists('calculateCommission')) {
     }
 }
 
+/** Sidebar Item Active */
+if(!function_exists('sidebarItemActive')) {
+    function sidebarItemActive(array $routes) {
+        return in_array(request()->route()->getName(), $routes) ? 'active' : '';
+    }
+}
+
