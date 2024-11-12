@@ -194,3 +194,9 @@ textarea {
     background: #0000004a !important;
 }
 
+.nav-item .nav-link.active{
+    background: #0000004a !important;
+    color: white !important;
+
+}
+
