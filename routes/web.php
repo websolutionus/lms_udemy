@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
  Route::get('/courses', [CoursePageController::class, 'index'])->name('courses.index');
  Route::get('/courses/{slug}', [CoursePageController::class, 'show'])->name('courses.show');
 
+
  /** Cart routes */
  Route::get('cart', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
  Route::post('add-to-cart/{course}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('auth');
