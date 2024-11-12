@@ -102,6 +102,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
 
     Route::get('profile', [ProfileUpdateController::class, 'index'])->name('profile.index');
     Route::post('profile', [ProfileUpdateController::class, 'profileUpdate'])->name('profile.update');
+    Route::post('update-password', [ProfileUpdateController::class, 'updatePassword'])->name('password.update');
 
     /** Instructor Request Routes */
     Route::get('instructor-doc-download/{user}', [InstructorRequestController::class, 'download'])->name('instructor-doc-download');
