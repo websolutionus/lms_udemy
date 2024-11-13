@@ -18,13 +18,15 @@ class UserSeeder extends Seeder
                 'name' => 'Jhon Deo',
                 'email' => 'user@gmail.com',
                 'password' => bcrypt(12345678),
-                'role' => 'student'
+                'role' => 'student',
+                'approve_status' => 'approved'
             ],
             [
                 'name' => 'Instructor',
                 'email' => 'instructor@gmail.com',
                 'password' => bcrypt(12345678),
-                'role' => 'instructor'
+                'role' => 'instructor',
+                'approve_status' => 'approved'
             ],
         ];
 

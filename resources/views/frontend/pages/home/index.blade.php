@@ -96,7 +96,7 @@
     <!--===========================
         BLOG 4 START
     ============================-->
-    {{-- @include('frontend.pages.home.sections.blog-section')   --}}
+    @include('frontend.pages.home.sections.blog-section')  
     <!--===========================
         BLOG 4 END
     ============================-->
