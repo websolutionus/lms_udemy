@@ -1,9 +1,9 @@
 @php
-    $categoryOne = \App\Models\CourseCategory::where('id', $latestCourses->category_one)->first();
-    $categoryTwo = \App\Models\CourseCategory::where('id', $latestCourses->category_two)->first();
-    $categoryThree = \App\Models\CourseCategory::where('id', $latestCourses->category_three)->first();
-    $categoryFour = \App\Models\CourseCategory::where('id', $latestCourses->category_four)->first();
-    $categoryFive = \App\Models\CourseCategory::where('id', $latestCourses->category_five)->first();
+    $categoryOne = \App\Models\CourseCategory::where('id', $latestCourses?->category_one)->first();
+    $categoryTwo = \App\Models\CourseCategory::where('id', $latestCourses?->category_two)->first();
+    $categoryThree = \App\Models\CourseCategory::where('id', $latestCourses?->category_three)->first();
+    $categoryFour = \App\Models\CourseCategory::where('id', $latestCourses?->category_four)->first();
+    $categoryFive = \App\Models\CourseCategory::where('id', $latestCourses?->category_five)->first();
 
 @endphp
 <section class="wsus__courses_3 pt_120 xs_pt_100 mt_120 xs_mt_90 pb_120 xs_pb_100">
