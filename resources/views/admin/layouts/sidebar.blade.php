@@ -356,7 +356,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item dropdown {{ sidebarItemActive(['admin.hero.*', 'admin.feature.*', 'admin.about-section.*', 'admin.latest-courses-section.*', 'admin.become-instructor-section.*']) }}">
+                <li class="nav-item dropdown {{ sidebarItemActive(['admin.hero.*', 'admin.feature.*', 'admin.counter-section.*', 'admin.about-section.*','admin.testimonial-section.*', 'admin.video-section.*','admin.featured-instructor-section.*', 'admin.brand-section.*', 'admin.latest-courses-section.*', 'admin.become-instructor-section.*']) }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span
@@ -402,7 +402,7 @@
                             </div>
 
                              <div class="dropdown-menu-column">
-                                <a class="dropdown-item {{ sidebarItemActive(['admin.video_section.*']) }} " href="{{ route('admin.video-section.index') }}">
+                                <a class="dropdown-item {{ sidebarItemActive(['admin.video-section.*']) }} " href="{{ route('admin.video-section.index') }}">
                                     Video
                                 </a>
                             </div>

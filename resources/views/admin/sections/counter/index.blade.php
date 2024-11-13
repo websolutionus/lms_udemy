@@ -16,7 +16,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Counter One</label>
                                     <input type="text" class="form-control" name="counter_one"
-                                        placeholder="" value="{{ $counter->counter_one }}">
+                                        placeholder="" value="{{ $counter?->counter_one }}">
                                     <x-input-error :messages="$errors->get('counter_one')" class="mt-2" />
                                 </div>
                             </div>
@@ -24,7 +24,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title One</label>
                                     <input type="text" class="form-control" name="title_one"
-                                        placeholder="" value="{{ $counter->title_one }}">
+                                        placeholder="" value="{{ $counter?->title_one }}">
                                     <x-input-error :messages="$errors->get('title_one')" class="mt-2" />
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Counter Two</label>
                                     <input type="text" class="form-control" name="counter_two"
-                                        placeholder="" value="{{ $counter->counter_two }}">
+                                        placeholder="" value="{{ $counter?->counter_two }}">
                                     <x-input-error :messages="$errors->get('counter_two')" class="mt-2" />
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title Two</label>
                                     <input type="text" class="form-control" name="title_two"
-                                        placeholder="" value="{{ $counter->title_two }}">
+                                        placeholder="" value="{{ $counter?->title_two }}">
                                     <x-input-error :messages="$errors->get('title_two')" class="mt-2" />
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Counter Three</label>
                                     <input type="text" class="form-control" name="counter_three"
-                                        placeholder="" value="{{ $counter->counter_three }}">
+                                        placeholder="" value="{{ $counter?->counter_three }}">
                                     <x-input-error :messages="$errors->get('counter_three')" class="mt-2" />
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title Three</label>
                                     <input type="text" class="form-control" name="title_three"
-                                        placeholder="" value="{{ $counter->title_three }}">
+                                        placeholder="" value="{{ $counter?->title_three }}">
                                     <x-input-error :messages="$errors->get('title_three')" class="mt-2" />
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Counter Four</label>
                                     <input type="text" class="form-control" name="counter_four"
-                                        placeholder="" value="{{ $counter->counter_four }}">
+                                        placeholder="" value="{{ $counter?->counter_four }}">
                                     <x-input-error :messages="$errors->get('counter_four')" class="mt-2" />
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Title Four</label>
                                     <input type="text" class="form-control" name="title_four"
-                                        placeholder="" value="{{ $counter->title_four }}">
+                                        placeholder="" value="{{ $counter?->title_four }}">
                                     <x-input-error :messages="$errors->get('title_four')" class="mt-2" />
                                 </div>
                             </div>

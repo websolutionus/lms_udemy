@@ -18,7 +18,7 @@
                     <form action="{{ route('admin.contact-setting.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <x-image-preview src="{{ asset($contactSetting->image) }}" />
+                            <x-image-preview src="{{ asset($contactSetting?->image) }}" />
                             <label class="form-label">Image</label>
                             <input type="file" class="form-control" name="image" >
                             <x-input-error :messages="$errors->get('image')" class="mt-2" />
@@ -27,7 +27,7 @@
                         <div class="mb-3">
                             <label class="form-label">Map Url</label>
                             <input type="text" class="form-control" name="map_url"
-                                placeholder="Enter Level name" value="{{ $contactSetting->map_url }}">
+                                placeholder="Enter Level name" value="{{ $contactSetting?->map_url }}">
                             <x-input-error :messages="$errors->get('map_url')" class="mt-2" />
                         </div>
                         <div class="mb-3">
