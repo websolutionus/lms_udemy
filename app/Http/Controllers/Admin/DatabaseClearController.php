@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseClearController extends Controller
 {
@@ -16,8 +17,16 @@ class DatabaseClearController extends Controller
         return view('admin.database-clear.index');     
     }
 
-    function destroy(Request $request) : Response
+    function destroy(Request $request)
     {
-        dd('working');
+        try {
+            Artisan::call('migrate:fresh --seed');
+            Artisan::call('optimize:clear');
+
+            return response()->json(['status' => 'success']);
+        }catch (\Throwable $th) {
+            logger($th);
+            throw $th;
+        }
     }
 }
