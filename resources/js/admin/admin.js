@@ -96,6 +96,44 @@ $('.delete-confirm').on('click', function(e) {
 });
 
 
+/** Database Clear with confirmation */
+
+$('.db-clear').on('click', function(e) {
+    e.preventDefault();
+
+    let url = $(this).attr('href');
+    delete_url = url;
+
+    $('#modal-database-clear').modal("show");
+});
+
+$('.db-clear-submit').on('submit', function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        method: 'DELETE',
+        url: base_url + '/admin/database-clear',
+        data: {
+            _token: csrf_token
+        },
+        beforeSend: function() {
+            $('.db-clear-btn').text("Wiping...");
+        },
+        success: function(data) {
+            window.location.reload();
+        },
+        error: function(xhr, status, error) {
+            let errorMessage = xhr.responseJSON;
+            notyf.error(errorMessage.message);
+        },
+        complete: function() {
+
+            $('.db-clear-btn').text("Delete");
+        }
+    })
+});
+
+
 /** Certificate js */
 
 $(function() {

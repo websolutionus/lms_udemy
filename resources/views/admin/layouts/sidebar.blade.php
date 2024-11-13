@@ -545,6 +545,17 @@
                         </span>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ sidebarItemActive(['admin.database-clear.*']) }}" href="{{ route('admin.database-clear.index') }}">
+                        <span
+                            class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                            <i class="ti ti-skull"></i>
+                        </span>
+                        <span class="nav-link-title">
+                           Database Clear 
+                        </span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
