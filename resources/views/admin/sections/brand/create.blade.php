@@ -5,7 +5,7 @@
         <div class="container-xl">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Create Level</h3>
+                    <h3 class="card-title">Create Brand</h3>
                     <div class="card-actions">
                         <a href="{{ route('admin.course-levels.index') }}" class="btn btn-primary">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -26,7 +26,7 @@
                     <form action="{{ route('admin.brand-section.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Hero Image</label>
+                            <label class="form-label">Image</label>
                             <input type="file" class="form-control" name="image" placeholder="">
                             <input type="hidden" name="old_image" value="">
                             <x-input-error :messages="$errors->get('image')" class="mt-2" />
@@ -43,7 +43,7 @@
                                 <option value="1">Active</option>
                                 <option value="0">Inactive</option>
                             </select>
-                            <x-input-error :messages="$errors->get('url')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('status')" class="mt-2" />
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-primary" type="submit">

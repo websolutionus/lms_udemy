@@ -36,6 +36,7 @@ class CourseSubCategoryController extends Controller
      */
     public function store(CourseSubCategoryStoreRequest $request, CourseCategory $course_category)
     {
+        
         $category = new CourseCategory();
         if ($request->hasFile('image')) {
             $imagePath = $this->uploadFile($request->file('image'));

@@ -39,7 +39,7 @@ class SocialLinkController extends Controller
         $request->validate([
             'icon' => ['required', 'image', 'max:3000'],
             'url' => ['required', 'url'],
-            'status' => ['required', 'boolean'],
+            'status' => ['nullable', 'boolean'],
         ]);
 
         $icon = $this->uploadFile($request->file('icon'));        
@@ -47,7 +47,7 @@ class SocialLinkController extends Controller
         $social = new SocialLink();
         $social->icon = $icon;
         $social->url = $request->url;
-        $social->status = $request->status;
+        $social->status = $request->status ?? 0;
         $social->save();
 
         notyf()->success("Created Successfully!");
@@ -71,7 +71,7 @@ class SocialLinkController extends Controller
         $request->validate([
             'icon' => ['nullable', 'image', 'max:3000'],
             'url' => ['required', 'url'],
-            'status' => ['required', 'boolean'],
+            'status' => ['nullable', 'boolean'],
         ]);
 
 
@@ -82,7 +82,7 @@ class SocialLinkController extends Controller
             $social->icon = $icon;
         }
         $social->url = $request->url;
-        $social->status = $request->status;
+        $social->status = $request->status ?? 0;
         $social->save();
 
         notyf()->success("Created Successfully!");

@@ -36,7 +36,7 @@
                         <div class="mb-3">
                             <label class="form-label">Url</label>
                             <input type="text" class="form-control" name="url" placeholder="" value="{{ $brand->url }}">
-                            <x-input-error :messages="$errors->get('url')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('status')" class="mt-2" />
                         </div>
 
                         <div class="mb-3">

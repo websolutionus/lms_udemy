@@ -19,16 +19,19 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <x-input-file-block name="image" />
+                                
                             </div>
 
                             
                             <div class="col-md-12">
                                 <x-input-block name="name" placeholder="Enter category name" />
+                                
                             </div>
 
                             
                             <div class="col-md-3">
                                 <x-input-toggle-block name="status" label="Status" />
+                                
                             </div>
 
                            
