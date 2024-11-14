@@ -31,6 +31,13 @@ class CoursePageController extends Controller
                     $query->where('category_id', $request->category);
                 }
             })
+            ->when($request->filled('main_category'), function($query) use ($request) {
+                $query->whereHas('category', function($query) use ($request) {
+                    $query->whereHas('parentCategory', function($query) use ($request){
+                        $query->where('slug', $request->main_category);
+                    });
+                });
+            })
             ->when($request->has('level') && $request->filled('level'), function($query) use ($request) {
                 $query->whereIn('course_level_id', $request->level);
             })
