@@ -15,6 +15,24 @@ document.addEventListener("DOMContentLoaded", function() {
     ezShare.execute();
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    tinymce.init({
+        selector: '.editor',
+        height: 500,
+        menubar: false,
+        plugins: [
+          'advlist', 'autolink', 'lists', 'link', 'charmap', 
+          'anchor', 'searchreplace', 'visualblocks', 'fullscreen',
+          'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | blocks | ' +
+        'bold italic backcolor | alignleft aligncenter ' +
+        'alignright alignjustify | bullist numlist outdent indent | ' +
+        'removeformat | help',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+      });
+});
+
 
 
 $(function () {

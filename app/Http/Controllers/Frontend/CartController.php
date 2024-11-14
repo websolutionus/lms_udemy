@@ -35,6 +35,11 @@ class CartController extends Controller
           return response(['message' => 'Already Added!'], 401);
       }
 
+      if(user()?->role == 'instructor') {
+        return response(['message' => 'Please use a user account for add to cart!'], 401);
+
+      }
+
 
 
       $course = Course::findOrFail($id);

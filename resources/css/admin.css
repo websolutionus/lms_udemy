@@ -72,6 +72,10 @@ textarea {
     -o-border-radius: 8px;
 }
 
+#description {
+    padding: 10px 50px 10px 50px;
+}
+
 .add_course_content .item_list li span {
     color: var(--colorBlack);
     font-size: 18px;
@@ -176,8 +180,9 @@ textarea {
   font-weight: 400;
 }
 .certificate-body .signature img {
-    width: 120px;
+    width: auto;
     height: 100px;
+    max-width: 300px;
 
   }
 

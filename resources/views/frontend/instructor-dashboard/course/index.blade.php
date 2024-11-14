@@ -1,39 +1,39 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-      <!--===========================
-                    BREADCRUMB START
-                ============================-->
-                <section class="wsus__breadcrumb" style="background: url({{ asset(config('settings.site_breadcrumb')) }});">
-                    <div class="wsus__breadcrumb_overlay">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 wow fadeInUp">
-                                    <div class="wsus__breadcrumb_text">
-                                        <h1>Instructor Dashboard</h1>
-                                        <ul>
-                                            <li><a href="{{ url('/') }}">Home</a></li>
-                                            <li>Instructor Dashboard</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+    <!--===========================
+                        BREADCRUMB START
+                    ============================-->
+    <section class="wsus__breadcrumb" style="background: url({{ asset(config('settings.site_breadcrumb')) }});">
+        <div class="wsus__breadcrumb_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 wow fadeInUp">
+                        <div class="wsus__breadcrumb_text">
+                            <h1>Instructor Dashboard</h1>
+                            <ul>
+                                <li><a href="{{ url('/') }}">Home</a></li>
+                                <li>Instructor Dashboard</li>
+                            </ul>
                         </div>
                     </div>
-                </section>
-                <!--===========================
-                                BREADCRUMB END
-                            ============================-->
-            
-            
-                    <!--===========================
-        DASHBOARD COURSE START
-    ============================-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--===========================
+                                    BREADCRUMB END
+                                ============================-->
+
+
+    <!--===========================
+            DASHBOARD COURSE START
+        ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
                 @include('frontend.instructor-dashboard.sidebar')
-                
+
                 <div class="col-xl-9 col-md-8 wow fadeInRight">
                     <div class="wsus__dashboard_contant">
                         <div class="wsus__dashboard_contant_top">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
 
-                        <form action="#" class="wsus__dash_course_searchbox">
+                        {{-- <form action="#" class="wsus__dash_course_searchbox">
                             <div class="input">
                                 <input type="text" placeholder="Search our Courses">
                                 <button><i class="far fa-search"></i></button>
@@ -56,7 +56,7 @@
                                     <option value="">Choose 2</option>
                                 </select>
                             </div>
-                        </form>
+                        </form> --}}
 
                         <div class="wsus__dash_course_table">
                             <div class="row">
@@ -82,37 +82,44 @@
                                                     </th>
                                                 </tr>
 
-                                                @foreach($courses as $course)
-                                                <tr>
-                                                    <td class="image">
-                                                        <div class="image_category">
-                                                            <img src="{{ asset($course->thumbnail) }}" alt="img"
-                                                                class="img-fluid w-100">
-                                                        </div>
-                                                    </td>
-                                                    <td class="details">
-                                                        <p class="rating">
-                                                            <i class="fas fa-star" aria-hidden="true"></i>
-                                                            <i class="fas fa-star" aria-hidden="true"></i>
-                                                            <i class="fas fa-star" aria-hidden="true"></i>
-                                                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                                                            <i class="far fa-star" aria-hidden="true"></i>
-                                                            <span>(5.0)</span>
-                                                        </p>
-                                                        <a class="title" href="#">{{ $course->title }}</a>
+                                                @foreach ($courses as $course)
+                                                    <tr>
+                                                        <td class="image">
+                                                            <div class="image_category">
+                                                                <img src="{{ asset($course->thumbnail) }}" alt="img"
+                                                                    class="img-fluid w-100">
+                                                            </div>
+                                                        </td>
+                                                        <td class="details">
+                                                            <p class="rating">
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    @if ($i <= $course->reviews()->avg('rating'))
+                                                                        <i class="fas fa-star"></i>
+                                                                    @else
+                                                                        <i class="far fa-star"></i>
+                                                                    @endif
+                                                                @endfor
 
-                                                    </td>
-                                                    <td class="sale">
-                                                        <p>3400</p>
-                                                    </td>
-                                                    <td class="status">
-                                                        <p class="active">Active</p>
-                                                    </td>
-                                                    <td class="action">
-                                                        <a class="edit" href="{{ route('instructor.courses.edit', ['id' => $course->id, 'step' => 1]) }}"><i class="far fa-edit"></i></a>
-                                                        <a class="del" href="#"><i class="fas fa-trash-alt"></i></a>
-                                                    </td>
-                                                </tr>
+                                                                <span>({{ number_format($course->reviews()->avg('rating'), 2) ?? 0 }}
+                                                                    Rating)</span>
+                                                            </p>
+                                                            <a class="title" href="#">{{ $course->title }}</a>
+
+                                                        </td>
+                                                        <td class="sale">
+                                                            <p>{{ $course->enrollments()->count() }}</p>
+                                                        </td>
+                                                        <td class="status">
+                                                            <p class="active">Active</p>
+                                                        </td>
+                                                        <td class="action">
+                                                            <a class="edit"
+                                                                href="{{ route('instructor.courses.edit', ['id' => $course->id, 'step' => 1]) }}"><i
+                                                                    class="far fa-edit"></i></a>
+                                                            <a class="del" href="#"><i
+                                                                    class="fas fa-trash-alt"></i></a>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -126,6 +133,6 @@
         </div>
     </section>
     <!--===========================
-        DASHBOARD COURSE END
-    ============================-->
+            DASHBOARD COURSE END
+        ============================-->
 @endsection
