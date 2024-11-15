@@ -7,11 +7,8 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <!-- Page pre-title -->
-                    <div class="page-pretitle">
-                        Overview
-                    </div>
                     <h2 class="page-title">
-                        Combo layout
+                       Dashboard 
                     </h2>
                 </div>
 
@@ -310,6 +307,7 @@
                                   <thead>
                                       <tr>
                                           <th>Title</th>
+                                          <th>Status</th>
                                       </tr>
                                   </thead>
                                   <tbody>

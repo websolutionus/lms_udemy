@@ -1,7 +1,6 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-
     <section class="wsus__breadcrumb" style="background: url({{ asset(config('settings.site_breadcrumb')) }});">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -54,37 +53,65 @@
                         </div>
                     @endif
 
-                    <div class="text-end">
-                        <a href="{{ route('student.become-instructor') }}" class="btn btn-primary">Become a Instructor</a>
-                    </div>
+                    @if (user()->role != 'instructor')
+                        <div class="text-end">
+                            <a href="{{ route('student.become-instructor') }}" class="btn btn-primary">Become a
+                                Instructor</a>
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
-                                <h6>REVENUE</h6>
-                                <h3>$2456.34</h3>
-                                <p>Earning this month</p>
+                                <h6>Pending Courses</h6>
+                                <h3>{{ $pendingCourses }}</h3>
                             </div>
                         </div>
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
-                                <h6>STUDENTS ENROLLMENTS</h6>
-                                <h3>16,450</h3>
-                                <p>Progress this month</p>
+                                <h6>Approved Courses</h6>
+                                <h3>{{ $approvedCourses }}</h3>
                             </div>
                         </div>
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
-                                <h6>COURSES RATING</h6>
-                                <h3>4.70</h3>
-                                <p>Rating this month</p>
+                                <h6>Rejected Courses</h6>
+                                <h3>{{ $rejectedCourses }}</h3>
                             </div>
                         </div>
                     </div>
 
+                    <div class="card mt-4">
+                        <table class="table">
+                            <thead>
+                                <th>Course Name</th>
+                                <th>Purchase By</th>
+                                <th>Price</th>
+                                <th>Commission</th>
+                                <th>Earning</th>
 
+                            </thead>
+                            <tbody>
+                                @forelse($orderItems as $orderItem)
+                                    <tr>
+                                        <td>{{ $orderItem->course->title }}</td>
+                                        <td>{{ $orderItem->order->customer->name }}</td>
+                                        <td>{{ $orderItem->price }}</td>
+                                        <td>{{ $orderItem->commission_rate ?? 0 }}%</td>
+                                        <td>{{ calculateCommission($orderItem->price, $orderItem->commission_rate) }}
+                                            {{ $orderItem->order->currency }}</td>
+
+                                    </tr>
+                                @empty
+
+                                    <tr>
+                                        <td>No Data Found</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection

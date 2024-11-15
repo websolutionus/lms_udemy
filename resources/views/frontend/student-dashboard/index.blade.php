@@ -69,25 +69,54 @@
                     <div class="row">
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
-                                <h6>REVENUE</h6>
-                                <h3>$2456.34</h3>
-                                <p>Earning this month</p>
+                                <h6>Enrolled Courses</h6>
+                                <h3>{{ $userCourses }}</h3>
                             </div>
                         </div>
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
-                                <h6>STUDENTS ENROLLMENTS</h6>
-                                <h3>16,450</h3>
-                                <p>Progress this month</p>
+                                <h6>Total Reviews</h6>
+                                <h3>{{ $reviewCount }}</h3>
                             </div>
                         </div>
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
-                                <h6>COURSES RATING</h6>
-                                <h3>4.70</h3>
-                                <p>Rating this month</p>
+                                <h6>Total Orders</h6>
+                                <h3>{{ $orderCount }}</h3>
                             </div>
                         </div>
+                    </div>
+
+                    
+                    <div class="card mt-4">
+                        <table class="table">
+                            <thead>
+
+                                <th>No.</th>
+                                <th>Invoice</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </thead>
+                            <tbody>
+                                @forelse($orders as $order)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $order->invoice_id }}</td>
+                                        <td>{{ $order->total_amount }} {{ $order->currency }}</td>
+                                        <td><span class="badge bg-success text-green-fg">{{ $order->status }}</span></td>
+                                        <td><a href="">view</a></td>
+
+                                    </tr>
+                                @empty
+
+                                    <tr>
+                                        <td>No Data Found</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
 
                  
