@@ -374,8 +374,6 @@
                                               </td>
                                                 <td class="text-start">
                                                     {{ $order->customer->name }} 
-                                                    <br>
-                                                    <small>{{ $order->customer->email }}</small>
                                                 </td>
                                               <td>
                                                 {{ $order->total_amount }} {{ $order->currency }}
