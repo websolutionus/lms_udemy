@@ -1,15 +1,15 @@
 {
-  "_jquery-Da2SryCc.js": {
-    "file": "assets/jquery-Da2SryCc.js",
+  "_jquery-T8mbjkVg.js": {
+    "file": "assets/jquery-T8mbjkVg.js",
     "name": "jquery"
   },
   "resources/css/admin.css": {
-    "file": "assets/admin-Bovdk4xY.css",
+    "file": "assets/admin-CaLC8XQl.css",
     "src": "resources/css/admin.css",
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-DXxTFeVI.css",
+    "file": "assets/app-CGh2BBUz.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -19,30 +19,30 @@
     "isEntry": true
   },
   "resources/js/admin/admin.js": {
-    "file": "assets/admin-BmUFncqc.js",
+    "file": "assets/admin-DYD668aJ.js",
     "name": "admin",
     "src": "resources/js/admin/admin.js",
     "isEntry": true,
     "imports": [
-      "_jquery-Da2SryCc.js"
+      "_jquery-T8mbjkVg.js"
     ]
   },
   "resources/js/admin/course.js": {
-    "file": "assets/course-BmDNiNGm.js",
+    "file": "assets/course-DiPJmS-l.js",
     "name": "course",
     "src": "resources/js/admin/course.js",
     "isEntry": true,
     "imports": [
-      "_jquery-Da2SryCc.js"
+      "_jquery-T8mbjkVg.js"
     ]
   },
   "resources/js/admin/login.js": {
-    "file": "assets/login-pTlUZ7At.js",
+    "file": "assets/login-BVyPtBik.js",
     "name": "login",
     "src": "resources/js/admin/login.js",
     "isEntry": true,
     "imports": [
-      "_jquery-Da2SryCc.js"
+      "_jquery-T8mbjkVg.js"
     ]
   },
   "resources/js/app.js": {
@@ -58,9 +58,15 @@
     "isEntry": true
   },
   "resources/js/frontend/frontend.js": {
-    "file": "assets/frontend-qMYbaVkg.js",
+    "file": "assets/frontend-CxyNYxmm.js",
     "name": "frontend",
     "src": "resources/js/frontend/frontend.js",
+    "isEntry": true
+  },
+  "resources/js/frontend/player.js": {
+    "file": "assets/player-BI9wx-vX.js",
+    "name": "player",
+    "src": "resources/js/frontend/player.js",
     "isEntry": true
   }
 }

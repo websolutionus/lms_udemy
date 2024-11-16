@@ -1,0 +1,1 @@
+import{$ as e}from"./jquery-T8mbjkVg.js";e(".toggle-password").on("click",function(){let t=e(".password");t.attr("type")=="password"?t.attr("type","text"):t.attr("type","password")});e(".toggle-confirm-password").on("click",function(){let t=e(".confirm-password");t.attr("type")=="password"?t.attr("type","text"):t.attr("type","password")});
