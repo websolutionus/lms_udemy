@@ -1,0 +1,15 @@
+Admin Logins:
+url:{your host}/admin/login
+
+email: admin@gmail.com
+password: password
+
+Student Logins:
+url:{your host}/login
+email: user@gmail.com
+password: 12345678
+
+Instructor Logins:
+url:{your host}/login
+email: instructor@gmail.com
+password: 12345678
