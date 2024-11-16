@@ -1075,9 +1075,9 @@
                 let lessonId = $(lesson).data('lesson-id');
 
                 if (
-                    chapterId == {{ $lastWatchHistory->chapter_id }} &&
-                    courseId == {{ $lastWatchHistory->course_id }} &&
-                    lessonId == {{ $lastWatchHistory->lesson_id }}
+                    chapterId == {{ $lastWatchHistory?->chapter_id }} &&
+                    courseId == {{ $lastWatchHistory?->course_id }} &&
+                    lessonId == {{ $lastWatchHistory?->lesson_id }}
                 ) {
                     $(lesson).click();
                     $(lesson).addClass('active');

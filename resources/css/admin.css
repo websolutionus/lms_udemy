@@ -204,4 +204,6 @@ textarea {
     color: white !important;
 
 }
-
+label {
+    margin-bottom: 6px;
+  }

@@ -87,7 +87,7 @@
                     <div class="col-xl-12">
                         <div class="add_course_basic_info_imput mb-0">
                             <label for="#">Description</label>
-                            <textarea rows="8" placeholder="Description" name="description"></textarea>
+                            <textarea rows="8" placeholder="Description" name="description" class="editor"></textarea>
                             <button type="submit" class="btn btn-primary mt-3">Save</button>
                         </div>
                     </div>
